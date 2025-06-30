@@ -1,0 +1,5 @@
+---
+transition: slide-left
+---
+
+# Hausaufgabe
