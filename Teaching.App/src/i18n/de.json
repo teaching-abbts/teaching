@@ -1,0 +1,27 @@
+{
+  "nds": "Nachdiplomstudium",
+  "introduction-and-basics-1": "Einführung und Grundlagen 1",
+  "page-not-found": "Page not Found",
+  "web-engineering": "Web Engineering",
+  "nds-web-engineering": "NDS Web Engineering",
+  "day-1": "Tag 1 - Grundlagen 1",
+  "dipl-software-engineer-nds-hf": "Dipl. Software Engineer NDS HF",
+  "study-and-learning-material": "Lern- und Studiermaterial",
+  "computer-science": "Informatik",
+  "presentation": "Präsentation",
+  "pdf": "PDF",
+  "slides": "Folien",
+  "interactive-slides": "Interaktive Folien",
+  "day-2": "Tag 2 - Grundlagen 2",
+  "basics-2": "Grundlagen 2 - HTML-CSS-JS-DOM",
+  "basics-3": "Grundlagen 3 - Client-Server",
+  "day-3": "Tag 3 - Grundlagen 3",
+  "single-page-apps-with-vue": {
+    "js": "Single Page Applications mit Vue.js"
+  },
+  "day-4": "Tag 4 - SPAs mit Vue.js",
+  "the-road-to-fullstack-with-vue": {
+    "js-and-ktor": "Der Weg zu Fullstack mit Vue.js und Ktor"
+  },
+  "day-5": "Tag 5 - Fullstack"
+}

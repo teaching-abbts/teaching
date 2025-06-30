@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <title>DOM & JS</title>
+    <style>
+      strong {
+        color: red;
+      }
+      code {
+        background-color: lightgray;
+        padding: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>JavaScript kann den HTML-Inhalt verändern:</p>
+    <button type="button" onclick="onClickHandle('button')">Klick mich!</button>
+    <p id="mein-element">...</p>
+    <script>
+      function onClickHandle(name) {
+        const myEl = document.getElementById("mein-element");
+
+        myEl.innerHTML = `👋 Ein Hallo von <strong>JavaScript</strong>, ausgelöst von <code>${name}</code>!`;
+      }
+    </script>
+  </body>
+</html>

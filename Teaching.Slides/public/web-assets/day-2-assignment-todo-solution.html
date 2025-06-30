@@ -1,0 +1,213 @@
+<!doctype html>
+<html>
+  <head>
+    <title>My TODO App</title>
+    <style>
+      h1,
+      h2 {
+        text-align: center;
+      }
+
+      h2 {
+        color: white;
+      }
+
+      #app {
+        width: 100%;
+      }
+
+      #app-content {
+        margin: auto;
+        width: 330px;
+      }
+
+      #new-task,
+      #tasks {
+        padding: 15px;
+        width: 300px;
+      }
+
+      #new-task {
+        background-color: antiquewhite;
+      }
+
+      #tasks {
+        background-color: gray;
+      }
+
+      .task {
+        padding: 5px;
+        background-color: whitesmoke;
+      }
+
+      .task:nth-child(even) {
+        background-color: lightgray;
+      }
+
+      .task-title {
+        display: inline-block;
+        width: 220px;
+      }
+
+      .done {
+        background-color: aquamarine !important;
+      }
+
+      .done > label {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>My TODO App</h1>
+      <div id="app-content">
+        <div id="new-task">
+          <span>New Task:</span>
+          <input id="new-task-input" />
+          <button type="button" onclick="onAddNewTaskClick()">Add</button>
+        </div>
+        <div id="tasks">
+          <!-- <div id="task-0" class="task done">
+            <span>1</span>
+            <input type="checkbox" id="task-0-label" checked onchange="onToggleTaskClick(0)" />
+            <label for="task-0-label" class="task-title">Foo</label>
+            <button type="button" onclick="onDeleteClick(0)">x</button>
+          </div>
+          <div id="task-1" class="task">
+            <span>2</span>
+            <input type="checkbox" id="task-1-label" onchange="onToggleTaskClick(1)" />
+            <label for="task-1-label" class="task-title">Bar</label>
+            <button type="button" onclick="onDeleteClick(1)">x</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <script>
+      const model = {
+        tasks: [
+          {
+            task: "One",
+            done: true,
+          },
+          {
+            task: "Two",
+            done: false,
+          },
+          {
+            task: "Three",
+            done: false,
+          },
+        ],
+      };
+
+      const newTaskInputEl = document.getElementById("new-task-input");
+      const tasksEl = document.getElementById("tasks");
+
+      function extractValueForNewTask() {
+        const task = newTaskInputEl.value;
+        newTaskInputEl.value = "";
+
+        return task;
+      }
+
+      function onAddNewTaskClick() {
+        const newTask = extractValueForNewTask();
+        console.log(`Add new Task ('${newTask}') clicked...`);
+
+        addTask(newTask);
+      }
+
+      function onToggleTaskClick(index) {
+        console.log(`Toggle Task ${index} clicked...`);
+
+        toogleTask(index);
+      }
+
+      function onDeleteClick(index) {
+        console.log(`Delete Task ${index} clicked...`);
+
+        removeTask(index);
+      }
+
+      function addTask(task) {
+        model.tasks.push({
+          task,
+          done: false,
+        });
+
+        renderTasks();
+      }
+
+      function removeTask(index) {
+        model.tasks.splice(index, 1);
+
+        renderTasks();
+      }
+
+      function toogleTask(index) {
+        model.tasks[index].done = !model.tasks[index].done;
+
+        renderTasks();
+      }
+
+      function getHtmlForIndex(index) {
+        return `<span>${index + 1}</span>`;
+      }
+
+      function getHtmlForInputCheckbox(id, index, done) {
+        const checkboxCheckedAttribute = done ? "checked" : "";
+
+        return `
+          <input
+            type="checkbox"
+            id="${id}"
+            ${checkboxCheckedAttribute}
+            onchange="onToggleTaskClick(${index})"
+          />
+        `;
+      }
+
+      function getHtmlForInputLabel(id, task) {
+        return `<label for="${id}" class="task-title">${task}</label>`;
+      }
+
+      function getHtmlForDeleteButton(index) {
+        return `<button type="button" onclick="onDeleteClick(${index})">x</button>`;
+      }
+
+      function getHtmlForTask(index, task, done) {
+        const divClassAttributeValue = done ? "done" : "";
+        const taskId = `task-${index}`;
+        const taskInputId = `${taskId}-label`;
+
+        return `
+          <div id="${taskId}" class="task ${divClassAttributeValue}">
+            ${getHtmlForIndex(index)}
+            ${getHtmlForInputCheckbox(taskInputId, index, done)}
+            ${getHtmlForInputLabel(taskInputId, task)}
+            ${getHtmlForDeleteButton(index)}
+          </div>
+        `;
+      }
+
+      function getHtmlForNoTasks() {
+        return `<h2>Hurray, no tasks!</h2>`;
+      }
+
+      function renderTasks() {
+        let innerHtml = "";
+
+        for (let taskIndex = 0; taskIndex < model.tasks.length; taskIndex++) {
+          const currentTask = model.tasks[taskIndex];
+
+          innerHtml += getHtmlForTask(taskIndex, currentTask.task, currentTask.done);
+        }
+
+        tasksEl.innerHTML = innerHtml !== "" ? innerHtml : getHtmlForNoTasks();
+      }
+
+      renderTasks();
+    </script>
+  </body>
+</html>

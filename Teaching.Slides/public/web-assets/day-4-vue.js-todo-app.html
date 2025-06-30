@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>My TODO App</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      h1,
+      h2 {
+        text-align: center;
+      }
+
+      h2 {
+        color: white;
+      }
+
+      #app {
+        width: 100%;
+      }
+
+      #app-content {
+        margin: auto;
+        width: 330px;
+      }
+
+      #new-task,
+      #tasks {
+        padding: 15px;
+        width: 300px;
+      }
+
+      #new-task {
+        background-color: antiquewhite;
+      }
+
+      #tasks {
+        background-color: gray;
+      }
+
+      .task {
+        padding: 5px;
+        background-color: whitesmoke;
+      }
+
+      .task:nth-child(even) {
+        background-color: lightgray;
+      }
+
+      .task-title {
+        display: inline-block;
+        width: 220px;
+      }
+
+      .done {
+        background-color: aquamarine !important;
+      }
+
+      .done > label {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>My TODO App</h1>
+      <div id="app-content">
+        <div id="new-task">
+          <span>New Task:</span>
+          <input id="new-task-input" />
+          <button type="button">Add</button>
+        </div>
+        <div id="tasks">
+          <div id="task-0" class="task done">
+            <span>1</span>
+            <input type="checkbox" id="task-0-label" checked />
+            <label for="task-0-label" class="task-title">Foo</label>
+            <button type="button">x</button>
+          </div>
+          <div id="task-1" class="task">
+            <span>2</span>
+            <input type="checkbox" id="task-1-label" />
+            <label for="task-1-label" class="task-title">Bar</label>
+            <button type="button">x</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script></script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <title>HTML Form Example</title>
+    <style>
+      body {
+        width: 100%;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      form {
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: white;
+      }
+
+      input[type="submit"] {
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>HTML Form Example</h2>
+    <form action="https://example.com/submit" method="post">
+      <label for="name">Name:</label><br />
+      <input type="text" id="name" name="name" /><br />
+      <label for="email">Email:</label><br />
+      <input type="email" id="email" name="email" /><br />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

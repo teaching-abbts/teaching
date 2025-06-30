@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+  <head>
+    <title>My TODO App</title>
+    <style>
+      h1,
+      h2 {
+        text-align: center;
+      }
+
+      h2 {
+        color: white;
+      }
+
+      #app {
+        width: 100%;
+      }
+
+      #app-content {
+        margin: auto;
+        width: 330px;
+      }
+
+      #new-task,
+      #tasks {
+        padding: 15px;
+        width: 300px;
+      }
+
+      #new-task {
+        background-color: antiquewhite;
+      }
+
+      #tasks {
+        background-color: gray;
+      }
+
+      .task {
+        padding: 5px;
+        background-color: whitesmoke;
+      }
+
+      .task:nth-child(even) {
+        background-color: lightgray;
+      }
+
+      .task-title {
+        display: inline-block;
+        width: 220px;
+      }
+
+      .done {
+        background-color: aquamarine !important;
+      }
+
+      .done > label {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>My TODO App</h1>
+      <div id="app-content">
+        <div id="new-task">
+          <span>New Task:</span>
+          <input id="new-task-input" />
+          <button type="button" onclick="onAddNewTaskClick()">Add</button>
+        </div>
+        <div id="tasks">
+          <!--
+            HINWEIS:
+            Folgende zwei Elemente sind Beispiele, damit sie was sehen.
+            Ihre Aufgabe wird sein, diese dynamisch zu erstellen.
+
+            TIPPS:
+            - Denken sie an da Model-View-Controller (o.Ä.) Pattern:
+            - Verwenden sie ein Datenmodel (Model), welches den Zustand ihrer App repräsentiert (oder zumindest den dynamischen Teil davon)
+            - Trennen sie Logik zur Anzeige (View/Rendering) von der Fach-Logik (Controller)
+            - Clean Code:
+              - teilen sie sich die Arbeit in Teilschritte auf, so dass ihr Code leserlich bleibt...
+              - Arbeiten sie sich Schritt für Schritt vor - ggf. zuerst sicherstellen, dass das Model korrekt gerendert wird, bevor sie sich auf die Events stürzen...
+          -->
+          <div id="task-0" class="task done">
+            <span>1</span>
+            <input type="checkbox" id="task-0-label" checked onchange="onToggleTaskClick(0)" />
+            <label for="task-0-label" class="task-title">Foo</label>
+            <button type="button" onclick="onDeleteClick(0)">x</button>
+          </div>
+          <div id="task-1" class="task">
+            <span>2</span>
+            <input type="checkbox" id="task-1-label" onchange="onToggleTaskClick(1)" />
+            <label for="task-1-label" class="task-title">Bar</label>
+            <button type="button" onclick="onDeleteClick(1)">x</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Wofür das wohl gut ist..?
+      const model = {
+        tasks: [],
+      };
+
+      const newTaskInputEl = document.getElementById("new-task-input");
+      const tasksEl = document.getElementById("tasks");
+
+      function extractValueForNewTask() {
+        const task = newTaskInputEl.value;
+        newTaskInputEl.value = "";
+
+        return task;
+      }
+
+      function onAddNewTaskClick() {
+        const newTask = extractValueForNewTask();
+        console.log(`Add new Task ('${newTask}') clicked...`);
+
+        // TODO: füge einen Task hinzu
+      }
+
+      function onToggleTaskClick(index) {
+        console.log(`Toggle Task ${index} clicked...`);
+
+        // TODO: schalte den Zustand des Tasks um
+      }
+
+      function onDeleteClick(index) {
+        console.log(`Delete Task ${index} clicked...`);
+
+        // TODO: entferne den Task
+      }
+
+      function getHtmlForNoTasks() {
+        return `<h2>Hurray, no tasks!</h2>`;
+      }
+
+      function renderTasks() {
+        let innerHtml = "";
+
+        // TODO: Was könnte hier stehen..?
+
+        tasksEl.innerHTML = innerHtml !== "" ? innerHtml : getHtmlForNoTasks();
+      }
+
+      // TODO: Was passiert wenn ich das auskommentiere...?
+      // renderTasks();
+    </script>
+  </body>
+</html>
