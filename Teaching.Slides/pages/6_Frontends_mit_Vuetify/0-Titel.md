@@ -5,7 +5,7 @@ transition: slide-left
 
 # **NDS - Web Engineering**
 
-## Frontend Advanced: *Flexboxes*, *Media-Queries* & *Vuetify*
+## Frontend Advanced: *Flexboxen* & *Vuetify*
 
 <style>
   h1 {
