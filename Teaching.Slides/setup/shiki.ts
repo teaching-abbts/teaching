@@ -9,6 +9,7 @@ export default defineShikiSetup(() => {
     langs: [
       "css",
       "html",
+      "http",
       "js",
       "json",
       "kotlin",
