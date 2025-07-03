@@ -29,6 +29,18 @@ src: './6-Flexbox-4.md'
 ---
 
 ---
+src: './7-Übung-mit-Flexbox-1.md'
+---
+
+---
+src: './8-Übung-mit-Flexbox-2.md'
+---
+
+---
+src: './9-Vuetify-1.md'
+---
+
+---
 src: './98-Hausaufgabe.md'
 ---
 

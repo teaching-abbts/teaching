@@ -24,6 +24,16 @@
         {{ wrap }}
       </option>
     </select>
+    <label for="enableSizing">Alle Artikel sollen skalieren: </label>
+    <input type="checkbox" id="enableSizing" v-model="enableSizing" />
+    <label for="enableSizingLastArticle">
+      Letzter Artikel soll skalieren:
+    </label>
+    <input
+      type="checkbox"
+      id="enableSizingLastArticle"
+      v-model="enableSizingLastArticle"
+    />
   </div>
   <!-- FLEXBOX -->
   <div class="flexbox">
@@ -40,7 +50,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 const flexDirections = ["row", "column"];
 const articleMinWidths = ["0px", "200px", "300px"];
@@ -50,6 +60,16 @@ const flexDirection = ref("row");
 const articleMinWidth = ref("0px");
 const flexWrap = ref("nowrap");
 const nbrOfArticles = ref(3);
+const enableSizing = ref(false);
+const enableSizingLastArticle = ref(false);
+
+const articleFlexValue = computed(() => {
+  return enableSizing.value ? "1" : "none";
+});
+
+const lastTypeFlexValue = computed(() => {
+  return enableSizingLastArticle.value ? "1" : "none";
+});
 </script>
 
 <style lang="css" scoped>
@@ -62,7 +82,13 @@ section {
 
 article {
   min-width: v-bind(articleMinWidth);
+  flex: v-bind(articleFlexValue);
 }
+
+article:nth-last-of-type(1) {
+  flex: v-bind(lastTypeFlexValue);
+}
+
 /* CSS-Styles für das Layout */
 .controls {
   display: flex;
