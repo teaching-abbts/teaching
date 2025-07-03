@@ -20,7 +20,7 @@ public class BuildTeachingSlidesTask : FrostingTask<BuildContext>
     SolutionProject slidesProject =
       context.Solution.Projects.FirstOrDefault(project => project.Name == "Teaching.Slides")
       ?? throw new CakeException("Teaching.Slides project not found in the solution.");
-    var artifactsDir = slidesProject.Path.GetDirectory().Combine(".artifacts");
+    var artifactsDir = slidesProject.Path.GetDirectory().Combine("../.artifacts");
 
     CommandSettings pnpmCommand = slidesProject.GetPnpmCommand();
     FilePathCollection days = context.GetFiles($"{slidesProject.Path.GetDirectory()}/slides-day-*.md");
