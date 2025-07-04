@@ -41,6 +41,10 @@ src: './9-Vuetify-1.md'
 ---
 
 ---
+src: './10-Vuetify-2.md'
+---
+
+---
 src: './98-Hausaufgabe.md'
 ---
 
