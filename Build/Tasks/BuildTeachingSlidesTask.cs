@@ -32,7 +32,7 @@ public class BuildTeachingSlidesTask : FrostingTask<BuildContext>
 
       context.Command(pnpmCommand, $"run build-{dayName}");
       DirectoryPath distDir = slidesProject.Path.GetDirectory().Combine("dist");
-      DirectoryPath outputDir = artifactsDir.Combine("nds-web-engineering").Combine(dayName).Combine("slides");
+      DirectoryPath outputDir = artifactsDir.Combine("nds-web-engineering").Combine(dayName).Combine("slidev");
       context.EnsureDirectoryDoesNotExist(outputDir);
       context.EnsureDirectoryExists(outputDir);
       context.CopyDirectory(distDir, outputDir);
