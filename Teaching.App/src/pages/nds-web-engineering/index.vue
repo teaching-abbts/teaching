@@ -68,6 +68,12 @@ const routes = computed(() => [
     logo: "/logo-day-5.png",
     date: "27. Juni 2025",
   },
+  {
+    path: "nds-web-engineering/day-6",
+    title: t("frontend-advanced-flexbox-vuetify"),
+    logo: "/logo-day-6.svg",
+    date: "4. Juli 2025",
+  },
 ]);
 
 function onClick(path: string) {

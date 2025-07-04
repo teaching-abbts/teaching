@@ -23,5 +23,7 @@
   "the-road-to-fullstack-with-vue": {
     "js-and-ktor": "Der Weg zu Fullstack mit Vue.js und Ktor"
   },
-  "day-5": "Tag 5 - Fullstack"
+  "day-5": "Tag 5 - Fullstack",
+  "day-6": "Tag 6 - Frontend Advanced",
+  "frontend-advanced-flexbox-vuetify": "Frontend Advanced: Flexboxen & Vuetify"
 }

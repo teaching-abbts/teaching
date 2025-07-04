@@ -1,0 +1,4 @@
+{
+  "svg.preview.background": "transparent",
+  "i18n-ally.localesPaths": ["Teaching.Slides/i18n", "Teaching.App/src/i18n"]
+}
