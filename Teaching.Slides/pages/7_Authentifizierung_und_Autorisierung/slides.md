@@ -25,9 +25,7 @@ transition: slide-left
 1. Abhörsicherheit
    1. HTTP: Das Problem unverschlüsselter Daten
    2. HTTPS und X.509-Zertifikate
-2. Zugriffsverwaltung
-   1. Methoden zur Zutrittskontrolle (Authentifizierung)
-   2. Rechteverwaltung (Autorisierung)
+2. Authentifizierung: Methoden zur Zutrittskontrolle
 3. Deep-Dive: Implementierung
    1. Abhörsicherheit in Ktor
    2. Authentifizierung in Ktor
@@ -175,18 +173,47 @@ Wir werden in diesem Kurs ausschliesslich **Sessionbasierte Authentifizierungen*
 </style>
 
 ---
+layout: two-cols-header
+transition: slide-left
+---
+
+## **Sessionbasierte Authentifizierung**
+
+::left::
+
+- Methode zum Verwalten von Statusinformationen über die Interaktionen eines Benutzers mit einer Website oder App
+- Nehmen wir an, ein Benutzer möchte auf Daten von einem Anwendungsserver zugreifen:
+  1. Der erste Schritt besteht darin, sich über einen Webbrowser mit geheimen Anmeldeinformationen beim Anwendungsserver anzumelden.
+  2. Sobald der Server die Anmeldeinformationen überprüft und die Anmeldung erfolgreich war, gibt er eine Antwort an den Webbrowser mit einer eindeutigen Sitzungs-ID.
+  3. Die Websites speichern die Sitzungs-IDs in der Regel in Cookies.
+  4. Der Webbrowser sendet die Sitzungs-ID bei jeder weiteren Anfrage an den Webserver mit.
+  5. Die Sitzung wird auf dem Server verwaltet, und der Server kann die Sitzung bei Bedarf invalidieren (z.B. beim Logout).
+
+::right::
+
+```mermaid
+sequenceDiagram
+  autonumber
+  participant Browser as 👩 Browser
+  participant Server as 🖥️ Server
+  Browser->>Server: Login Anfrage mit Anmeldeinformationen
+  Server->>Browser: Prüfung der Logindaten, Erstellung und Übermittlung der Sitzungs-ID (z.B. Cookie)
+  Browser->>Server: GET /geschuetzte-ressource, Cookie: sessionId=abc123
+  Server-->>Browser: 200 OK, Hier sind Ihre Daten
+  Browser->>Server: POST /logout, Cookie: sessionId=abc123
+  Server-->>Browser: 200 OK, Sitzung beendet
+```
+
+<style>
+  li, p {
+    --uno: text-base;
+  }
+</style>
+
+---
 layout: default
 transition: slide-left
 ---
 
-## **Authentifizierung**: Erweiterte Authentifizierungsmethoden
+# **Implementierung (Server)**: Konfiguration in Ktor
 
-- **SAML (Security Assertion Markup Language)**: Ein XML-basiertes Standardformat für den Austausch von Authentifizierungs- und Autorisierungsdaten zwischen Parteien, insbesondere zwischen einem Identitätsanbieter (IdP) und einem Dienstanbieter (SP). SAML wird häufig in Unternehmensumgebungen verwendet, um Single Sign-On (SSO) zu ermöglichen.
-- **Kerberos**: Ein Netzwerk-Authentifizierungsprotokoll, das auf Tickets basiert und eine sichere Authentifizierung in unsicheren Netzwerken ermöglicht. Es wird häufig in Windows basierten Unternehmensnetzwerken eingesetzt, um Benutzern den Zugriff auf verschiedene Dienste zu ermöglichen, ohne dass sie sich mehrfach anmelden müssen.
-- **OpenID Connect**: Eine Erweiterung von OAuth 2.0, die eine Authentifizierungsschicht hinzufügt. Es ermöglicht Benutzern, sich mit einem einzigen Konto bei verschiedenen Diensten anzumelden und bietet zusätzliche Informationen über den Benutzer.
-
-<style>
-  li {
-    --uno: text-sm;
-  }
-</style>
