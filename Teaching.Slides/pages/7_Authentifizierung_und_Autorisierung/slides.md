@@ -66,10 +66,23 @@ layout: default
 </style>
 
 ---
+layout: two-cols-header
+---
+
+# X.509-Zertifikate: Vorteile und Grenzen
+
+- X.509 ist ein [ITU-T-Standard](https://de.wikipedia.org/wiki/Internationale_Fernmeldeunion) für eine Public-Key-Infrastruktur zum Erstellen digitaler Zertifikate.
+- Via Digitales Zertifikat wird die **Identität** des Servers **verifiziert**.
+- Ein von einer [Zertifizierungsstelle](https://de.wikipedia.org/wiki/Zertifizierungsstelle_(Digitale_Zertifikate)) _(englisch certificate authority oder certification authority, kurz CA)_ ausgestelltes digitales Zertifikat wird im X.509-System **immer** an eine **E-Mail-Adresse** oder einen **[DNS](https://de.wikipedia.org/wiki/Domain_Name_System)-Eintrag** _gebunden_.
+- z.B. wenn ich mit `https://www.abbts.ch/` kommuniziere, bestätigt ein gültiges Zertifikat, dass ich mit dem echten Besitzer der Domain (`www.abbts.ch`) spreche.
+- Alle gängigen Webbrowser arbeiten mit einer _vorkonfigurierten Liste **vertrauenswürdiger** Zertifizierungsstellen_, deren X.509-Zertifikaten der Browser **vertraut**.
+- ‼️**ACHTUNG**: ein gültiges Zertifikat _garantiert **nicht**_, dass die Website _vertrauenswürdig_ ist! Es bestätigt _lediglich_ die _Identität des Servers_ - _nicht_ seine **Absichten**!
+
+---
 layout: default
 ---
 
-# HTTPS: _Hypertext Transfer Protocol **Secure**_
+# HTTPS **&** X.509-Zertifikat
 
 ```mermaid {scale: 0.75}
 sequenceDiagram
@@ -90,44 +103,4 @@ sequenceDiagram
   Alice-->>Bob: 🔒 Mein Passwort ist "💘Bob4Ever!".
   Bob-->>Alice: 🔒 Danke Alice, dein Kontostand ist 1000 CHF.
   Note over Mallory: Mallory sieht nur verschlüsselte Daten und kann nichts mitlesen.
-```
-
----
-layout: two-cols-header
----
-
-# X509-Zertifikate: Vorteile und Grenzen
-
-- Via Digitales Zertifikat wird die **Identität** des Servers verifiziert
-- z.B. wenn ich mit `https://www.abbts.ch/` kommuniziere, bestätigt ein gültiges Zertifikat, dass ich mit dem echten Besitzer der Domain (`www.abbts.ch`) spreche.
-- **ACHTUNG**: ein gültiges Zertifikat garantiert nicht, dass die Website vertrauenswürdig ist! Es bestätigt lediglich die Identität des Servers.
-
-```mermaid
-sequenceDiagram
-  participant Client
-  participant "Man-in-the-Middle\n(Proxy)" as MITM
-  participant Server
-
-  Client->>MITM: Hi Server (vermeintlich)
-  MITM->>Server: Hi Server
-
-  Note over Client,MITM: Client fordert öffentlichen Schlüssel an (denkt, er spricht mit dem Server)
-  Client->>MITM: Fordert öffentlichen Schlüssel an
-  MITM-->>Client: Sendet eigenen öffentlichen Schlüssel
-
-  Note over MITM,Server: MITM fordert echten öffentlichen Schlüssel vom Server an
-  MITM->>Server: Fordert öffentlichen Schlüssel an
-  Server-->>MITM: Sendet öffentlichen Schlüssel
-
-  Note over Client: Client verschlüsselt Nachricht mit MITM-Schlüssel
-  Client->>MITM: Sendet verschlüsselte Nachricht
-
-  Note over MITM: MITM entschlüsselt, liest mit und verschlüsselt erneut mit Server-Schlüssel
-  MITM->>Server: Sendet erneut verschlüsselte Nachricht
-
-  Note over Server: Server entschlüsselt und antwortet
-  Server-->>MITM: Antwort
-
-  Note over MITM: MITM liest Antwort, verschlüsselt erneut für Client
-  MITM-->>Client: Antwort
 ```
