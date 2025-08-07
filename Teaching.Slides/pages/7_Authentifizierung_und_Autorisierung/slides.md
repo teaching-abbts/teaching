@@ -215,5 +215,8 @@ layout: default
 transition: slide-left
 ---
 
-# **Implementierung (Server)**: Konfiguration in Ktor
+# **Implementierung**: Code & Demo
 
+- Setup Gradle
+- Ktor-Server für Authorisierung konfigurieren
+- Vue.js App für Autorisierung einrichten
