@@ -15,6 +15,26 @@ transition: slide-left
 
 ---
 layout: default
+transition: slide-left
+---
+
+# **Programm**
+
+<v-clicks :depth="2">
+
+1. Verschlüsselung
+   1. Problem von HTTP
+   2. HTTPS und X.509-Zertifikate
+2. Zugriffsverwaltung
+   1. Authentifizierung
+   2. Autorisierung
+3. Implementierung in Ktor
+
+</v-clicks>
+
+---
+layout: default
+transition: slide-left
 ---
 
 # **HTTP**: Das Problem unverschlüsselter Daten
@@ -29,10 +49,9 @@ sequenceDiagram
   participant Mallory as 💻 Mallory (eingehackt im Netzwerkrouter)
   participant Bob as 👨 Bob
 
+  Note over Alice,Bob: Alice baut eine HTTP-Verbindung zu Bob auf. Mallory horcht mit.
   Alice->>Bob: Hi Bob, ich möchte meinen Kontostand abfragen.
-  Note over Alice: Alice glaubt, dass sie direkt mit Bob kommuniziert.
   Bob->>Alice: Hi Alice, klar: wir sind ja unter uns...😜 - wie lautet dein Passwort?
-  Note over Bob: Bob glaubt, dass er direkt mit Alice kommuniziert.
   Alice->>Bob: Mein Passwort ist "💘Bob4Ever!".
   Note over Mallory: Mallory kann die Nachricht im KLARTEXT mitlesen: 'Mein Passwort ist "💘Bob4Ever!"'.
   Bob->>Alice: Danke Alice, dein Kontostand ist 1000 CHF.
@@ -50,6 +69,7 @@ sequenceDiagram
 
 ---
 layout: default
+transition: slide-left
 ---
 
 # HTTPS: _Hypertext Transfer Protocol **Secure**_
