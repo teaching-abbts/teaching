@@ -227,3 +227,50 @@ Code: <https://github.com/teaching-abbts/smart-home-system/tree/day-7/authentica
 - Login-Demos
   - Ktor: Formularbasierte Authentifizierung (proof-of-concept)
   - Vue.js: Formularbasierte Authentifizierung (fetch-API)
+
+---
+layout: default
+transition: slide-left
+---
+
+# Hausaufgabe
+
+<div />
+
+Studieren Sie aufmerksam die [bereitgestellten Materialien](https://github.com/teaching-abbts/smart-home-system/tree/day-7/authentication-example) zur Authentifizierung in Ktor und Vue.js.
+
+Versuchen sie, das Setup in Kotlin/Ktor zu verstehen - was wird genau gemacht und warum? Was fehlt? Kritik?
+
+➡️ Besprechen wir nächstes mal!
+
+- In **Gradle**:
+  - `build.gradle.kts`
+  - `gradle/libs.versions.toml`
+- In **Kotlin/Ktor**:
+  - `src/main/kotlin/plugins/Authentication/SessionAuth.kt`
+  - `src/main/kotlin/Application.kt`
+- In **Vue.js**:
+  - `src/main/vue-project/src/components/AppLoginDialog.vue`
+  - `src/main/vue-project/src/components/AppUserInfo.vue`
+  - `src/main/vue-project/src/App.vue`
+  - `src/main/vue-project/vite.confic.ts`
+
+<style>
+  li {
+    --uno: text-base;
+  }
+</style>
+
+---
+transition: slide-left
+---
+
+# Ende der heutigen Veranstaltung
+
+<div class="text-center mt-9">
+
+Vielen herzlichen Dank für eure **Aufmerksamkeit** und **Mitarbeit** 💝!
+
+👋 bis am 16. August 2025! 😎
+
+</div>
