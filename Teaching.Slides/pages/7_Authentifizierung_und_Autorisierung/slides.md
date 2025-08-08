@@ -217,6 +217,13 @@ transition: slide-left
 
 # **Implementierung**: Code & Demo
 
-- Setup Gradle
+Code: <https://github.com/teaching-abbts/smart-home-system/tree/day-7/authentication-example>
+
+## Themen
+
+- Setup Gradle Dependencies
 - Ktor-Server für Authorisierung konfigurieren
 - Vue.js App für Autorisierung einrichten
+- Login-Demos
+  - Ktor: Formularbasierte Authentifizierung (proof-of-concept)
+  - Vue.js: Formularbasierte Authentifizierung (fetch-API)
