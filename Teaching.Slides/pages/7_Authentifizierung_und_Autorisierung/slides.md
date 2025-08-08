@@ -271,6 +271,6 @@ transition: slide-left
 
 Vielen herzlichen Dank für eure **Aufmerksamkeit** und **Mitarbeit** 💝!
 
-👋 bis am 16. August 2025! 😎
+👋 bis am 15. August 2025! 😎
 
 </div>
