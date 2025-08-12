@@ -16,7 +16,9 @@
     "build-day-6": "slidev build --base /nds-web-engineering/day-6/slidev/ ./slides-day-6.md",
     "dev-day-6": "slidev ./slides-day-6.md",
     "build-day-7": "slidev build --base /nds-web-engineering/day-7/slidev/ ./slides-day-7.md",
-    "dev-day-7": "slidev ./slides-day-7.md"
+    "dev-day-7": "slidev ./slides-day-7.md",
+    "build-day-8": "slidev build --base /nds-web-engineering/day-8/slidev/ ./slides-day-8.md",
+    "dev-day-8": "slidev ./slides-day-8.md"
   },
   "dependencies": {
     "@iconify/json": "^2.2.367",
