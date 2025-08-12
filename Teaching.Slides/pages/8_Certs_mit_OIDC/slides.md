@@ -5,7 +5,7 @@ transition: slide-left
 
 # **NDS - Web Engineering**
 
-## Zertifikate,
+## Zertifikate, Autorisierung mit OIDC
 <style>
   h1 {
     --uno: shadow-filter;

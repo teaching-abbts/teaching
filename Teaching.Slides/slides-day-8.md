@@ -9,5 +9,5 @@ fonts:
   # for code blocks, inline code, etc.
   mono: Courier
 background: '/slides-images/ABB-TS-neutral.png'
-src: './pages/8_/slides.md'
+src: './pages/8_Certs_mit_OIDC/slides.md'
 ---
