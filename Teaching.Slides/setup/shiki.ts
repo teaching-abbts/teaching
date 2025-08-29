@@ -18,6 +18,7 @@ export default defineShikiSetup(() => {
       "ts",
       "vue",
       "vue-html",
+      "yaml",
     ],
   };
 });
