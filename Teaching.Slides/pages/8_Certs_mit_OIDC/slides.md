@@ -204,6 +204,8 @@ transition: slide-left
 
 # **Hands-On**: OIDC mit Keycloak und Ktor
 
+<https://github.com/teaching-abbts/smart-home-system/tree/day-8/cert%2Boidc>
+
 ---
 transition: slide-left
 ---
