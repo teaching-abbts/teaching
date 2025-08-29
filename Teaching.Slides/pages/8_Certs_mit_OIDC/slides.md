@@ -24,9 +24,10 @@ transition: slide-left
 - HTTPS in **Ktor**
   - X.509 Zertifikate _(self-signed)_
   - Umleitung von HTTP auf HTTPS
-- Real-World Authentifizierung mit **OIDC**
+- Ktor: Authentifizierung mit **OIDC**
+- Vue: State-Management mit **Pinia**
 - **Hands-On**: OIDC mit Keycloak und Ktor
-  - Implementation von OIDC in Ktor
+  - Implementation von OIDC in Ktor mit Session Cookies
   - Detailanalyse der aktuellen Solution
 </v-clicks>
 
@@ -133,3 +134,102 @@ sequenceDiagram
     --uno: text-sm;
   }
 </style>
+
+---
+layout: two-cols-header
+transition: slide-left
+---
+
+# State-Management mit **Pinia**
+
+- Pinia ist der offizielle State-Management-Lösung für Vue 3 und bietet eine einfache und intuitive API zur Verwaltung des globalen Zustands in Vue-Anwendungen.
+
+::left::
+
+`stores/user.ts`
+
+```js {monaco} { lineNumbers: 'on', height: '350px', editorOptions: { fontSize: 11 } }
+import { defineStore } from 'pinia'
+import { ref, computed } from 'vue'
+
+export const useUserStore = defineStore('user', () => {
+  const name = ref('')
+  const email = ref('')
+
+  const displayName = computed(() =>
+    name.value ?? 'Anonymous User'
+  )
+
+  function reset() {
+    name.value = ''
+    email.value = ''
+  }
+
+  return {
+    name,
+    email,
+    displayName,
+    reset
+  }
+})
+```
+
+::right::
+
+`my-component.vue`
+
+```html {monaco} { lineNumbers: 'on', height: '350px', editorOptions: { fontSize: 11 } }
+<script lang="ts">
+import { useUserStore } from '@/stores/user'
+
+const userStore = useUserStore()
+</script>
+
+<template>
+  <span>{{ userStore.displayName }}</span>
+  <button @click="userStore.reset()">Reset</button>
+</template>
+```
+
+<style>
+  li {
+    --uno: text-sm;
+  }
+</style>
+
+---
+layout: default
+transition: slide-left
+---
+
+# **Hands-On**: OIDC mit Keycloak und Ktor
+
+---
+transition: slide-left
+---
+
+# **Ausblick**: Restliche Themen dieser Vorlesung
+
+## Domäne
+
+- **ABB-TS Smart-Home**: Vue.js App mit Ktor Backend steuert Smart-Home Geräte an
+
+## Technologien
+
+- **Progressive Web Apps**:
+  - Offline-Funktionalität (Local Storage, IndexedDB)
+  - App Manifest & installation
+  - OS Integration
+
+---
+layout: default
+transition: slide-left
+---
+
+# Ende der heutigen Veranstaltung
+
+<div class="text-center mt-9">
+
+Vielen herzlichen Dank für eure **Aufmerksamkeit** und **Mitarbeit** 💝!
+
+</div>
