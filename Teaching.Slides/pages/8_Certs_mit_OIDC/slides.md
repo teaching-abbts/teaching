@@ -206,6 +206,14 @@ transition: slide-left
 
 <https://github.com/teaching-abbts/smart-home-system/tree/day-8/cert%2Boidc>
 
+**Themen:**
+
+- [Keycloak](https://www.keycloak.org/) als Beispiel eines [Identity Provider](https://de.wikipedia.org/wiki/Identit%C3%A4tsanbieter)
+- Integration von OIDC in Ktor
+- Implementierung von Login- und Logout via Keycloak
+- Abfrage von Benutzerinformationen, welche von Keycloak geliefert werden
+- Zentrale Integration der User-Infos via Pinia-Store im Frontend
+
 ---
 transition: slide-left
 ---
