@@ -27,5 +27,7 @@
   "day-6": "Tag 6 - Frontend Advanced",
   "frontend-advanced-flexbox-vuetify": "Frontend Advanced: Flexboxen & Vuetify",
   "day-7": "Tag 7 - Authentifizierung",
-  "authentication": "Zugriffsverwaltung und Abhörsicherheit im WWW"
+  "authentication": "Zugriffsverwaltung und Abhörsicherheit im WWW",
+  "day-8": "Tag 8 - Zertifikate, OIDC, Pinia",
+  "certs-auth-pinia": "Zertifikate, Autorisierung mit OIDC, Pinia"
 }

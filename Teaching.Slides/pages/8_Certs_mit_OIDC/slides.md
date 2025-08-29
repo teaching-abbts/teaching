@@ -5,7 +5,7 @@ transition: slide-left
 
 # **NDS - Web Engineering**
 
-## Zertifikate, Autorisierung mit OIDC
+## Zertifikate <fluent-color-certificate-16/>, Autorisierung mit OIDC, Pinia <logos-pinia/>
 <style>
   h1 {
     --uno: shadow-filter;
@@ -140,7 +140,7 @@ layout: two-cols-header
 transition: slide-left
 ---
 
-# State-Management mit **Pinia**
+# State-Management mit **Pinia** <logos-pinia/>
 
 - Pinia ist der offizielle State-Management-Lösung für Vue 3 und bietet eine einfache und intuitive API zur Verwaltung des globalen Zustands in Vue-Anwendungen.
 
