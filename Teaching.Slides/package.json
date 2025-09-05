@@ -18,19 +18,22 @@
     "build-day-7": "slidev build --base /nds-web-engineering/day-7/slidev/ ./slides-day-7.md",
     "dev-day-7": "slidev ./slides-day-7.md",
     "build-day-8": "slidev build --base /nds-web-engineering/day-8/slidev/ ./slides-day-8.md",
-    "dev-day-8": "slidev ./slides-day-8.md"
+    "dev-day-8": "slidev ./slides-day-8.md",
+    "build-day-10": "slidev build --base /nds-web-engineering/day-10/slidev/ ./slides-day-10.md",
+    "dev-day-10": "slidev ./slides-day-10.md"
   },
   "dependencies": {
-    "@iconify/json": "^2.2.367",
+    "@iconify/json": "^2.2.381",
     "@slidev/cli": "^52.1.0",
     "@slidev/theme-default": "^0.25.0",
     "@slidev/theme-seriph": "^0.25.0",
+    "pinia": "^3.0.3",
     "slidev-theme-dracula": "^0.2.0",
-    "vue": "^3.5.18"
+    "vue": "^3.5.21"
   },
   "devDependencies": {
     "monaco-editor": "0.51.0",
-    "playwright-chromium": "^1.54.2",
+    "playwright-chromium": "^1.55.0",
     "prettier": "^3.6.2",
     "prettier-plugin-slidev": "^1.0.5"
   },
@@ -43,5 +46,5 @@
       "playwright-chromium"
     ]
   },
-  "packageManager": "pnpm@10.14.0"
+  "packageManager": "pnpm@10.15.1"
 }
