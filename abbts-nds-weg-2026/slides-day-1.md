@@ -238,7 +238,7 @@ layout: two-cols-header
 
 <v-clicks>
 
-- **Keine Lust oder Zeit**: Wer mal an der Lektion **nicht mitmachen will** oder **nicht kann** z.B. wegen geschäftlicher Verpflichtungen, Stress oder Erschöpfung - kein Problem *(<fluent-emoji-right-arrow/> Eigenverantwortung!)* - bitte einfach den **Unterrichtssaal verlassen** um den Lernfluss der Mitstudenten nicht zu stören!
+- **Keine Lust oder Zeit**: Wer mal an der Lektion **nicht mitmachen will** oder **nicht kann** z.B. wegen geschäftlicher Verpflichtungen, Stress oder Erschöpfung - kein Problem _(<fluent-emoji-right-arrow/> Eigenverantwortung!)_ - bitte einfach den **Unterrichtssaal verlassen** um den Lernfluss der Mitstudenten nicht zu stören!
 - **Fragen**: dürfen und sollen jederzeit gestellt werden können - einfach **alles mit Mass**: wenn der Fluss oder Zeitplan des Untrrichts erheblich gestört wird, werden Fragen ggf. auf später vertagt.
 
 </v-clicks>
@@ -305,3 +305,404 @@ backgroundSize: contain
   - **Document Object Model** (DOM) als **Programmierschnittstelle** für externe Programme oder Skriptsprachen (wie JavaScript) von Webbrowsern
 
 </v-clicks>
+
+---
+layout: two-cols
+backgroundSize: auto
+---
+
+# Minimale Entwicklungsumgebung einrichten
+
+1. Installieren von _Visual Studio Code (VsCode)_: [https://code.visualstudio.com](https://code.visualstudio.com)
+2. Installieren von Erweiterungen:
+  1. `Auto Complete Tag` & `Live Server` ![VSCode Extensions Icon](./public/images/vscode-extension-icon.png)
+  2. ![VSCode Extensions](./public/images/vscode-extensions.png)
+
+::right::
+
+3. Erzeugen sie eine neue Datei mit Namen `index.html`: ![VSCode new file](./public/images/vscode-new-file.png)
+4. Starten sie den Live-Server: ![VSCode Live Server](./public/images/vscode-live-server.png)
+
+<style>
+  h1 {
+    --uno: text-xl;
+  }
+</style>
+
+---
+
+# Allgemeine Anmerkungen
+
+<v-clicks>
+
+- Viele der nachfolgenden Beispiele basieren auf den exzellenten Tutorials von W3Schools 🧑‍🎓
+- Es lohnt sich IMHO sehr, auf <https://www.w3schools.com/> etwas zu stöbern, es gibt viele gratis Tutorials mit Übungen für viele unterschiedliche Techniken und Tools, die sich in der Praxis bewährt haben!
+
+</v-clicks>
+
+---
+
+# Was ist HTML?
+
+<v-clicks :depth="2">
+
+- **HTML** steht für **Hyper Text Markup Language**
+  - **Hypertext**: Wortbildung aus altgriechisch
+    - ὑπέρ hyper – zu deutsch ‚über, oberhalb, über … hinaus‘
+    - lateinisch texere – zu deutsch ‚weben, flechten‘
+  - **Markup Language (_deutsch: Auszeichnungssprache_)**: maschinenlesbare Sprache für die Gliederung und Formatierung von Texten und anderen Daten
+- **HTML** ist die Standard **Beschreibungsprache** für **Webseiten**
+- **HTML** beschreibe die **Struktur** einer **Webseite**
+- **HTML** besteht aus einer Serie von **Elementen**
+- **HTML-Elemente** sagen dem **Webbrowser**, welche **Inhalte** dargestellt werden sollen
+
+</v-clicks>
+
+---
+layout: two-cols
+---
+
+```html {monaco-run}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+  </head>
+
+  <body>
+    <h1>My first heading</h1>
+    <p>My first paragraph</p>
+  </body>
+</html>
+```
+
+::right::
+
+<div class="ml-3">
+
+# Simples HTML-Dokument
+
+<v-clicks>
+
+- Die `<!DOCTYPE html>`-Deklaration definiert, dass dieses Dokument ein HTML5-Dokument ist.
+- Das `<html>`-Element ist das Wurzelelement einer HTML-Seite.
+- Das `<head>`-Element enthält Metainformationen über die HTML-Seite.
+- Das `<title>`-Element gibt einen Titel für die HTML-Seite an (der im Titelbalken des Browsers oder im Tab der Seite angezeigt wird).
+- Das `<body>`-Element definiert den Inhalt des Dokuments und ist ein Container für alle sichtbaren Inhalte wie Überschriften, Absätze, Bilder, Hyperlinks, Tabellen, Listen usw.
+- Das `<h1>`-Element definiert eine große Überschrift.
+- Das `<p>`-Element definiert einen Absatz
+
+</v-clicks>
+
+</div>
+
+<style>
+  li {
+    --uno: text-sm;
+  }
+</style>
+
+---
+
+# Was ist ein HTML-Element?
+
+<v-clicks>
+
+- Ein **HTML-Element** wird durch ein **Start-Tag**, etwas **Inhalt** und ein **End-Tag** definiert:
+
+  ```html
+  <tagname>Inhalt...</tagname>
+  ```
+
+- Das HTML- Element umfasst alles vom Start-Tag bis zum End-Tag:
+
+  ```html
+  <h1>Meine Überschrift</h1>
+  <p>Mein Absatz</p>
+  ```
+
+- **Hinweis**: Einige HTML-Elemente haben keinen Inhalt (wie das `<br />`-Element). Diese Elemente werden leere Elemente genannt. *Leere Elemente* haben *kein End-Tag*.
+
+</v-clicks>
+
+---
+
+# HTML-Seitenstruktur
+
+- Alle HTML-Dokumente müssenmit einer Dokumenttypdeklaration beginnen: `<!DOCTYPE html>`
+  Sie stellt den Dkoumenttyp dar und hilft Webbrowsern, Webseiten korrekt anzuzeigen.
+- Das HTML-Dokument selbst beginnt mit `<html>` und ended mit `</html>`.
+- Der sichtbare Teil des HTML-Dokuments liegt zwischen `<body>` und `</body>`.
+
+```html {monaco-run}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ich bin der im Tab/Fenster angezeigte Titel</title>
+  </head>
+
+  <body>
+    <h1>Ich bin eine GROSSE Überschrift</h1>
+    <p>Ich bin ein Paragraph</p>
+    <p>Ich bin ein Paragraph mit <strong>starkem</strong> Inhalt 💪!</p>
+  </body>
+</html>
+```
+
+<style>
+  li {
+    --uno: text-sm;
+  }
+</style>
+
+---
+layout: two-cols
+---
+
+# HTML-Überschriften
+
+- HTML-Überschriften werden mit den `h`-Tags definiert: `<h1>` bis `<h6>`.
+- `h1` definiert die wichtigste Überschrift.
+- `h6` definiert die unwichtigste Überschrift.
+
+::right::
+
+```html {monaco-run}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+  </head>
+
+  <body>
+    <h1>This is heading 1</h1>
+    <h2>This is heading 2</h2>
+    <h3>This is heading 3</h3>
+    <h4>This is heading 4</h4>
+    <h5>This is heading 5</h5>
+    <h6>This is heading 6</h6>
+  </body>
+</html>
+```
+
+---
+layout: two-cols
+---
+
+# HTML-Absätze
+
+HTML-Absätze werden mit dem Tag `<p>` definiert.
+
+::right::
+
+```html {monaco-run}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+  </head>
+
+  <body>
+    <p>Absatz 1</p>
+    <p>Absatz 2</p>
+    <p>Absatz 3</p>
+  </body>
+</html>
+```
+
+---
+layout: two-cols
+---
+
+# HTML-Links
+
+- HTML-Links werden mit dem `<a>`-Tag definiert (`a` steht für `anchor` ("⚓" zu deutsch)).
+- Das Ziel des Links wird im `href` **Attribut** angegeben
+
+➡️ _zu **Attributen** gibt es gleich mehr Infos..._
+
+::right::
+
+```html {monaco-run}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+  </head>
+
+  <body>
+    <a href="https://www.abbts.ch/">
+      Link zur ABB-TS-Homepage
+    </a>
+  </body>
+</html>
+```
+
+---
+layout: two-cols
+---
+
+# HTML-Attribute
+
+- Alle HTML-Elemente können sog. **Attribute** haben.
+- Attribute liefern **zusätzliche Informationen** zu den Elementen.
+- Attribute werden immer im **Start-Tag** angegeben.
+- Attribute kommen normalerweise in Name-Wert-Paaren wie `name="wert"` vor.
+
+::right::
+
+```html {monaco-run}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+  </head>
+
+  <body>
+    <a href="https://www.abbts.ch/">
+      Link zur ABB-TS-Homepage
+    </a>
+  </body>
+</html>
+```
+
+---
+transition: slide-left
+layout: two-cols
+---
+
+# HTML-Bilder 1
+
+- HTML-Bilder werden mit dem `<img>`-Tag definiert.
+- Die Quelldatei (`src`), Alternativtext (`alt`), `width` und `height` werden als spezifische Attribute für dieses Element bereitgestellt.
+- Beachten sie die effektive Grösse des Bildes *(32px * 32px)* und die effektive Darstellung infolge der Attribute `width` und `height`.
+
+::right::
+
+```html {monaco-run}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+  </head>
+
+  <body>
+    <img
+      src="/images/compressed_favicon-32x32.webp"
+      alt="ABB-TS Icon"
+      width="200px"
+      height="200px"
+    />
+  </body>
+</html>
+```
+
+---
+
+# HTML-Bilder 2
+
+Es gibt zwei Möglichkeiten, die URL anzugeben im `src`:
+
+- **Absolute URL**: Links zu einem externen Bild, das auf einer anderen Webseite gehostet wird; z.B. `src="https://www.w3schools.com/html/pic_trulli.jpg"`: <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="W3Schools Image" width="200px" />
+- **Relative URL**: Link zu einem Bild, das auf der eigenen Webseite gehostet wird. Hier enthält die URL nicht den Domainnamen.
+  - Wenn die URL ohne Schrägstrich (`/`) beginnt, ist sie *relativ* zur *aktuellen Seite*. Bsp. `src="img.jpg"`
+  - Wenn die URL mit einem Schrägstrich (`/`) beginnt, ist sie relativ zur aktuellen *Domain*. Bsp. `src"/images/img.jpg"` ist relativ zum aktuellen Host- bzw. Domainnamen (z.B. `https://www.abbts.ch`) zu verstehen.
+
+**Tipp**: Es ist *(fast)* immer am besten, relative URLs zu verwenden.
+
+**Frage in die Runde**: warum..?
+
+<style>
+  ul {
+    --uno: text-sm;
+  }
+</style>
+
+---
+layout: two-cols
+---
+
+# HTML-Anzeige
+
+- Mensch kann nicht absolut sicher sein, wie HTML angezeigt wird.
+- Grosse oder kleine Bildschirme und veränderte Fenstergrössen führen zu unterschiedlichen Ergebnissen.
+- Bei HTML können Sie die Anzeige *nicht* ändern, indem Sie Ihrem HTML-Code *zusätzliche Leerzeichen* oder *zusätzliche Zeilen hinzufügen.
+- Der Webbrowser entfernt **automatisch** alle zusätzlichen Leerzeichen und Zeilen, wenn die Seite angezeigt wird.
+
+::right::
+
+```html {monaco-run}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+  </head>
+  <body>
+    <p>
+      Dieser Paragrah enthält              viele
+           Leerschläge im Quellcode, aber
+  Der Webbrowser ignoriert diese.
+    </p>
+    <p>
+      Die Anzahl Linien in einem Paragraph hängt von der Grösse des Browserfensters ab. Wenn Sie das Browserfenster verändern wird sich die Anzahl Zeilen dieses Paragraphs ändern.
+    </p>
+  </body>
+</html>
+```
+
+---
+layout: two-cols
+---
+
+# HTML-Styles
+
+- Das HTML `style`-Attribut wird verwendet, um Stile zu einem Element hinzuzufügen, z.B. Farbe, Schriftart, Grösse und noch viel mehr...!
+- Das HTML `style`-Attribut hat die foldgende Syntax:
+
+  ```html
+  <tagname style="eigenschaft: wert;">...</tagname>
+  ```
+
+- Die Eigenschaft ist eine **CSS-Eigenschaft**. Der Wert ist ein **CSS-Wert**.
+
+➡️ Zu CSS erfahren wir gleich mehr...
+
+::right::
+
+```html {monaco-run}
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>Ich bin normal</p>
+    <p style="color: red;">Ich bin rot</p>
+    <p style="color: blue;">Ich bin blau</p>
+    <p style="font-size: 30px;">Ich bin GROSS! 💪</p>
+  </body>
+</html>
+```
+
+---
+layout: two-cols
+---
+
+# Simple HTML-Seite bauen
+
+## **Auftrag**
+
+- Versuchen sie mit dem *soeben vermittelten Wissen* folgende *HTML-Seite* nachzubauen
+- Sie finden die Slides unter <https://teaching-abbts.github.io/nds-web-engineering/day-1/slidev>
+- Das Bild finden sie unter <https://teaching-abbts.github.io/slides-images/abbts-nds.jpg>. Laden sie dieses herunter und verwenden sie es mit einer *relativen URL*.
+- **Achtung**: die farbigen Texte sind *Links*!
+  - https://www.abbts.ch/bildungsgaenge/
+  - https://www.abbts.ch/nachdiplomstudien/
+  - https://www.abbts.ch/kurse/
+
+::right::
+
+<iframe src="/assets/day-1-assignment-2.html" width="450px" height="500px"></iframe>
+
+---
+
+# Simple HTML-Seite bauen - **Lösungsvorschlag**
+
+<<< public/assets/day-1-assignment-2.html {monaco} { editorOptions: { wordWrap: 'on', lineNumbers: 'on' } }
