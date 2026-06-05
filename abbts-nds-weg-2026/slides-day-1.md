@@ -117,7 +117,7 @@ layout: two-cols-header
 
 <v-clicks depth="2">
 
-1. Grundlagen
+- Grundlagen
    1. Das **World Wide Web (WWW)**
    2. `HTML` & `CSS`
    3. Funktionalität eines **Webbrowsers**
@@ -133,13 +133,26 @@ layout: two-cols-header
 
 <v-clicks depth="2">
 
-2. **Frontend:** Single Page Applications mit `Vue.js` in `TypeScript`
-3. **Backend:** Webserver mit `ASP.NET Core` in `C#`
-4. **Responsive Web Design** <br />*(Dynamische Anpassung an Bildschirmgrössen)*
-5. Weiterarbeit am Projekt **Smart Home**
-   1. Programmieren eines **Firefighter-Dashboards** *(Front- und Backend)*
+- **Frontend:** Single Page Applications mit `Vue.js` in `TypeScript`
+- **Backend:** Webserver mit `ASP.NET Core` in `C#`
+- **Responsive Web Design** <br />_(Dynamische Anpassung an Bildschirmgrössen)_
+- Weiterarbeit am Projekt **Smart Home**
+   1. Programmieren eines **Firefighter-Dashboards** _(Front- und Backend)_
    2. Anbindung ans Smart-Quartier
    3. Alarme, Events, Aktionen
-6. **Progressive Web Apps** <br />*(Offline, Service-Worker, Installation im OS)*
+- **Progressive Web Apps** <br />_(Offline, Service-Worker, Installation im OS)_
+
+</v-clicks>
+
+---
+
+# Allgemeine Anmerkungen zum Kursinhalt
+
+<v-clicks>
+
+- Das Thema "Web Engineering" ist sehr umfangreich und vielfältig
+- Der zeitlich begrenzte Umfang dieses Moduls wird leider bei Weitem nicht reichen, **alle relevanten Aspekte** ausreichend zu beleuchten - es musste (notgedrungen) an diversen Stellen **erhebliche Kürzungen** vorgenommen werden... <fluent-emoji-crying-face />
+- Dieser Kurs fokussiert sich auf die **allerwesentlichsten Aspekte**, die nach Ansicht des Dozenten zur **praktischen Anwendung** notwendig sind.
+- In diesem Kurs kommen konkrete **Techniken, Tools und Frameworks** als **eine (!) Möglichkeit des Web Engineering** zum Einsatz, die vom Dozenten und/oder der Schule bevorzugt werden und sich in der Praxis bewährt haben - aus Zeitgründen können kaum Alternativen betrachtet werden. Es sei jedoch angemerkt, dass es für **fast jedes Tool meist dutzende gleichwertige Alternativen** gibt <fluent-emoji-right-arrow/> bei Interesse kann der Dozent gerne Auskunft geben/beraten.
 
 </v-clicks>
