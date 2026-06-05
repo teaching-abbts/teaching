@@ -8,6 +8,7 @@
     "export-day-1": "slidev export ./slides-day-1.md"
   },
   "dependencies": {
+    "@iconify/json": "^2.2.483",
     "@slidev/cli": "52.16.0",
     "@slidev/theme-default": "0.25.0",
     "@slidev/theme-seriph": "0.25.0",
