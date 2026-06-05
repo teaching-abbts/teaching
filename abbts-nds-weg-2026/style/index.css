@@ -1,0 +1,37 @@
+@import url(./animations/rainbow.css);
+
+strong {
+  background-color: var(--s-brand-color-1);
+  background-image: linear-gradient(
+    45deg,
+    var(--s-brand-color-darker),
+    var(--s-brand-color-dark),
+    var(--s-brand-color-1),
+    var(--s-brand-color-light),
+    var(--s-brand-color-lighter)
+  );
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 20s infinite;
+  background-clip: text;
+  background-size: 100%;
+  --uno: shadow-filter;
+}
+
+.slidev-vclick-target {
+  transition: all 500ms ease !important;
+}
+
+.slidev-vclick-hidden {
+  transform: scale(0) !important;
+}
+
+code {
+  --uno: dark\:text-green-300;
+}
+
+em {
+  --uno: text-yellow-600;
+}

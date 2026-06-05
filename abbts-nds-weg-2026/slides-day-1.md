@@ -9,5 +9,17 @@ fonts:
   serif: Robot Slab
   # for code blocks, inline code, etc.
   mono: Fira Code
-src: './pages/1_Einführung_und_Grundlagen_1/slides.md'
+background: "/ABB-TS-neutral.png"
+layout: cover
+theme: dracula
 ---
+
+# **NDS - Web Engineering**
+
+## Einführung & Grundlagen 1
+
+<style>
+  h1 {
+    --uno: shadow-filter;
+  }
+</style>
