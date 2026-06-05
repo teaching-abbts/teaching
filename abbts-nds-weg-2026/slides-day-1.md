@@ -272,3 +272,36 @@ image: '/images/WorldWideWeb.jpg'
 - Es wird in seiner **kulturellen Bedeutung**, zusammen mit anderen Internet-Diensten wie E-Mail, teilweise mit der **Erfindung des Buchdrucks** gleichgesetzt
 
 </v-clicks>
+
+---
+layout: small-image-left
+image: '/images/WWW-Funktionsweise.png'
+backgroundSize: contain
+---
+
+# WWW - Funktionsweise
+
+<v-clicks :depth="2">
+
+- _Drei Kernstandards_
+  - **HTTP** als **Protokoll**, mit dem der Browser Informationen vom Webserver anfordern kann
+  - **HTML** als **Auszeichnunssprache**, die festlegt, wie die Information gegliedert ist und wie die Dokumente verknüpft sind (**Hyperlinks**)
+  - **Uniform Resource Identifier** (URI) als eindeutige **Bezeichnung** einer Ressoruce, die in **Hyperlinks** verwendet wird
+
+</v-clicks>
+
+---
+layout: small-image-left
+image: '/images/WWW-Funktionsweise.png'
+backgroundSize: contain
+---
+
+# WWW - Funktionsweise 2
+
+<v-clicks :depth="2">
+
+- _Offizielle Erweiterungen_
+  - **Cascading Style Sheets** (CSS) beschreiben das **Aussehen** und die **Andordnung** der Elemente einer Webseite, womit der Inhalt von dessen Darstellung separiert wird
+  - **Document Object Model** (DOM) als **Programmierschnittstelle** für externe Programme oder Skriptsprachen (wie JavaScript) von Webbrowsern
+
+</v-clicks>
