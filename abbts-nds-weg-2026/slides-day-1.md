@@ -156,3 +156,119 @@ layout: two-cols-header
 - In diesem Kurs kommen konkrete **Techniken, Tools und Frameworks** als **eine (!) Möglichkeit des Web Engineering** zum Einsatz, die vom Dozenten und/oder der Schule bevorzugt werden und sich in der Praxis bewährt haben - aus Zeitgründen können kaum Alternativen betrachtet werden. Es sei jedoch angemerkt, dass es für **fast jedes Tool meist dutzende gleichwertige Alternativen** gibt <fluent-emoji-right-arrow/> bei Interesse kann der Dozent gerne Auskunft geben/beraten.
 
 </v-clicks>
+
+---
+
+# Allgemeine Regeln und Grundsätze 1
+
+<v-click>
+
+## Ablauf des Unterrichts
+
+</v-click>
+
+<v-clicks>
+
+- **Qualität vor Quantität**: lieber ein Thema verschieben und dafür den restlichen Stoff richtig verstehen - bitte gebt dem Dozenten Rückmeldung, wenn er es selbst nicht merkt... <fluent-emoji-downcast-face-with-sweat/>
+- **Kurstage grundsätzlich nach ABB-TS Standard**: jeweils 4 Lektionen à ~45 Minuten (jeweils ~5' Pause dazwischen)
+- In **gemeinsamer** Vereinbarung können situativ Anpassungen vorgenommen werden.
+
+</v-clicks>
+
+<v-click>
+
+## Eigenverantwortung der Studenten
+
+</v-click>
+
+<v-clicks depth="2">
+
+- **Pünktlichkeit**: unsere Zeit ist (leider) knapp bemessen - rechtzeitig starten = rechtzeitig beenden (gilt auch für Pausen)!
+- **Keine Präsenzpflicht**: wer fehlt holt Stoff **selbstständig** nach
+- **Wenn etwas nicht verstanden wurde**: fragen! (notfalls auch mehrfach, ich erkläre gerne nochmals <fluent-emoji-ok-hand/>)
+- **Hausaufgaben**:
+  - Das **selbstständige Lösen der Hausaufgaben** wird beim nächsten Kurstag **vorausgesetzt**.
+  - **Grundsatz**: so wenig wie möglich, so viel wie nötig - niemand mag Hausaufgaben (Dozent ebensowenig!), aber sie dienen der **Vertiefung/Erweiterung** der Erkenntnisse und sind manchmal unerlässlich
+
+</v-clicks>
+
+---
+
+# Allgemeine Regeln und Grundsätze 2
+
+<v-click>
+
+## Umgang Miteinander
+
+</v-click>
+
+<v-click>
+
+### Gegenseitiger Respekt und Toleranz
+
+</v-click>
+
+<v-clicks>
+
+- **Es gibt keine dummen Fragen**: jede Prerson bringt ihr eigenes Vorwissen mit, lernt anders und im eigenen Tempo - wir **nehmen aufeinander Rücksicht** und geben einander **wertschätzend Feedback**.
+- **Wir sind alle Erwachsen**: Pöbeleien, Provokationen, Mobbing, usw. werden **unter keinen Umständen geduldet** und ggf. **sofort geandet**.
+
+</v-clicks>
+
+<v-click>
+
+### Unklarheiten, Fragen und Kritik
+
+</v-click>
+
+<v-clicks>
+
+- **Verständnisprobleme**:
+  - wenn möglich direkt im Unterricht ansprechen
+  - Schriftliches Kontaktieren des Dozenten via **MS Teams** oder **E-Mail** _(Antwort i.d.R. innerhalb von ~24h)_
+- **Individuelle Lösungen**: falls die eine oder andere Gruppe **stark benachteiligt** oder **stark über- oder unterfordert** ist, werden individuelle Lösungen gesucht wie z.B. **Zusatzunterricht** oder **Gruppenaufträge zum selbständigen Erarbeiten und Präsentieren eines Themas**.
+
+</v-clicks>
+
+---
+
+# Allgemeine Regeln und Grundsätze 3
+
+## Präsenzunterricht ist zum Lernen da
+
+<v-clicks>
+
+- **Keine Lust oder Zeit**: Wer mal an der Lektion **nicht mitmachen will** oder **nicht kann** z.B. wegen geschäftlicher Verpflichtungen, Stress oder Erschöpfung - kein Problem *(<fluent-emoji-right-arrow/> Eigenverantwortung!)* - bitte einfach den **Unterrichtssaal verlassen** um den Lernfluss der Mitstudenten nicht zu stören!
+- **Fragen**: dürfen und sollen jederzeit gestellt werden können - einfach **alles mit Mass**: wenn der Fluss oder Zeitplan des Untrrichts erheblich gestört wird, werden Fragen ggf. auf später vertagt.
+
+</v-clicks>
+
+---
+layout: image-left
+image: '/images/WorldWideWeb.jpg'
+---
+
+# Das **World Wide Web**
+
+<v-clicks>
+
+- ENG für "**Weltweites Netz**", kurz **Web** oder auch **WWW** genannt.
+- Ein **über das Internet** abrufbares System von elektronischen **Hypertext-Dokumenten**, sogenannten **Webseiten**
+- Umgangssprachlich wird das **WWW** oft mit dem **Internet** gleichgesetzt; das **WWW** ist jedoch **jünger** und stellt nur **eine** von **mehreren** möglichen **Nutzungen des Internets** dar. Andere Internetdienste wie z.B. **E-Mail** sind **nicht** in das **WWW** integriert.
+- Das **WWW** wurde 1989 von **Tim Berners-Lee** und **Robert Cailliau** am **CERN** in **Genf** in der Schweiz <openmoji-flag-switzerland/> entwickelt.
+
+</v-clicks>
+
+---
+
+# Das **World Wide Web** 2
+
+<v-clicks>
+
+- **Tim Berners-Lee** entwickelte das **HTTP-Netzwerkprotokoll** und **HTML**. Zudem programmierte er den ersten **Webbrowser** und die erste **Webserver-Software**. Er betrieb auch den **ersten Webserver der Welt** auf seinem Entwicklungsrechner 😎💪!
+- Das Gesamtkonzept wurde der Öffentlichkeit 1991 unter **Verzicht** auf jegliche **Patentierung** oder **Lizenzzahlungen** zur **freien Verfügung** gestellt, was **erheblich zur heutigen Bedeutung beitrug**.
+- Die weltweit erste Webseite [info.cern.ch](info.cern.ch) wurde am 6. August 1991 veröffentlicht.
+- Das WWW führte zu umfassenden, oft als revolutionär beschriebenen **Umwälzungen in vielen Lebensbereichen**, zur **Entstehung neuer Wirtschaftszweige** und zu einem grundlegenden **Wandel des Kommunikationsverhaltens** und der Mediennutzung.
+- Es wird in seiner **kulturellen Bedeutung**, zusammen mit anderen Internet-Diensten wie E-Mail, teilweise mit der **Erfindung des Buchdrucks** gleichgesetzt
+
+</v-clicks>
