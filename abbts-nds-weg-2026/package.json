@@ -3,14 +3,14 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "slidev build",
-    "dev": "slidev --open",
-    "export": "slidev export"
+    "build-day-1": "slidev build --base /nds-web-engineering/day-1/slidev/ ./slides-day-1.md",
+    "dev-day-1": "slidev ./slides-day-1.md",
+    "export-day-1": "slidev export ./slides-day-1.md"
   },
   "dependencies": {
-    "@slidev/cli": "^52.16.0",
-    "@slidev/theme-default": "latest",
-    "@slidev/theme-seriph": "latest",
-    "vue": "^3.5.35"
+    "@slidev/cli": "52.16.0",
+    "@slidev/theme-default": "0.25.0",
+    "@slidev/theme-seriph": "0.25.0",
+    "vue": "3.5.35"
   }
 }

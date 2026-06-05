@@ -9,16 +9,16 @@ importers:
   .:
     dependencies:
       '@slidev/cli':
-        specifier: ^52.16.0
+        specifier: 52.16.0
         version: 52.16.0(@nuxt/kit@3.21.7)(@types/markdown-it@14.1.2)(@types/node@22.19.19)(@vue/compiler-sfc@3.5.35)(lightningcss@1.32.0)(markdown-it@14.2.0)(postcss@8.5.15)(rolldown@1.0.3)
       '@slidev/theme-default':
-        specifier: latest
+        specifier: 0.25.0
         version: 0.25.0
       '@slidev/theme-seriph':
-        specifier: latest
+        specifier: 0.25.0
         version: 0.25.0
       vue:
-        specifier: ^3.5.33
+        specifier: 3.5.35
         version: 3.5.35(typescript@6.0.3)
 
 packages:
