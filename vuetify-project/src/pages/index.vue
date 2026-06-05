@@ -1,7 +1,3 @@
-<template>
-  <HelloWorld />
-</template>
+<template>Hello Index</template>
 
-<script lang="ts" setup>
-  import HelloWorld from '@/components/HelloWorld.vue'
-</script>
+<script lang="ts" setup></script>

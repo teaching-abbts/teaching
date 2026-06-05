@@ -1,4 +1,12 @@
 {
   "svg.preview.background": "transparent",
-  "i18n-ally.localesPaths": ["Teaching.Slides/i18n", "Teaching.App/src/i18n"]
+  "i18n-ally.localesPaths": [
+    "Teaching.Slides/i18n",
+    "Teaching.App/src/i18n",
+    "vuetify-project/i18n"
+  ],
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.enabledFrameworks": [
+    "vue"
+  ]
 }
