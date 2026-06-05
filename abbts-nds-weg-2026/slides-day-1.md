@@ -71,21 +71,75 @@ title: Steckbrief Dozent
 
 # Zielsetzungen des **Dozenten**
 
+<v-click>
+
 ## Ich als Student **kenne die Grundlagen** von
 
+</v-click>
+
+<v-clicks>
+
 - `HTML` / `CSS` / `JS`
-- (sicherer) **Kommunikation** zwischen **Client** und **Server**
-- von [Responsive Webdesign](https://de.wikipedia.org/wiki/Responsive_Webdesign) _(SPA passt sich an Displaygrösse an)_
-- von [Progressive Web Apps (PWAs)](https://de.wikipedia.org/wiki/Progressive_Web_App) _(SPA kann offline Inhalte speichern und lässt sich installieren)_
+- Interaktive **Webseiten** und **Web-Apps** mit **Dynamischem Inhalt**
+- Wie **Kommunikation** und **Datenfluss** zwischen **Client** und **Server** funktioniert
+
+</v-clicks>
+
+<v-click>
 
 ## Ich als Student **kann selbständig**
+
+</v-click>
+
+<v-clicks>
 
 - einen einfachen **Webhost** mit `C#` in `ASP.NET Core` programmieren
 - eine einfache **Single-Page-App (SPA)** mit `Vue.js` programmieren
 - ein **einfaches Design** gemäss einer **Vorlage** in `HTML` / `CSS` umsetzen
+
+</v-clicks>
 
 <style>
   ul {
     --uno: mb-5;
   }
 </style>
+
+---
+layout: two-cols-header
+---
+
+# Geplantes Kursprogramm
+
+> Reihenfolge und Inhalt von Themen wird möglichst den Bedürfnissen angepasst und kann daher ggf. leicht ändern.
+
+::left::
+
+<v-clicks depth="2">
+
+1. Grundlagen
+   1. Das **World Wide Web (WWW)**
+   2. `HTML` & `CSS`
+   3. Funktionalität eines **Webbrowsers**
+   4. **Document Object Model** (DOM)
+   5. **JavaScript** & **TypeScript**
+   6. erste **Dynamische Webseite** von <fluent-emoji-raised-hand />
+   7. **HTTP(S)**, **Sessions** & **Cookies**
+   8. Funktionalität eines **Webservers**
+
+</v-clicks>
+
+::right::
+
+<v-clicks depth="2">
+
+2. **Frontend:** Single Page Applications mit `Vue.js` in `TypeScript`
+3. **Backend:** Webserver mit `ASP.NET Core` in `C#`
+4. **Responsive Web Design** <br />*(Dynamische Anpassung an Bildschirmgrössen)*
+5. Weiterarbeit am Projekt **Smart Home**
+   1. Programmieren eines **Firefighter-Dashboards** *(Front- und Backend)*
+   2. Anbindung ans Smart-Quartier
+   3. Alarme, Events, Aktionen
+6. **Progressive Web Apps** <br />*(Offline, Service-Worker, Installation im OS)*
+
+</v-clicks>
