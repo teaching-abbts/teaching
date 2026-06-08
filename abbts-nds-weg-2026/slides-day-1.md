@@ -689,10 +689,10 @@ layout: two-cols
 
 ## **Auftrag**
 
-- Versuchen sie mit dem *soeben vermittelten Wissen* folgende *HTML-Seite* nachzubauen
+- Versuchen sie mit dem _soeben vermittelten Wissen_ folgende _HTML-Seite_ nachzubauen
 - Sie finden die Slides unter <https://teaching-abbts.github.io/nds-web-engineering/day-1/slidev>
-- Das Bild finden sie unter <https://teaching-abbts.github.io/slides-images/abbts-nds.jpg>. Laden sie dieses herunter und verwenden sie es mit einer *relativen URL*.
-- **Achtung**: die farbigen Texte sind *Links*!
+- Das Bild finden sie unter <https://teaching-abbts.github.io/slides-images/abbts-nds.jpg>. Laden sie dieses herunter und verwenden sie es mit einer _relativen URL_.
+- **Achtung**: die farbigen Texte sind _Links_!
   - https://www.abbts.ch/bildungsgaenge/
   - https://www.abbts.ch/nachdiplomstudien/
   - https://www.abbts.ch/kurse/
@@ -705,4 +705,4 @@ layout: two-cols
 
 # Simple HTML-Seite bauen - **Lösungsvorschlag**
 
-<<< public/assets/day-1-assignment-2.html {monaco} { editorOptions: { wordWrap: 'on', lineNumbers: 'on' } }
+<<< ./public/assets/day-1-assignment-2.html {monaco} {lineNumbers:'on',lines:true,height:'450px'}
