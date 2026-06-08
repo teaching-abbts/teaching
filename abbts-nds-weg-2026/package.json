@@ -5,7 +5,10 @@
   "scripts": {
     "build-day-1": "slidev build --base /nds-web-engineering/day-1/slidev/ ./slides-day-1.md",
     "dev-day-1": "slidev ./slides-day-1.md",
-    "export-day-1": "slidev export ./slides-day-1.md"
+    "export-day-1": "slidev export ./slides-day-1.md",
+    "build-day-2": "slidev build --base /nds-web-engineering/day-2/slidev/ ./slides-day-2.md",
+    "dev-day-2": "slidev ./slides-day-2.md",
+    "export-day-2": "slidev export ./slides-day-2.md"
   },
   "dependencies": {
     "@iconify/json": "^2.2.484",
