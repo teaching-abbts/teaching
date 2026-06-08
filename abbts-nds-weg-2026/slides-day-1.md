@@ -706,3 +706,226 @@ layout: two-cols
 # Simple HTML-Seite bauen - **Lösungsvorschlag**
 
 <<< ./public/assets/day-1-assignment-2.html {monaco} {lineNumbers:'on',lines:true,height:'450px'}
+
+---
+
+# Was ist CSS?
+
+<v-clicks :depth="2">
+
+- **Cascading Style Sheets (CSS)** werden zum **Formatieren des Layouts** einer Webseite verwendet.
+- Mit CSS können viele verschiedene Dinge **definiert** und **kontrolliert** werden:
+  - Farben
+  - Schriften
+  - Textgrössen
+  - Abstände zwischen Elementen
+  - Positionierung und Anordnung von Elementen
+  - Hintergrundbilder oder Hintergrundfarben
+  - unterschiedliche Anzeigen für unterschiedliche Geräte und Bildschirmgrößen
+  - Und noch viel mehr..!
+- Das Wort Cascading (Kaskadierung) bedeutet, dass ein auf ein **übergeordnetes Element** angewendeter _Stil_ auch für alle **untergeordneten Elemente** _innerhalb_ des übergeordneten Elements gilt. Wenn also die Farbe des Fliesstexts auf „Blau“ eingestellt wird, erhalten auch alle Überschriften, Absätze und andere Textelemente innerhalb des Fließtexts die gleiche Farbe (sofern nichts anderes angegeben ist).
+
+</v-clicks>
+
+---
+
+# Verwendung von CSS
+
+<v-click>
+
+CSS kann auf drei Arten zu HTML-Dokumenten hinzugefügt werden:
+
+</v-click>
+
+<v-clicks>
+
+- **Inline** – durch Verwendung des `style`-Attributs innerhalb von HTML-Elementen
+- **Intern** – durch Verwendung eines `<style>` Elements im `<head>` Abschnitt
+- **Extern** – durch Verwendung eines `<link>` Elements zur Verknüpfung mit einer externen CSS-Datei
+
+</v-clicks>
+
+---
+layout: two-cols
+---
+
+# Inline-CSS _(Repetition)_
+
+- Wird verwendet um einem einzelnen HTML-Element einen eindeutigen Stil zuzuweisen.
+- Verwendet das `style`-Atrribut eines HTML-Elements
+
+::right::
+
+```html {monaco-run}
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>Ich bin normal</p>
+    <p style="color: red;">Ich bin rot</p>
+    <p style="color: blue;">Ich bin blau</p>
+    <p style="font-size: 30px;">Ich bin GROSS! 💪</p>
+  </body>
+</html>
+```
+
+---
+layout: two-cols
+---
+
+# Internes CSS
+
+- Ein _internes CSS_ wird verwendet, um einen **Stil für eine einzelne HTML-Seite** zu definieren.
+- Ein _internes CSS_ wird im `<head>` Abschnitt einer HTML-Seite innerhalb eines `<style>` Elements definiert.
+- Das folgende Beispiel setzt die Textfarbe ALLER `<h1>` Elemente (auf dieser Seite) auf Blau und die Textfarbe ALLER `<p>` Elemente auf Rot. Zusätzlich wird die Seite mit einer `powderblue` Hintergrundfarbe angezeigt:.
+
+::right::
+
+<<< ./public/assets/day-1-internes-css.html {monaco} {lineNumbers:'on',height:'230px',readonly:true}
+
+<iframe src="/assets/day-1-internes-css.html" width="435px" height="215px"></iframe>
+
+---
+layout: two-cols-header
+---
+
+# Externes CSS
+
+- Für viele HTML-Seiten wird ein **externes Stylesheet** verwendet, um den Stil zu definieren.
+- Um ein externes Stylesheet zu verwenden, fügen Sie im `<head>` Abschnitt jeder HTML-Seite einen **Link** hinzu.
+- Mit einem **externen Stylesheet** kann das **Aussehen der ganzen Webseite** durch _eine (!) Datei_ verändert werden.
+
+::left::
+
+<<< ./public/assets/day-1-externes-css.css {monaco} { readonly:true }
+
+<<< ./public/assets/day-1-externes-css.html {monaco} { readonly:true }
+
+::right::
+
+<iframe src="/assets/day-1-externes-css.html" width="435px" height="400px"></iframe>
+
+<style>
+  li {
+    --uno: text-sm;
+  }
+</style>
+
+---
+layout: two-cols-header
+---
+
+# CSS-Farben, Schriftarten und -grössen
+
+Einige häufig verwendete CSS-Eigenschaften:
+
+- Die CSS-`color` Eigenschaft definiert die zu verwendende Textfarbe.
+- Die CSS-`font-family` Eigenschaft definiert die zu verwendende Schriftart.
+- Die CSS-`font-size` Eigenschaft definiert die zu verwendende Textgröße.
+
+::left::
+
+<<< ./public/assets/day-1-css-colors-fonts.html {monaco} { readonly:true, height:'330px' }
+
+::right::
+
+<iframe src="/assets/day-1-css-colors-fonts.html" width="435px" height="330px"></iframe>
+
+<style>
+  li {
+    --uno: text-sm;
+  }
+</style>
+
+---
+layout: two-cols-header
+---
+
+# CSS-Rahmen
+
+- Die CSS-`border` Eigenschaft definiert einen **Rahmen** um ein **HTML-Element**.
+- Für (fast) alle HTML-Elemente können Rahmen definiert werden.
+
+::left::
+
+<<< ./public/assets/day-1-css-borders.html {monaco} { readonly:true, height:'350px' }
+
+::right::
+
+<iframe src="/assets/day-1-css-borders.html" width="435px" height="350px"></iframe>
+
+---
+layout: two-cols-header
+---
+
+# CSS: Padding und Margin
+
+- Die CSS-`padding` Eigenschaft definiert einen **Abstand** _zwischen dem Text und dem Rahmen_.
+- Die CSS-`margin` Eigenschaft definiert einen **Rand** (Leerraum) _ausserhalb des Rahmens_.
+- Mit `.klassenname` und `class="klassenname"` können CSS Regeln kombiniert und sehr flexibel vergeben werden.
+
+::left::
+
+<<< ./public/assets/day-1-css-padding-margin.html {monaco} { readonly:true, height:'300px' }
+
+::right::
+
+<iframe src="/assets/day-1-css-padding-margin.html" width="435px" height="300px"></iframe>
+
+---
+layout: two-cols-header
+---
+
+# HTML-DIV
+
+- Das `<div>` Tag definiert eine **Unterteilung** oder einen **Abschnitt** in einem HTML-Dokument.
+- Das `<div>` Tag dient als **Container für HTML-Elemente**, die dann gestaltet oder manipuliert werden. Es findet sehr häufig Verwendung zur Kapselung einer Gruppe von Elementen!
+- Jede Art von Inhalt kann in das `<div>` Tag eingefügt werden!
+- **Hinweis**: Standardmäßig setzen Browser immer einen Zeilenumbruch vor und nach dem `<div>` Element.
+
+::left::
+
+<<< ./public/assets/day-1-div.html {monaco} { readonly:true, height:'270px' }
+
+::right::
+
+<iframe src="/assets/day-1-div.html" width="435px" height="270px"></iframe>
+
+---
+layout: two-cols-header
+---
+
+# Gestalten eines Widgets - **Auftrag**
+
+- Verwenden sie das nachfolgende **HTML-Dokument** als **Arbeitsgrundlage** _ohne dieses zu verändern_.
+- Erzeugen sie die ensprechenden **CSS**-Regeln in der Datei `day-1-widget.css` um das gewünschte Aussehen zu erreichen.
+- **Tipps**:
+  - Welche _Stile_ von Rändern gibt es und kann man die Ranbreite beeinflussen..?
+  - Kann Text _aligniert_ (rechts/links/mitte) werden..?
+
+::left::
+
+<<< ./public/assets/day-1-widget.html {monaco} { readonly:true, height:'300px' }
+
+::right::
+
+<iframe src="/assets/day-1-widget.html" width="435px" height="300px"></iframe>
+
+<style>
+  li {
+    --uno: text-sm;
+  }
+</style>
+
+---
+layout: two-cols-header
+---
+
+# Gestalten eines Widgets - **Lösungsvorschlag**
+
+::left::
+
+<<< ./public/assets/day-1-widget.css {monaco} { readonly:true, height:'400px' }
+
+::right::
+
+<iframe src="/assets/day-1-widget.html" width="435px" height="400px"></iframe>
