@@ -929,3 +929,17 @@ layout: two-cols-header
 ::right::
 
 <iframe src="/assets/day-1-widget.html" width="435px" height="400px"></iframe>
+
+---
+
+# Ende der heutigen Veranstaltung
+
+<div class="text-center mt-9">
+
+Vielen herzlichen Dank für eure **Aufmerksamkeit** und **Mitarbeit** 💝!
+
+Kommt alle gut nach Hause, viel Erfolg und eine gute, lehrreiche Woche👌
+
+## 👋 bis nächsten Freitag!
+
+</div>
