@@ -421,7 +421,7 @@ layout: two-cols
   <p>Mein Absatz</p>
   ```
 
-- **Hinweis**: Einige HTML-Elemente haben keinen Inhalt (wie das `<br />`-Element). Diese Elemente werden leere Elemente genannt. *Leere Elemente* haben *kein End-Tag*.
+- **Hinweis**: Einige HTML-Elemente haben keinen Inhalt (wie das `<br />`-Element). Diese Elemente werden leere Elemente genannt. _Leere Elemente_ haben _kein End-Tag_.
 
 </v-clicks>
 
@@ -575,7 +575,7 @@ layout: two-cols
 
 - HTML-Bilder werden mit dem `<img>`-Tag definiert.
 - Die Quelldatei (`src`), Alternativtext (`alt`), `width` und `height` werden als spezifische Attribute für dieses Element bereitgestellt.
-- Beachten sie die effektive Grösse des Bildes *(32px * 32px)* und die effektive Darstellung infolge der Attribute `width` und `height`.
+- Beachten sie die effektive Grösse des Bildes _(32px * 32px)_ und die effektive Darstellung infolge der Attribute `width` und `height`.
 
 ::right::
 
@@ -605,10 +605,10 @@ Es gibt zwei Möglichkeiten, die URL anzugeben im `src`:
 
 - **Absolute URL**: Links zu einem externen Bild, das auf einer anderen Webseite gehostet wird; z.B. `src="https://www.w3schools.com/html/pic_trulli.jpg"`: <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="W3Schools Image" width="200px" />
 - **Relative URL**: Link zu einem Bild, das auf der eigenen Webseite gehostet wird. Hier enthält die URL nicht den Domainnamen.
-  - Wenn die URL ohne Schrägstrich (`/`) beginnt, ist sie *relativ* zur *aktuellen Seite*. Bsp. `src="img.jpg"`
-  - Wenn die URL mit einem Schrägstrich (`/`) beginnt, ist sie relativ zur aktuellen *Domain*. Bsp. `src"/images/img.jpg"` ist relativ zum aktuellen Host- bzw. Domainnamen (z.B. `https://www.abbts.ch`) zu verstehen.
+  - Wenn die URL ohne Schrägstrich (`/`) beginnt, ist sie _relativ_ zur _aktuellen Seite_. Bsp. `src="img.jpg"`
+  - Wenn die URL mit einem Schrägstrich (`/`) beginnt, ist sie relativ zur aktuellen _Domain_. Bsp. `src"/images/img.jpg"` ist relativ zum aktuellen Host- bzw. Domainnamen (z.B. `https://www.abbts.ch`) zu verstehen.
 
-**Tipp**: Es ist *(fast)* immer am besten, relative URLs zu verwenden.
+**Tipp**: Es ist _(fast)_ immer am besten, relative URLs zu verwenden.
 
 **Frage in die Runde**: warum..?
 
@@ -626,8 +626,8 @@ layout: two-cols
 
 - Mensch kann nicht absolut sicher sein, wie HTML angezeigt wird.
 - Grosse oder kleine Bildschirme und veränderte Fenstergrössen führen zu unterschiedlichen Ergebnissen.
-- Bei HTML können Sie die Anzeige *nicht* ändern, indem Sie Ihrem HTML-Code *zusätzliche Leerzeichen* oder *zusätzliche Zeilen hinzufügen.
-- Der Webbrowser entfernt **automatisch** alle zusätzlichen Leerzeichen und Zeilen, wenn die Seite angezeigt wird.
+- Bei HTML können Sie die Anzeige _nicht_ ändern, indem Sie Ihrem HTML-Code _zusätzliche Leerzeichen_ oder _zusätzliche Zeilen_ hinzufügen.
+- Der Webbrowser entfernt _automatisch_ alle zusätzlichen Leerzeichen und Zeilen, wenn die Seite angezeigt wird.
 
 ::right::
 
