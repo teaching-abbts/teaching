@@ -39,7 +39,7 @@ Scaffolded with Vuetify CLI.
 - Pinia
 - Vue I18n
 - Vue Router
-- UnoCSS + Wind4
+- UnoCSS + Vuetify Preset
 
 ## 💿 Install
 

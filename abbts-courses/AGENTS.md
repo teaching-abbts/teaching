@@ -8,4 +8,4 @@
 ## Stack
 - Framework: Vue 3 + Vite
 - UI Library: Vuetify
-- Enabled Features: ESLint, Vuetify MCP, Pinia, Vue I18n, Vue Router, UnoCSS + Wind4
+- Enabled Features: ESLint, Vuetify MCP, Pinia, Vue I18n, Vue Router, UnoCSS + Vuetify Preset
