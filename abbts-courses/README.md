@@ -1,4 +1,4 @@
-# vuetify-project
+# abbts-courses
 
 Scaffolded with Vuetify CLI.
 

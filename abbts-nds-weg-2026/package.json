@@ -11,15 +11,15 @@
     "export-day-2": "slidev export ./slides-day-2.md"
   },
   "dependencies": {
-    "@iconify/json": "^2.2.484",
+    "@iconify/json": "^2.2.485",
     "@slidev/cli": "52.16.0",
     "@slidev/theme-default": "0.25.0",
     "@slidev/theme-seriph": "0.25.0",
     "slidev-theme-dracula": "^0.2.0",
-    "vue": "3.5.35"
+    "vue": "3.5.38"
   },
   "volta": {
     "node": "24.16.0"
   },
-  "packageManager": "pnpm@11.5.2"
+  "packageManager": "pnpm@11.5.3"
 }
