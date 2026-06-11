@@ -899,8 +899,57 @@ layout: two-cols-header
 
 ::left::
 
-<<< ./public/assets/day-2-dom-and-js.html {monaco} { lineNumbers: 'on', height: '400px', readOnly: true }
+<<< ./public/assets/day-2-dom-and-js.html html {monaco} { lineNumbers: 'on', height: '400px', readOnly: true }
 
 ::right::
 
 <iframe class="w-full h-full bg-white m-3" src="/assets/day-2-dom-and-js.html" style="height: 400px;" />
+
+---
+layout: two-cols-header
+---
+
+# **Auftrag**: Eine TODO-App programmieren
+
+- Programmieren sie eine App, die sich so verhält wie im Beispiel rechts
+- Benützen sie den vorgegebenen HTML-Code als Basis
+
+::left::
+
+<<< ./public/assets/day-2-assignment-todo.html html {monaco} { lineNumbers: 'on', height: '370px', readOnly: true }
+
+::right::
+
+<iframe class="w-full h-100 bg-white m-3" src="/assets/day-2-assignment-todo-solution.html" style="height: 370px;" />
+
+---
+
+# Hausaufgabe
+
+<v-clicks :depth="4">
+
+- Ihr Auftrag ist es, die gelernten Kursinhalte zu **wiederholen**, zu **ergänzen** und zu **vertiefen**, indem sie das [JavaScript
+Tutorial der W3Schools](https://www.w3schools.com/js/default.asp) durchspielen.
+- Spielen sie dabei folgende Kapitel durch
+  - [JS HOME](https://www.w3schools.com/js/default.asp) -> [JS Iterables](https://www.w3schools.com/js/js_iterables.asp)
+    - **Überspringen** sie dabei folgende Kapitel,
+      - [JS BigInt](https://www.w3schools.com/js/js_bigint.asp): ist zwar spannend, aber hat für diesen Kurs keinen Mehrwert
+      - [JS Dates](https://www.w3schools.com/js/js_dates.asp) -> [JS Date Set Methods](https://www.w3schools.com/js/js_date_methods_set.asp): die `DateTime` implementation von JS kommt direkt aus der Hölle...🤬 -> benützen sie für `DateTime`-Belange [Luxon](https://moment.github.io/luxon/#/)
+  - [DOM Intro](https://www.w3schools.com/js/js_htmldom.asp) -> [DOM CSS](https://www.w3schools.com/js/js_htmldom_css.asp)
+- Falls sie mit den heutigen Übungen nicht fertig geworden sind, beenden sie diese auf das nächste mal.
+
+</v-clicks>
+
+---
+
+# Ende der heutigen Veranstaltung
+
+<div class="text-center mt-9">
+
+Vielen herzlichen Dank für eure **Aufmerksamkeit** und **Mitarbeit** 💝!
+
+Kommt alle gut nach Hause, viel Erfolg bei den Hausaufgaben und eine gute, lehrreiche Woche👌
+
+👋 bis nächsten Freitag!
+
+</div>
