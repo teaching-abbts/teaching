@@ -1,10 +1,11 @@
 <template>
   <v-switch
-    v-model="appStore.isDarkTheme"
-    true-icon="mdi-moon-waning-crescent"
-    false-icon="mdi-white-balance-sunny"
+    class="ml-2 mr-2"
     density="comfortable"
+    false-icon="mdi-white-balance-sunny"
     hide-details
+    true-icon="mdi-moon-waning-crescent"
+    v-model="appStore.isDarkTheme"
   />
 </template>
 

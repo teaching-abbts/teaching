@@ -9,7 +9,9 @@
 
       <v-app-bar-title>Application</v-app-bar-title>
 
-      <app-theme-switcher />
+      <template #append>
+        <app-theme-switcher />
+      </template>
     </v-app-bar>
 
     <v-main>
