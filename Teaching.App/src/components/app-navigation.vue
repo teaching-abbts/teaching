@@ -73,7 +73,7 @@ const collator = new Intl.Collator(undefined, {
 
 function sortTree(nodes: NavItem[]): NavItem[] {
   return [...nodes]
-    .sort((a, b) => collator.compare(a.name, b.name))
+    .sort((a, b) => collator.compare(b.name, a.name))
     .map((node) => ({
       ...node,
       children: node.children ? sortTree(node.children) : undefined,
