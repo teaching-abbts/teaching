@@ -8,7 +8,7 @@ export const useAppStore = defineStore("app", () => {
 
   const isDarkTheme = computed({
     get: () => theme.current.value.dark,
-    set: (v) => (theme.global.name.value = v ? "dark" : "light"),
+    set: (isDark) => theme.change(isDark ? "dark" : "light"),
   });
 
   return {
