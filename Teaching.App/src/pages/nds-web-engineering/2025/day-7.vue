@@ -1,6 +1,6 @@
 <template>
   <div class="w-full text-center">
-    <h2>{{ t("introduction-and-basics-1") }}</h2>
+    <h2>{{ t("authentication") }}</h2>
     <div class="flex flex-row justify-evenly">
       <external-ref-card v-for="card in cards" :key="card.href" v-bind="card" />
     </div>
@@ -15,7 +15,7 @@ const { t } = useI18n();
 
 const cards: ExternalRefCardProps[] = [
   {
-    href: "/nds-web-engineering/day-1/slidev",
+    href: "/nds-web-engineering/2025/day-7/slidev",
     icon: "mdi-presentation-play",
     title: t("presentation"),
     subtitle: t("interactive-slides"),

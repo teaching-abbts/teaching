@@ -1,6 +1,6 @@
 <template>
   <div class="w-full text-center">
-    <h2>{{ t("the-road-to-fullstack-with-vue.js-and-ktor") }}</h2>
+    <h2>{{ t("basics-3") }}</h2>
     <div class="flex flex-row justify-evenly">
       <external-ref-card v-for="card in cards" :key="card.href" v-bind="card" />
     </div>
@@ -15,7 +15,7 @@ const { t } = useI18n();
 
 const cards: ExternalRefCardProps[] = [
   {
-    href: "/nds-web-engineering/day-5/slidev",
+    href: "/nds-web-engineering/2025/day-3/slidev",
     icon: "mdi-presentation-play",
     title: t("presentation"),
     subtitle: t("interactive-slides"),

@@ -1,5 +1,6 @@
 using Build.Tasks;
 
+using Cake.Common;
 using Cake.Common.IO;
 using Cake.Common.Solution;
 using Cake.Core;
@@ -24,12 +25,16 @@ public class BuildContext : FrostingContext
   public BuildContext(ICakeContext context)
     : base(context)
   {
-    Solution = context.ParseSolution(context.File("../teaching.sln"));
-    ArtifactsDir = context.Directory("../.artifacts");
+    Solution = context.Argument(
+      nameof(Solution),
+      context.ParseSolution(context.File("../teaching.sln"))
+    );
+    ArtifactsDir = context.Argument<DirectoryPath>(nameof(ArtifactsDir), context.Directory("../.artifacts"));
   }
 }
 
 [TaskName("Default")]
 [IsDependentOn(typeof(BuildTeachingAppTask))]
 [IsDependentOn(typeof(BuildTeachingSlidesTask))]
+[IsDependentOn(typeof(BuildTeachingNdsWeg2026Task))]
 public class DefaultTask : FrostingTask { }

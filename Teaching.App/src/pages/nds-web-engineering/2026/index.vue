@@ -12,9 +12,6 @@
         v-for="route in routes"
         variant="tonal"
       >
-        <template #image>
-          <v-img v-if="route.logo" position="top right" :src="route.logo" />
-        </template>
         <template #title>
           <h2 class="text-h5 font-weight-bold">
             {{ route.title }}
@@ -39,15 +36,13 @@ const { t } = useI18n();
 const router = useRouter();
 const routes = computed(() => [
   {
-    path: "/nds-web-engineering/2025",
-    title: t("nds-web-engineering-2025"),
-    logo: "/logo-day-1.png",
-    date: "2025",
+    path: "/nds-web-engineering/2026/day-1",
+    title: t("nds-2026-day-1"),
+    date: "2026",
   },
   {
-    path: "/nds-web-engineering/2026",
-    title: t("nds-web-engineering-2026"),
-    logo: "/logo-day-2.png",
+    path: "/nds-web-engineering/2026/day-2",
+    title: t("nds-2026-day-2"),
     date: "2026",
   },
 ]);

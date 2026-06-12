@@ -78,11 +78,15 @@ section {
   display: flex;
   flex-direction: v-bind(flexDirection);
   flex-wrap: v-bind(flexWrap);
+  zoom: 0.8;
 }
 
 article {
   min-width: v-bind(articleMinWidth);
   flex: v-bind(articleFlexValue);
+  padding: 10px;
+  margin: 10px;
+  background: aqua;
 }
 
 article:nth-last-of-type(1) {
@@ -118,13 +122,5 @@ h1 {
   color: white;
   line-height: 100px;
   margin: 0;
-}
-section {
-  zoom: 0.8;
-}
-article {
-  padding: 10px;
-  margin: 10px;
-  background: aqua;
 }
 </style>

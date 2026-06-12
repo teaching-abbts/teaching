@@ -690,7 +690,7 @@ layout: two-cols
 ## **Auftrag**
 
 - Versuchen sie mit dem _soeben vermittelten Wissen_ folgende _HTML-Seite_ nachzubauen
-- Sie finden die Slides unter <https://teaching-abbts.github.io/nds-web-engineering/day-1/slidev>
+- Sie finden die Slides unter <https://teaching-abbts.github.io/nds-web-engineering/2026/day-1/slidev>
 - Das Bild finden sie unter <https://teaching-abbts.github.io/slides-images/abbts-nds.jpg>. Laden sie dieses herunter und verwenden sie es mit einer _relativen URL_.
 - **Achtung**: die farbigen Texte sind _Links_!
   - https://www.abbts.ch/bildungsgaenge/

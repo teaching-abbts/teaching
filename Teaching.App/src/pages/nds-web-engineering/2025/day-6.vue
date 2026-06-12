@@ -15,7 +15,7 @@ const { t } = useI18n();
 
 const cards: ExternalRefCardProps[] = [
   {
-    href: "/nds-web-engineering/day-6/slidev",
+    href: "/nds-web-engineering/2025/day-6/slidev",
     icon: "mdi-presentation-play",
     title: t("presentation"),
     subtitle: t("interactive-slides"),
