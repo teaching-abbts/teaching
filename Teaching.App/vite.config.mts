@@ -1,11 +1,11 @@
-import Vue from "@vitejs/plugin-vue";
-import { URL, fileURLToPath } from "node:url";
-import UnoCSS from "unocss/vite";
-import Fonts from "unplugin-fonts/vite";
 import Components from "unplugin-vue-components/vite";
+import Fonts from "unplugin-fonts/vite";
+import UnoCSS from "unocss/vite";
+import Vue from "@vitejs/plugin-vue";
 import VueRouter from "unplugin-vue-router/vite";
-import { defineConfig } from "vite";
 import Vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
+import { URL, fileURLToPath } from "node:url";
+import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -58,14 +58,4 @@ export default defineConfig({
   server: {
     port: 3000,
   },
-  //css: {
-  //  preprocessorOptions: {
-  //    sass: {
-  //      api: "modern-compiler",
-  //    },
-  //    scss: {
-  //      api: "modern-compiler",
-  //    },
-  //  },
-  //},
 });

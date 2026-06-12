@@ -13,7 +13,7 @@
         variant="tonal"
       >
         <template #image>
-          <v-img position="top right" :src="route.logo" />
+          <v-img v-if="route.logo" position="top right" :src="route.logo" />
         </template>
         <template #title>
           <h2 class="text-h5 font-weight-bold">
@@ -57,22 +57,38 @@ const routes = computed(() => [
     date: "13. Juni 2025",
   },
   {
-    path: "nds-web-engineering/day-4",
+    path: "/nds-web-engineering/day-4",
     title: t("single-page-apps-with-vue.js"),
     logo: "/logo-day-4.png",
     date: "20. Juni 2025",
   },
   {
-    path: "nds-web-engineering/day-5",
+    path: "/nds-web-engineering/day-5",
     title: t("the-road-to-fullstack-with-vue.js-and-ktor"),
     logo: "/logo-day-5.png",
     date: "27. Juni 2025",
   },
   {
-    path: "nds-web-engineering/day-6",
+    path: "/nds-web-engineering/day-6",
     title: t("frontend-advanced-flexbox-vuetify"),
     logo: "/logo-day-6.svg",
     date: "4. Juli 2025",
+  },
+  {
+    path: "/nds-web-engineering/day-7",
+    title: t("authentication"),
+    logo: "/logo-day-7.png",
+    date: "11. Juli 2025",
+  },
+  {
+    path: "/nds-web-engineering/day-8",
+    title: t("certs-auth-pinia"),
+    date: "18. Juli 2025",
+  },
+  {
+    path: "/nds-web-engineering/day-10",
+    title: t("pwa-and-vue-advanced"),
+    date: "1. August 2025",
   },
 ]);
 

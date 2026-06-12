@@ -3,6 +3,7 @@
   "i18n-ally.localesPaths": [
     "abbts-courses/src/i18n",
     "abbts-nds-weg-2026/src/i18n",
+    "Teaching.App/src/i18n"
   ],
   "i18n-ally.keystyle": "nested",
   "i18n-ally.enabledFrameworks": [

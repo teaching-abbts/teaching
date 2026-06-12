@@ -66,5 +66,19 @@ function buildTree(paths: string[]): NavItem[] {
   return root;
 }
 
-const navTree = computed(() => buildTree(paths.value));
+const collator = new Intl.Collator(undefined, {
+  numeric: true,
+  sensitivity: "base",
+});
+
+function sortTree(nodes: NavItem[]): NavItem[] {
+  return [...nodes]
+    .sort((a, b) => collator.compare(a.name, b.name))
+    .map((node) => ({
+      ...node,
+      children: node.children ? sortTree(node.children) : undefined,
+    }));
+}
+
+const navTree = computed(() => sortTree(buildTree(paths.value)));
 </script>

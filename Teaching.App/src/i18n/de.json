@@ -29,5 +29,7 @@
   "day-7": "Tag 7 - Authentifizierung",
   "authentication": "Zugriffsverwaltung und Abhörsicherheit im WWW",
   "day-8": "Tag 8 - Zertifikate, OIDC, Pinia",
-  "certs-auth-pinia": "Zertifikate, Autorisierung mit OIDC, Pinia"
+  "certs-auth-pinia": "Zertifikate, Autorisierung mit OIDC, Pinia",
+  "day-10": "Tag 10 - PWA und Vue Advanced",
+  "pwa-and-vue-advanced": "PWA und Vue Advanced"
 }

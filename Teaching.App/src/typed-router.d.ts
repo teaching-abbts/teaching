@@ -22,6 +22,7 @@ declare module 'vue-router/auto-routes' {
     '/[...path]': RouteRecordInfo<'/[...path]', '/:path(.*)', { path: ParamValue<true> }, { path: ParamValue<false> }>,
     '/nds-web-engineering/': RouteRecordInfo<'/nds-web-engineering/', '/nds-web-engineering', Record<never, never>, Record<never, never>>,
     '/nds-web-engineering/day-1': RouteRecordInfo<'/nds-web-engineering/day-1', '/nds-web-engineering/day-1', Record<never, never>, Record<never, never>>,
+    '/nds-web-engineering/day-10': RouteRecordInfo<'/nds-web-engineering/day-10', '/nds-web-engineering/day-10', Record<never, never>, Record<never, never>>,
     '/nds-web-engineering/day-2': RouteRecordInfo<'/nds-web-engineering/day-2', '/nds-web-engineering/day-2', Record<never, never>, Record<never, never>>,
     '/nds-web-engineering/day-3': RouteRecordInfo<'/nds-web-engineering/day-3', '/nds-web-engineering/day-3', Record<never, never>, Record<never, never>>,
     '/nds-web-engineering/day-4': RouteRecordInfo<'/nds-web-engineering/day-4', '/nds-web-engineering/day-4', Record<never, never>, Record<never, never>>,
