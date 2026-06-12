@@ -39,40 +39,14 @@ const { t } = useI18n();
 const router = useRouter();
 const routes = computed(() => [
   {
-    path: "/nds-web-engineering/2025/day-1",
-    title: t("introduction-and-basics-1"),
-    logo: "/logo-day-1.png",
-    date: "30. Mai 2025",
+    path: "/nds-web-engineering/2025/day-10",
+    title: t("pwa-and-vue-advanced"),
+    date: "1. August 2025",
   },
   {
-    path: "/nds-web-engineering/2025/day-2",
-    title: t("basics-2"),
-    logo: "/logo-day-2.png",
-    date: "6. Juni 2025",
-  },
-  {
-    path: "/nds-web-engineering/2025/day-3",
-    title: t("basics-3"),
-    logo: "/logo-day-3.png",
-    date: "13. Juni 2025",
-  },
-  {
-    path: "/nds-web-engineering/2025/day-4",
-    title: t("single-page-apps-with-vue.js"),
-    logo: "/logo-day-4.png",
-    date: "20. Juni 2025",
-  },
-  {
-    path: "/nds-web-engineering/2025/day-5",
-    title: t("the-road-to-fullstack-with-vue.js-and-ktor"),
-    logo: "/logo-day-5.png",
-    date: "27. Juni 2025",
-  },
-  {
-    path: "/nds-web-engineering/2025/day-6",
-    title: t("frontend-advanced-flexbox-vuetify"),
-    logo: "/logo-day-6.svg",
-    date: "4. Juli 2025",
+    path: "/nds-web-engineering/2025/day-8",
+    title: t("certs-auth-pinia"),
+    date: "18. Juli 2025",
   },
   {
     path: "/nds-web-engineering/2025/day-7",
@@ -81,14 +55,40 @@ const routes = computed(() => [
     date: "11. Juli 2025",
   },
   {
-    path: "/nds-web-engineering/2025/day-8",
-    title: t("certs-auth-pinia"),
-    date: "18. Juli 2025",
+    path: "/nds-web-engineering/2025/day-6",
+    title: t("frontend-advanced-flexbox-vuetify"),
+    logo: "/logo-day-6.svg",
+    date: "4. Juli 2025",
   },
   {
-    path: "/nds-web-engineering/2025/day-10",
-    title: t("pwa-and-vue-advanced"),
-    date: "1. August 2025",
+    path: "/nds-web-engineering/2025/day-5",
+    title: t("the-road-to-fullstack-with-vue.js-and-ktor"),
+    logo: "/logo-day-5.png",
+    date: "27. Juni 2025",
+  },
+  {
+    path: "/nds-web-engineering/2025/day-4",
+    title: t("single-page-apps-with-vue.js"),
+    logo: "/logo-day-4.png",
+    date: "20. Juni 2025",
+  },
+  {
+    path: "/nds-web-engineering/2025/day-3",
+    title: t("basics-3"),
+    logo: "/logo-day-3.png",
+    date: "13. Juni 2025",
+  },
+  {
+    path: "/nds-web-engineering/2025/day-2",
+    title: t("basics-2"),
+    logo: "/logo-day-2.png",
+    date: "6. Juni 2025",
+  },
+  {
+    path: "/nds-web-engineering/2025/day-1",
+    title: t("introduction-and-basics-1"),
+    logo: "/logo-day-1.png",
+    date: "30. Mai 2025",
   },
 ]);
 

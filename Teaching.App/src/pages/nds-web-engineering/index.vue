@@ -39,16 +39,16 @@ const { t } = useI18n();
 const router = useRouter();
 const routes = computed(() => [
   {
-    path: "/nds-web-engineering/2025",
-    title: t("nds-web-engineering-2025"),
-    logo: "/logo-day-1.png",
-    date: "2025",
-  },
-  {
     path: "/nds-web-engineering/2026",
     title: t("nds-web-engineering-2026"),
     logo: "/logo-day-2.png",
     date: "2026",
+  },
+  {
+    path: "/nds-web-engineering/2025",
+    title: t("nds-web-engineering-2025"),
+    logo: "/logo-day-1.png",
+    date: "2025",
   },
 ]);
 
