@@ -7,7 +7,6 @@ using Cake.Common.IO;
 using Cake.Common.Solution;
 using Cake.Common.Tools.Command;
 using Cake.Core;
-using Cake.Core.IO;
 using Cake.Frosting;
 
 namespace Build.Tasks;
@@ -26,9 +25,8 @@ public class BuildTeachingAppTask : FrostingTask<BuildContext>
     context.Command(pnpmCommand, "run build");
 
     context.Information("*** Copying artifacts to .artifacts directory...");
-    DirectoryPath artifactsDir = teachingApp.Path.GetDirectory().Combine("../.artifacts");
-    context.EnsureDirectoryDoesNotExist(artifactsDir);
-    context.EnsureDirectoryExists(artifactsDir);
-    context.CopyDirectory(teachingApp.Path.GetDirectory().Combine("dist"), artifactsDir);
+    context.EnsureDirectoryDoesNotExist(context.ArtifactsDir);
+    context.EnsureDirectoryExists(context.ArtifactsDir);
+    context.CopyDirectory(teachingApp.Path.GetDirectory().Combine("dist"), context.ArtifactsDir);
   }
 }

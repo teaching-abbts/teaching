@@ -20,24 +20,33 @@ public class BuildTeachingSlidesTask : FrostingTask<BuildContext>
     SolutionProject slidesProject =
       context.Solution.Projects.FirstOrDefault(project => project.Name == "Teaching.Slides")
       ?? throw new CakeException("Teaching.Slides project not found in the solution.");
-    var artifactsDir = slidesProject.Path.GetDirectory().Combine("../.artifacts");
 
     CommandSettings pnpmCommand = slidesProject.GetPnpmCommand();
-    FilePathCollection days = context.GetFiles($"{slidesProject.Path.GetDirectory()}/slides-day-*.md");
+    FilePathCollection days = context.GetFiles(
+      $"{slidesProject.Path.GetDirectory()}/slides-day-*.md"
+    );
 
     foreach (FilePath day in days)
     {
       context.Information($"*** Processing {day.FullPath}...");
-      string dayName = day.GetFilenameWithoutExtension().ToString().Replace("slides-", string.Empty);
+      string dayName = day.GetFilenameWithoutExtension()
+        .ToString()
+        .Replace("slides-", string.Empty);
 
       context.Command(pnpmCommand, $"run build-{dayName}");
       DirectoryPath distDir = slidesProject.Path.GetDirectory().Combine("dist");
-      DirectoryPath outputDir = artifactsDir.Combine("nds-web-engineering").Combine(dayName).Combine("slidev");
+      DirectoryPath outputDir = context
+        .ArtifactsDir.Combine("nds-web-engineering")
+        .Combine(dayName)
+        .Combine("slidev");
       context.EnsureDirectoryDoesNotExist(outputDir);
       context.EnsureDirectoryExists(outputDir);
       context.CopyDirectory(distDir, outputDir);
     }
 
-    context.CopyDirectory(slidesProject.Path.GetDirectory().Combine("public"), artifactsDir);
+    context.CopyDirectory(
+      slidesProject.Path.GetDirectory().Combine("public"),
+      context.ArtifactsDir
+    );
   }
 }

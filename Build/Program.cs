@@ -2,8 +2,8 @@ using Build.Tasks;
 
 using Cake.Common.IO;
 using Cake.Common.Solution;
-using Cake.Common.Tools.Command;
 using Cake.Core;
+using Cake.Core.IO;
 using Cake.Frosting;
 
 namespace Build;
@@ -16,10 +16,17 @@ public static class Program
   }
 }
 
-public class BuildContext(ICakeContext context) : FrostingContext(context)
+public class BuildContext : FrostingContext
 {
-  public SolutionParserResult Solution { get; } =
-    context.ParseSolution(context.File("../teaching.sln"));
+  public DirectoryPath ArtifactsDir { get; }
+  public SolutionParserResult Solution { get; }
+
+  public BuildContext(ICakeContext context)
+    : base(context)
+  {
+    Solution = context.ParseSolution(context.File("../teaching.sln"));
+    ArtifactsDir = context.Directory("../.artifacts");
+  }
 }
 
 [TaskName("Default")]
