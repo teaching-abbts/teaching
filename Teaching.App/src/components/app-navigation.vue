@@ -74,7 +74,6 @@ import { useAuthStore } from "@/stores/auth";
 import { useTeachingContentStore } from "@/stores/teaching-content";
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
-import { useRouter } from "vue-router";
 
 import type { NavItem } from "./app-navigation-item.vue";
 
@@ -82,7 +81,6 @@ export interface AppNavigationModels {
   modelValue: boolean | null;
 }
 
-const router = useRouter();
 const { t } = useI18n();
 const authStore = useAuthStore();
 const contentStore = useTeachingContentStore();
@@ -90,62 +88,24 @@ const contentStore = useTeachingContentStore();
 const modelValue = defineModel<AppNavigationModels["modelValue"]>();
 const versionDialogOpen = ref(false);
 
-const routes = computed(() =>
-  router
-    .getRoutes()
-    .filter((r) => r.path !== "/" && !r.path.startsWith("/:"))
-    .filter((r) => contentStore.canAccessPath(r.path, authStore.isTeacherMode)),
-);
+const navTree = computed<NavItem[]>(() => {
+  const years = contentStore.getVisibleYears(authStore.isTeacherMode);
 
-const paths = computed(() => routes.value.map((route) => route.path));
-
-function insertNode(root: NavItem[], parts: string[], index: number): void {
-  if (index >= parts.length) return;
-
-  const part = parts[index];
-  const path = parts.slice(0, index + 1).reduce((accumulator, currentValue) => {
-    if (accumulator !== "/") {
-      return `${accumulator}/${currentValue}`;
-    }
-
-    return `/${currentValue}`;
-  }, "/");
-  let node = root.find((n) => n.name === part);
-
-  if (!node) {
-    node = { name: part, path, children: [] };
-    root.push(node);
-  }
-
-  insertNode(node.children!, parts, index + 1);
-}
-
-function buildTree(paths: string[]): NavItem[] {
-  const root: NavItem[] = [];
-
-  paths.forEach((path) => {
-    const parts = path.split("/").filter(Boolean);
-    insertNode(root, parts, 0);
-  });
-
-  return root;
-}
-
-const collator = new Intl.Collator(undefined, {
-  numeric: true,
-  sensitivity: "base",
+  return [
+    {
+      name: contentStore.course.titleKey,
+      path: contentStore.course.path,
+      children: years.map((year) => ({
+        name: String(year.year),
+        path: year.path,
+        children: year.days.map((day) => ({
+          name: day.titleKey,
+          path: day.path,
+        })),
+      })),
+    },
+  ];
 });
-
-function sortTree(nodes: NavItem[]): NavItem[] {
-  return [...nodes]
-    .sort((a, b) => collator.compare(b.name, a.name))
-    .map((node) => ({
-      ...node,
-      children: node.children ? sortTree(node.children) : undefined,
-    }));
-}
-
-const navTree = computed(() => sortTree(buildTree(paths.value)));
 </script>
 
 <style scoped>

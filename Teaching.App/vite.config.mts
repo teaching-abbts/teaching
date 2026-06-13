@@ -6,7 +6,6 @@ import { URL, fileURLToPath } from "node:url";
 import UnoCSS from "unocss/vite";
 import Fonts from "unplugin-fonts/vite";
 import Components from "unplugin-vue-components/vite";
-import VueRouter from "unplugin-vue-router/vite";
 import { type Plugin, defineConfig } from "vite";
 import Vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 
@@ -68,9 +67,6 @@ function gitVersionModulePlugin(): Plugin {
 export default defineConfig({
   plugins: [
     gitVersionModulePlugin(),
-    VueRouter({
-      dts: "src/typed-router.d.ts",
-    }),
     Vue({
       template: { transformAssetUrls },
     }),
@@ -98,13 +94,7 @@ export default defineConfig({
     UnoCSS(),
   ],
   optimizeDeps: {
-    exclude: [
-      "vuetify",
-      "vue-router",
-      "unplugin-vue-router/runtime",
-      "unplugin-vue-router/data-loaders",
-      "unplugin-vue-router/data-loaders/basic",
-    ],
+    exclude: ["vuetify", "vue-router"],
   },
   define: { "process.env": {} },
   resolve: {

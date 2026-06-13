@@ -41,7 +41,7 @@ public class BuildTeachingNdsWeg2026Task : FrostingTask<BuildContext>
       context.Command(pnpmCommand, $"run build-{dayName}");
       DirectoryPath distDir = ndsWeg2026ProjectDir.Combine("dist");
       DirectoryPath outputDir = context
-        .ArtifactsDir.Combine("nds-web-engineering")
+        .AppPublishDir.Combine("nds-web-engineering")
         .Combine("2026")
         .Combine(dayName)
         .Combine("slidev");

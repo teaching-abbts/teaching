@@ -1,11 +1,36 @@
+import CatchAllPage from "@/pages/[...path].vue";
+import HomePage from "@/pages/index.vue";
 import { useAuthStore } from "@/stores/auth";
 import { useTeachingContentStore } from "@/stores/teaching-content";
-import { createRouter, createWebHashHistory } from "vue-router/auto";
-import { routes } from "vue-router/auto-routes";
+import NdsCourseOverview from "@/views/nds-course-overview.vue";
+import NdsDayView from "@/views/nds-day-view.vue";
+import NdsYearOverview from "@/views/nds-year-overview.vue";
+import { createRouter, createWebHashHistory } from "vue-router";
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
-  routes: [...routes],
+  routes: [
+    {
+      path: "/",
+      component: HomePage,
+    },
+    {
+      path: "/nds-web-engineering",
+      component: NdsCourseOverview,
+    },
+    {
+      path: String.raw`/nds-web-engineering/:year(\d{4})`,
+      component: NdsYearOverview,
+    },
+    {
+      path: String.raw`/nds-web-engineering/:year(\d{4})/day-:dayNumber(\d+)`,
+      component: NdsDayView,
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      component: CatchAllPage,
+    },
+  ],
 });
 
 router.beforeEach((to) => {

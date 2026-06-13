@@ -27,26 +27,12 @@ public class DeployArtifactsTask : FrostingTask<DeployContext>
       throw new CakeException("The TargetPath argument is required.");
     }
 
-    if (!Directory.Exists(context.WebOutputDir.FullPath))
+    if (!File.Exists(context.WebArchivePath.FullPath))
     {
       throw new CakeException(
-        $"Web output directory not found: '{context.WebOutputDir.FullPath}'."
+        $"Web archive not found: '{context.WebArchivePath.FullPath}'."
       );
     }
-
-    context.Information($"*** Creating web archive {context.WebArchivePath.FullPath}...");
-
-    if (File.Exists(context.WebArchivePath.FullPath))
-    {
-      File.Delete(context.WebArchivePath.FullPath);
-    }
-
-    ZipFile.CreateFromDirectory(
-      context.WebOutputDir.FullPath,
-      context.WebArchivePath.FullPath,
-      CompressionLevel.Optimal,
-      includeBaseDirectory: false
-    );
 
     context.Information($"*** Deploying artifacts to {context.TargetPath.FullPath}...");
     context.EnsureDirectoryExists(context.TargetPath);

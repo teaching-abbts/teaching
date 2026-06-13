@@ -4,11 +4,11 @@ import { defineStore } from "pinia";
 const SESSION_KEY = "teacher-session";
 
 function readTeacherSession(): boolean {
-  if (typeof window === "undefined") {
+  if (globalThis.window === undefined) {
     return false;
   }
 
-  return window.sessionStorage.getItem(SESSION_KEY) === "1";
+  return globalThis.window.sessionStorage.getItem(SESSION_KEY) === "1";
 }
 
 export const useAuthStore = defineStore("auth", () => {
@@ -24,8 +24,8 @@ export const useAuthStore = defineStore("auth", () => {
     }
 
     isTeacherMode.value = true;
-    if (typeof window !== "undefined") {
-      window.sessionStorage.setItem(SESSION_KEY, "1");
+    if (globalThis.window !== undefined) {
+      globalThis.window.sessionStorage.setItem(SESSION_KEY, "1");
     }
 
     return true;
@@ -33,8 +33,8 @@ export const useAuthStore = defineStore("auth", () => {
 
   function logoutTeacher(): void {
     isTeacherMode.value = false;
-    if (typeof window !== "undefined") {
-      window.sessionStorage.removeItem(SESSION_KEY);
+    if (globalThis.window !== undefined) {
+      globalThis.window.sessionStorage.removeItem(SESSION_KEY);
     }
   }
 

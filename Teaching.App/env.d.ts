@@ -1,6 +1,5 @@
 /// <reference types="vite/client" />
-/// <reference types="unplugin-vue-router/client" />
 
 interface ImportMetaEnv {
-	readonly VITE_TEACHER_PASSPHRASE?: string;
+  readonly VITE_TEACHER_PASSPHRASE?: string;
 }

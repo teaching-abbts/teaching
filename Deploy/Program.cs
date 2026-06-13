@@ -25,8 +25,6 @@ public class DeployContext : FrostingContext
 {
   public DirectoryPath ArtifactsDir { get; }
 
-  public DirectoryPath WebOutputDir { get; }
-
   public FilePath WebArchivePath { get; }
 
   public DirectoryPath TargetPath { get; }
@@ -38,7 +36,6 @@ public class DeployContext : FrostingContext
     TargetPath = context.Argument<DirectoryPath>(nameof(TargetPath), null!);
 
     string gitVersion = GetGitVersion();
-    WebOutputDir = ArtifactsDir.Combine("web");
     WebArchivePath = context.File(Path.Combine(ArtifactsDir.FullPath, $"web-{gitVersion}.zip"));
   }
 
