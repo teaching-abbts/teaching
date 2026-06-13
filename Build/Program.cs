@@ -20,6 +20,7 @@ public static class Program
 public class BuildContext : FrostingContext
 {
   public DirectoryPath ArtifactsDir { get; }
+  public DirectoryPath AppPublishDir { get; }
   public SolutionParserResult Solution { get; }
 
   public BuildContext(ICakeContext context)
@@ -29,7 +30,11 @@ public class BuildContext : FrostingContext
       nameof(Solution),
       context.ParseSolution(context.File("../teaching.sln"))
     );
-    ArtifactsDir = context.Argument<DirectoryPath>(nameof(ArtifactsDir), context.Directory("../.artifacts"));
+    ArtifactsDir = context.Argument<DirectoryPath>(
+      nameof(ArtifactsDir),
+      context.Directory("../.artifacts")
+    );
+    AppPublishDir = context.Argument(nameof(AppPublishDir), ArtifactsDir.Combine("web"));
   }
 }
 

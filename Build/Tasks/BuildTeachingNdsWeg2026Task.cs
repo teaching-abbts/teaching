@@ -1,7 +1,5 @@
 using System.Linq;
 
-using Build.Extensions;
-
 using Cake.Common.Diagnostics;
 using Cake.Common.IO;
 using Cake.Common.Solution;
@@ -21,7 +19,9 @@ public class BuildTeachingNdsWeg2026Task : FrostingTask<BuildContext>
       context.Solution.Projects.FirstOrDefault(project => project.Name == "Teaching.Slides")
       ?? throw new CakeException("Teaching.Slides project not found in the solution.");
 
-    DirectoryPath ndsWeg2026ProjectDir = slidesProject.Path.GetDirectory().Combine("../abbts-nds-weg-2026");
+    DirectoryPath ndsWeg2026ProjectDir = slidesProject
+      .Path.GetDirectory()
+      .Combine("../abbts-nds-weg-2026");
     CommandSettings pnpmCommand = new CommandSettings
     {
       ToolName = "pnpm",
@@ -50,6 +50,6 @@ public class BuildTeachingNdsWeg2026Task : FrostingTask<BuildContext>
       context.CopyDirectory(distDir, outputDir);
     }
 
-    context.CopyDirectory(ndsWeg2026ProjectDir.Combine("public"), context.ArtifactsDir);
+    context.CopyDirectory(ndsWeg2026ProjectDir.Combine("public"), context.AppPublishDir);
   }
 }

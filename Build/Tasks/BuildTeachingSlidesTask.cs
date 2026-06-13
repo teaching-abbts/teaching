@@ -1,4 +1,3 @@
-using System.IO;
 using System.Linq;
 
 using Build.Extensions;
@@ -42,7 +41,7 @@ public class BuildTeachingSlidesTask : FrostingTask<BuildContext>
       context.Command(pnpmCommand, $"run build-{year}-{dayName}");
       DirectoryPath distDir = slidesProject.Path.GetDirectory().Combine("dist");
       DirectoryPath outputDir = context
-        .ArtifactsDir.Combine("nds-web-engineering")
+        .AppPublishDir.Combine("nds-web-engineering")
         .Combine(year)
         .Combine(dayName)
         .Combine("slidev");
@@ -53,7 +52,7 @@ public class BuildTeachingSlidesTask : FrostingTask<BuildContext>
 
     context.CopyDirectory(
       slidesProject.Path.GetDirectory().Combine("public"),
-      context.ArtifactsDir
+      context.AppPublishDir
     );
   }
 }

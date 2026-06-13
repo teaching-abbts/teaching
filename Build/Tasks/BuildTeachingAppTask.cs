@@ -25,8 +25,8 @@ public class BuildTeachingAppTask : FrostingTask<BuildContext>
     context.Command(pnpmCommand, "run build");
 
     context.Information("*** Copying artifacts to .artifacts directory...");
-    context.EnsureDirectoryDoesNotExist(context.ArtifactsDir);
-    context.EnsureDirectoryExists(context.ArtifactsDir);
-    context.CopyDirectory(teachingApp.Path.GetDirectory().Combine("dist"), context.ArtifactsDir);
+    context.EnsureDirectoryDoesNotExist(context.AppPublishDir);
+    context.EnsureDirectoryExists(context.AppPublishDir);
+    context.CopyDirectory(teachingApp.Path.GetDirectory().Combine("dist"), context.AppPublishDir);
   }
 }
