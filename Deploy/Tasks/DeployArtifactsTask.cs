@@ -51,7 +51,12 @@ public class DeployArtifactsTask : FrostingTask<DeployContext>
     context.Information($"*** Deploying artifacts to {context.TargetPath.FullPath}...");
     context.EnsureDirectoryExists(context.TargetPath);
     CleanTargetDirectory(context.TargetPath);
-    SyncArtifacts(context, context.ArtifactsDir, context.TargetPath);
+
+    ZipFile.ExtractToDirectory(
+      context.WebArchivePath.FullPath,
+      context.TargetPath.FullPath,
+      overwriteFiles: true
+    );
   }
 
   private static void CleanTargetDirectory(DirectoryPath targetDir)
@@ -76,27 +81,4 @@ public class DeployArtifactsTask : FrostingTask<DeployContext>
     }
   }
 
-  private static void SyncArtifacts(
-    DeployContext context,
-    DirectoryPath sourceDir,
-    DirectoryPath targetDir
-  )
-  {
-    foreach (string entryPath in Directory.EnumerateFileSystemEntries(sourceDir.FullPath))
-    {
-      string entryName = Path.GetFileName(entryPath);
-      string destinationPath = Path.Combine(targetDir.FullPath, entryName);
-
-      if (Directory.Exists(entryPath))
-      {
-        DirectoryPath destinationDir = context.Directory(destinationPath);
-        context.EnsureDirectoryExists(destinationDir);
-        context.CopyDirectory(context.Directory(entryPath), destinationDir);
-      }
-      else
-      {
-        File.Copy(entryPath, destinationPath, overwrite: true);
-      }
-    }
-  }
 }

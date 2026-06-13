@@ -4,13 +4,15 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Folder Name="/Solution Items/">
+  <Folder Name="/_globals/">
     <File Path=".editorconfig" />
     <File Path=".gitattributes" />
     <File Path=".gitignore" />
+    <File Path="README.md" />
     <File Path="build.ps1" />
     <File Path="build.sh" />
-    <File Path="README.md" />
+    <File Path="deploy.ps1" />
+    <File Path="deploy.sh" />
   </Folder>
   <Project Path="Build/Build.csproj" />
   <Project Path="Deploy/Deploy.csproj" />

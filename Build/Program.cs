@@ -28,7 +28,7 @@ public class BuildContext : FrostingContext
   {
     Solution = context.Argument(
       nameof(Solution),
-      context.ParseSolution(context.File("../teaching.sln"))
+      context.ParseSolution(context.File("../teaching.slnx"))
     );
     ArtifactsDir = context.Argument<DirectoryPath>(
       nameof(ArtifactsDir),
