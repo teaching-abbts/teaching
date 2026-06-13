@@ -1,0 +1,27 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="build.ps1" />
+    <File Path="build.sh" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="Build/Build.csproj" />
+  <Project Path="Deploy/Deploy.csproj" />
+  <Project Path="Teaching.App/Teaching.App.esproj">
+    <Platform Project="AnyCPU" />
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="Teaching.Slides/Teaching.Slides.esproj">
+    <Platform Project="AnyCPU" />
+    <Build />
+    <Deploy />
+  </Project>
+</Solution>
