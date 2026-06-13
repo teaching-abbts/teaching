@@ -70,6 +70,8 @@
 
 <script setup lang="ts">
 import { gitVersion } from "@/version";
+import { useAuthStore } from "@/stores/auth";
+import { useTeachingContentStore } from "@/stores/teaching-content";
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
@@ -82,12 +84,17 @@ export interface AppNavigationModels {
 
 const router = useRouter();
 const { t } = useI18n();
+const authStore = useAuthStore();
+const contentStore = useTeachingContentStore();
 
 const modelValue = defineModel<AppNavigationModels["modelValue"]>();
 const versionDialogOpen = ref(false);
 
 const routes = computed(() =>
-  router.getRoutes().filter((r) => r.path !== "/" && !r.path.startsWith("/:")),
+  router
+    .getRoutes()
+    .filter((r) => r.path !== "/" && !r.path.startsWith("/:"))
+    .filter((r) => contentStore.canAccessPath(r.path, authStore.isTeacherMode)),
 );
 
 const paths = computed(() => routes.value.map((route) => route.path));

@@ -7,7 +7,7 @@
         class="py-4 my-4"
         color="surface-variant"
         min-width="500px"
-        prepend-icon="mdi-rocket-launch-outline"
+        :prepend-icon="route.icon"
         rounded="lg"
         v-for="route in routes"
         variant="tonal"
@@ -31,66 +31,28 @@
 </template>
 
 <script lang="ts" setup>
+import { useAuthStore } from "@/stores/auth";
+import { useTeachingContentStore } from "@/stores/teaching-content";
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
 
 const { t } = useI18n();
 const router = useRouter();
-const routes = computed(() => [
-  {
-    path: "/nds-web-engineering/2025/day-10",
-    title: t("pwa-and-vue-advanced"),
-    date: "1. August 2025",
-  },
-  {
-    path: "/nds-web-engineering/2025/day-8",
-    title: t("certs-auth-pinia"),
-    date: "18. Juli 2025",
-  },
-  {
-    path: "/nds-web-engineering/2025/day-7",
-    title: t("authentication"),
-    logo: "/logo-day-7.png",
-    date: "11. Juli 2025",
-  },
-  {
-    path: "/nds-web-engineering/2025/day-6",
-    title: t("frontend-advanced-flexbox-vuetify"),
-    logo: "/logo-day-6.svg",
-    date: "4. Juli 2025",
-  },
-  {
-    path: "/nds-web-engineering/2025/day-5",
-    title: t("the-road-to-fullstack-with-vue.js-and-ktor"),
-    logo: "/logo-day-5.png",
-    date: "27. Juni 2025",
-  },
-  {
-    path: "/nds-web-engineering/2025/day-4",
-    title: t("single-page-apps-with-vue.js"),
-    logo: "/logo-day-4.png",
-    date: "20. Juni 2025",
-  },
-  {
-    path: "/nds-web-engineering/2025/day-3",
-    title: t("basics-3"),
-    logo: "/logo-day-3.png",
-    date: "13. Juni 2025",
-  },
-  {
-    path: "/nds-web-engineering/2025/day-2",
-    title: t("basics-2"),
-    logo: "/logo-day-2.png",
-    date: "6. Juni 2025",
-  },
-  {
-    path: "/nds-web-engineering/2025/day-1",
-    title: t("introduction-and-basics-1"),
-    logo: "/logo-day-1.png",
-    date: "30. Mai 2025",
-  },
-]);
+const contentStore = useTeachingContentStore();
+const authStore = useAuthStore();
+
+const routes = computed(() =>
+  contentStore
+    .getVisibleDaysByYearPath("/nds-web-engineering/2025", authStore.isTeacherMode)
+    .map((day) => ({
+      path: day.path,
+      title: t(day.titleKey),
+      logo: day.logo,
+      date: day.dateLabel,
+      icon: day.icon,
+    })),
+);
 
 function onClick(path: string) {
   router.push(path);

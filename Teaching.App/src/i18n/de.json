@@ -45,5 +45,12 @@
   "version-informational-version": "InformationalVersion",
   "version-sha": "Commit SHA",
   "version-branch": "Branch",
-  "close": "Schliessen"
+  "close": "Schliessen",
+  "login": "Anmelden",
+  "logout": "Abmelden",
+  "teacher-access": "Lehrperson",
+  "teacher-passphrase": "Passphrase",
+  "teacher-passphrase-placeholder": "Passphrase eingeben",
+  "teacher-passphrase-invalid": "Passphrase ist ungultig",
+  "content-locked": "Inhalt ist noch gesperrt"
 }

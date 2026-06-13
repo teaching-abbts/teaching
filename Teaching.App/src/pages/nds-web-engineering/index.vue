@@ -7,7 +7,7 @@
         class="py-4 my-4"
         color="surface-variant"
         min-width="500px"
-        prepend-icon="mdi-rocket-launch-outline"
+        :prepend-icon="route.icon"
         rounded="lg"
         v-for="route in routes"
         variant="tonal"
@@ -31,26 +31,26 @@
 </template>
 
 <script lang="ts" setup>
+import { useAuthStore } from "@/stores/auth";
+import { useTeachingContentStore } from "@/stores/teaching-content";
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
 
 const { t } = useI18n();
 const router = useRouter();
-const routes = computed(() => [
-  {
-    path: "/nds-web-engineering/2026",
-    title: t("nds-web-engineering-2026"),
-    logo: "/logo-day-2.png",
-    date: "2026",
-  },
-  {
-    path: "/nds-web-engineering/2025",
-    title: t("nds-web-engineering-2025"),
-    logo: "/logo-day-1.png",
-    date: "2025",
-  },
-]);
+const contentStore = useTeachingContentStore();
+const authStore = useAuthStore();
+
+const routes = computed(() =>
+  contentStore.getVisibleYears(authStore.isTeacherMode).map((year) => ({
+    path: year.path,
+    title: t(year.titleKey),
+    logo: year.logo,
+    date: year.dateLabel,
+    icon: year.icon,
+  })),
+);
 
 function onClick(path: string) {
   router.push(path);
