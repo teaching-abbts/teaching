@@ -2,6 +2,7 @@
 title: ABB-TS - NDS - Web Engineering
 transition: slide-left
 hide: false
+routerMode: hash
 fonts:
   # basically the text
   sans: Robot
