@@ -34,5 +34,6 @@ declare module 'vue-router/auto-routes' {
     '/nds-web-engineering/2026/': RouteRecordInfo<'/nds-web-engineering/2026/', '/nds-web-engineering/2026', Record<never, never>, Record<never, never>>,
     '/nds-web-engineering/2026/day-1': RouteRecordInfo<'/nds-web-engineering/2026/day-1', '/nds-web-engineering/2026/day-1', Record<never, never>, Record<never, never>>,
     '/nds-web-engineering/2026/day-2': RouteRecordInfo<'/nds-web-engineering/2026/day-2', '/nds-web-engineering/2026/day-2', Record<never, never>, Record<never, never>>,
+    '/nds-web-engineering/2026/day-3': RouteRecordInfo<'/nds-web-engineering/2026/day-3', '/nds-web-engineering/2026/day-3', Record<never, never>, Record<never, never>>,
   }
 }
