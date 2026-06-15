@@ -38,8 +38,11 @@ public class BuildTeachingSlidesTask : FrostingTask<BuildContext>
         .ToString()
         .Replace("slides-", string.Empty);
 
+      DirectoryPath distDir = slidesProject.Path.GetDirectory().Combine(year).Combine("dist");
+      context.EnsureDirectoryDoesNotExist(distDir);
+      context.CreateDirectory(distDir);
+
       context.Command(pnpmCommand, $"run build-{year}-{dayName}");
-      DirectoryPath distDir = slidesProject.Path.GetDirectory().Combine("dist");
       DirectoryPath outputDir = context
         .AppPublishDir.Combine("nds-web-engineering")
         .Combine(year)
