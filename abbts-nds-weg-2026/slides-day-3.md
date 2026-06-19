@@ -37,8 +37,9 @@ transition: slide-left
 1. Hausaufgaben: Besprechung & Lösungen
 2. Hypertext Transfer Protocol
 3. URI + URL
-4. Webserver
-5. Datenübertragung mit HTML-Forms
+4. Http Nachrichten, Abfragemethoden & Statuscodes
+5. Webserver
+6. Datenübertragung mit HTML-Forms
 
 </v-clicks>
 
@@ -180,19 +181,20 @@ transition: slide-left
 </style>
 
 ---
-transition: slide-left
 layout: two-cols-header
 ---
 
 # HTTP Nachrichten
 
-<div></div>
+![HTTP-Request-Response](./public/images/http-message-anatomy.svg)
 
-<v-click>
-
-![HTTP-Request-Response](./public/images/HTTP-Request-Response.png)
-
-</v-click>
+<style>
+  img[alt="HTTP-Request-Response"] {
+    background: white;
+    transform: scale(1.0);
+    display: inline-block;
+  }
+</style>
 
 ::left::
 
@@ -215,6 +217,12 @@ layout: two-cols-header
   li {
     --uno: text-sm;
   }
+  img[alt="HTTP"] {
+    margin-top: -20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+  }
 </style>
 
 ---
@@ -223,13 +231,16 @@ transition: slide-left
 
 # HTTP Abfragemethoden
 
-<div></div>
-
 Im HTTP (Hypertext Transfer Protocol) gibt es **verschiedene Anfragemethoden**, die es dem Browser ermöglichen, **Informationen**, **Formulare** oder **Dateien** an den *Server* zu senden.
 
 Weitere Infos➡️: https://de.wikipedia.org/wiki/Hypertext_Transfer_Protocol#HTTP-Anfragemethoden
 
 ![HTTP-Methods](./public/images/HTTP-Methods.png)
+
+*Hannes Opinion* 🤪:
+
+- Die HTTP-Methoden wurden (historisch) mit einem "Dateisystem"-Gedanken für ein statisches Web entwickelt, d.h. Ressourcen die **abgerufen** und **verwaltet** werden können.
+- In der Praxis werden die Methoden `GET` und `POST` am häufigsten verwendet, da sich mit ihnen **alle Operationen** abbilden lassen. Die anderen Methoden sind eher aus *semantischen Gründen* interessant.
 
 ---
 transition: slide-left
