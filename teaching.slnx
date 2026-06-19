@@ -16,6 +16,7 @@
   </Folder>
   <Project Path="Build/Build.csproj" />
   <Project Path="Deploy/Deploy.csproj" />
+  <Project Path="MeinErsterWebserver/MeinErsterWebserver.csproj" />
   <Project Path="Teaching.App/Teaching.App.esproj">
     <Platform Project="AnyCPU" />
     <Build />

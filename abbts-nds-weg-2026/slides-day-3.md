@@ -243,8 +243,6 @@ Weitere Infos➡️: https://de.wikipedia.org/wiki/Hypertext_Transfer_Protocol#H
 - In der Praxis werden die Methoden `GET` und `POST` am häufigsten verwendet, da sich mit ihnen **alle Operationen** abbilden lassen. Die anderen Methoden sind eher aus *semantischen Gründen* interessant.
 
 ---
-transition: slide-left
----
 
 # HTTP Statuscodes
 
@@ -287,20 +285,25 @@ layout: two-cols-header
 ## Request *(Client)*
 
 ```http
+# Header
 GET /hello.html HTTP/1.1
 Host: 127.0.0.1:5500
 ```
+
+*# Header* und *# Body* sind nicht wirklich enthalten, sie dienen hier nur der **Veranschaulichung** wie eine HTTP-Nachricht aufgebaut ist und ihre wesentlichen Bestandteile bezeichnet werden.
 
 ::right::
 
 ## Response *(Server)*
 
 ```http
+# Header
 HTTP/1.1 200 OK
 Content-Type: text/html; charset=UTF-8
 Content-Length: 1728
 Date: Mon, 20 May 2024 15:02:17 GMT
 
+# Body
 <!DOCTYPE html>
 <html>
   <head>
@@ -314,27 +317,24 @@ Date: Mon, 20 May 2024 15:02:17 GMT
 ```
 
 ---
-transition: slide-left
----
 
 # HTTP: der **GET**-Befehl (2)
-
-<div></div>
 
 Der GET-Befehl kann Parameter-Wertepaare enthalten:
 
 - Das Fragezeichen (`?`) in der URL leitet den Bereich der Parameter ein
 - Das Kaufmannsund (*Ampersand*) (`&`) trennt die Wertepaare
 - Die Wertepaare sind in der Form `Name=Wert` aufgebaut.
+- Bsp: `https://de.wikipedia.org/wiki/Spezial:Search?search=Katzen&go=Artikel`
+  - **Parameter 1**: `search=Katzen` *(Suche nach dem Begriff "Katzen")*
+  - **Parameter 2**: `go=Artikel` *(Suche soll direkt zum Artikel führen, wenn es einen gibt)*
 
   ```http
   GET /wiki/Spezial:Search?search=Katzen&go=Artikel HTTP/1.1
   Host: de.wikipedia.org
-  ...
+  # ...Gekürzt...
   ```
 
----
-transition: slide-left
 ---
 
 # HTTP: der **GET**-Befehl (3)
@@ -348,7 +348,6 @@ sequenceDiagram
 ```
 
 ---
-transition: slide-left
 layout: two-cols-header
 ---
 
@@ -401,8 +400,6 @@ value2
 </style>
 
 ---
-transition: slide-left
----
 
 # Was ist ein Webserver?
 
@@ -416,8 +413,6 @@ transition: slide-left
 
 </v-clicks>
 
----
-transition: slide-left
 ---
 
 # Aufgaben eines Webservers
@@ -444,31 +439,41 @@ transition: slide-left
 </style>
 
 ---
-transition: slide-left
+layout: two-cols-header
 ---
 
-# Auftrag: Minimaler Webserver mit Ktor
+# Auftrag: Minimaler Webserver mit ASP.NET Core
 
-Hands-On-Übung
+*Hands-On-Übung*: Erstellen eines minimalen Webservers mit ASP.NET Core, der statische Dateien ausliefert.
 
-<v-clicks>
+::left::
 
-1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) installieren & starten.
-2. Das **Git-Repository** <https://github.com/teaching-abbts/smart-home-system> klonen.
-3. Mit **VS Code** das Repository öffnen.
-4. Repo im **Dev Container** öffnen:
-   ![Dev Container Message](./public/images/DevContainerMessage.png)
-   *Das öffnen des Dev Containers kann einige Minuten dauern, da die Abhängigkeiten heruntergeladen und der Container erstellt werden müssen.*
-5. Im Terminal den Befehl `./gradlew run` ausführen.
-6. Im Browser die URL `http://localhost:8080/` aufrufen.
+## Schritte
 
-</v-clicks>
+1. Installation von *.NET 10 SDK* (https://dotnet.microsoft.com/en-us/download)
+   - (Windows): `winget install Microsoft.DotNet.SDK.10`
+2. Neuen Ordner Erstellen und mit VsCode öffnen
+3. Die VsCode Extension `C# Dev Kit` installieren
+4. Terminal öffnen und folgenden Befehl ausführen: `dotnet new web -n MeinErsterWebserver`
+5. Das Projekt mit `dotnet run --project MeinErsterWebserver` starten
+6. In der Konsole den Eintrag ähnlich `Now listening on: http://localhost:5071` suchen und die URL im Browser öffnen
 
-<v-click>
+::right::
 
-# Gratulation, du hast einen **echten** Webserver mit Ktor erstellt und gestartet **!!**
+## Analyse
 
-</v-click>
+1. Die Datei `Program.cs` enthält den Code, der den Webserver startet und konfiguriert.
+2. In ASP.NET Core wird der Webserver mit einem sogenannten **Builder** erstellt, der die Konfiguration des Servers ermöglicht.
+3. Den Rest schauen wir uns nach und nach an, wenn wir die Funktionalität erweitern...
+
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+app.MapGet("/", () => "Hello World!");
+
+app.Run();
+```
 
 <style>
   li {
@@ -477,7 +482,6 @@ Hands-On-Übung
 </style>
 
 ---
-transition: slide-left
 layout: two-cols-header
 ---
 
@@ -495,8 +499,6 @@ layout: two-cols-header
 
 <iframe src="/assets/day-3-form.html" width="100%" height="500px" frameborder="0" />
 
----
-transition: slide-left
 ---
 
 # Das `<input>`-Element
@@ -525,8 +527,6 @@ transition: slide-left
 </style>
 
 ---
-transition: slide-left
----
 
 # Look & Feel von Form-Elementen
 
@@ -538,18 +538,14 @@ transition: slide-left
   - Bsp. Um einen «customized» Button zu erstellen, der dieselben Fähigkeiten (Reagieren auf alle möglichen Touch-, Tastatur- und Mauseingaben) wie ein nativer `<button>` hat, werden ca. 1000 Zeilen JavaScript Code benötigt.
 
 ---
-transition: slide-left
----
 
-# **Live Coding**: HTML-Form und Ktor-Webserver
+# **Live Coding**: HTML-Form und ASP.NET Core-Webserver
 
 1. Übermitteln von Formular-Daten an den Webserver
 2. Verarbeiten der Daten auf dem Server
 3. Senden von Antworten an den Client
-4. Übermitteln von Dateien an den Client
+4. Übermitteln von Dateien
 
----
-transition: slide-left
 ---
 
 # Hausaufgabe
@@ -559,7 +555,6 @@ transition: slide-left
   - Wie HTML-Forms funktionieren
   - Wie Daten & Dateien an einen Webserver übermittelt werden
   - Wie Dateien an den Client übermittelt werden
-- Sie finden den heutigen Beispiel-Code auf [Github](https://github.com/teaching-abbts/smart-home-system/tree/day-3/my-first-form) (Branch `day-3/my-first-form`)
 
 - Ihre Aufgabe für das nächste Mal: **Bauen einer einfachen Bildgalerie**
   - Unter `/image-gallery/upload` soll ein HTML-Formular sein, das es ermöglicht, Bilder hochzuladen
