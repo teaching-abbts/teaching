@@ -16,7 +16,7 @@
     "build-test-2": "slidev build ./slides-day-1.md --out ./dist/test"
   },
   "dependencies": {
-    "@iconify/json": "^2.2.486",
+    "@iconify/json": "^2.2.488",
     "@slidev/cli": "52.16.0",
     "@slidev/theme-default": "0.25.0",
     "@slidev/theme-seriph": "0.25.0",
@@ -24,7 +24,7 @@
     "vue": "3.5.38"
   },
   "volta": {
-    "node": "24.16.0"
+    "node": "24.17.0"
   },
-  "packageManager": "pnpm@11.6.0"
+  "packageManager": "pnpm@11.8.0"
 }

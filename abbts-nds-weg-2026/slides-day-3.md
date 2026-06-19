@@ -34,10 +34,11 @@ transition: slide-left
 
 <v-clicks :depth="2">
 
-1. Besprechung Hausaufgaben & Lösungen
+1. Hausaufgaben: Besprechung & Lösungen
 2. Hypertext Transfer Protocol
-3. Webserver
-4. Datenübertragung mit HTML-Forms
+3. URI + URL
+4. Webserver
+5. Datenübertragung mit HTML-Forms
 
 </v-clicks>
 
@@ -92,12 +93,14 @@ transition: slide-left
 </v-clicks>
 
 <v-click>
-```
+
+```text
   foo://example.com:8042/over/there?name=ferret#nose
   \_/ \________________/\_________/ \_________/ \__/
    |          |             |            |        |
   scheme    authority        path        query   fragment
 ```
+
 </v-click>
 
 <style>
@@ -168,6 +171,7 @@ transition: slide-left
 </v-clicks>
 
 <Arrow v-click="7" color="red" x1="700" y1="325" x2="485" y2="275" />
+<Arrow v-click="8" color="red" x1="700" y1="325" x2="510" y2="430" />
 
 <style>
   li {
