@@ -4,6 +4,9 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Folder Name="/source/">
+    <Project Path="source/SimplePictureGallery/SimplePictureGallery.csproj" />
+  </Folder>
   <Folder Name="/_globals/">
     <File Path=".editorconfig" />
     <File Path=".gitattributes" />
