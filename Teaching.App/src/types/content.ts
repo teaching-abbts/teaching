@@ -31,3 +31,13 @@ export interface CourseRef {
   titleKey: string;
   years: YearRef[];
 }
+
+export interface CourseManifestYear {
+  year: number;
+  days: number[];
+}
+
+export interface CourseManifest {
+  coursePath: string;
+  years: CourseManifestYear[];
+}

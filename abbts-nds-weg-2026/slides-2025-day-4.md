@@ -332,7 +332,7 @@ layout: two-cols-header
 
 ::right::
 
-![SPA-Swimlanes](./public/slides-images/SPA-Swimlanes.png)
+![SPA-Swimlanes](./public/images/SPA-Swimlanes.png)
 
 <style>
  li {
@@ -437,7 +437,7 @@ layout: two-cols-header
 
 <v-click>
 
-![MVVM-Entwurfsmuster](./public/slides-images/MVVMPattern.png)
+![MVVM-Entwurfsmuster](./public/images/MVVMPattern.png)
 
 </v-click>
 

@@ -1,4 +1,7 @@
 using System.Linq;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
 
 using Cake.Common.Diagnostics;
 using Cake.Common.IO;
@@ -12,9 +15,13 @@ namespace Build.Tasks;
 
 public class BuildTeachingNdsWeg2026Task : FrostingTask<BuildContext>
 {
+  private sealed record ManifestYear(int Year, List<int> Days);
+
+  private sealed record ManifestRoot(string CoursePath, List<ManifestYear> Years);
+
   public override void Run(BuildContext context)
   {
-    context.Information("*** Building NDS Web Engineering 2026 Slides...");
+    context.Information("*** Building NDS Web Engineering 2026 & 2025 Slides...");
     SolutionProject slidesProject =
       context.Solution.Projects.FirstOrDefault(project => project.Name == "Teaching.Slides")
       ?? throw new CakeException("Teaching.Slides project not found in the solution.");
@@ -29,27 +36,118 @@ public class BuildTeachingNdsWeg2026Task : FrostingTask<BuildContext>
       WorkingDirectory = ndsWeg2026ProjectDir,
     };
 
-    FilePathCollection days = context.GetFiles($"{ndsWeg2026ProjectDir}/slides-day-*.md");
+    Dictionary<int, HashSet<int>> discoveredDaysByYear = [];
 
-    foreach (FilePath day in days)
+    // Process 2026 files
+    FilePathCollection days2026 = context.GetFiles($"{ndsWeg2026ProjectDir}/slides-2026-day-*.md");
+    ProcessSlideFiles(
+      context,
+      pnpmCommand,
+      ndsWeg2026ProjectDir,
+      days2026,
+      "2026",
+      discoveredDaysByYear
+    );
+
+    // Process 2025 files
+    FilePathCollection days2025 = context.GetFiles($"{ndsWeg2026ProjectDir}/slides-2025-day-*.md");
+    ProcessSlideFiles(
+      context,
+      pnpmCommand,
+      ndsWeg2026ProjectDir,
+      days2025,
+      "2025",
+      discoveredDaysByYear
+    );
+
+    WriteManifest(context, discoveredDaysByYear);
+
+    context.CopyDirectory(ndsWeg2026ProjectDir.Combine("public"), context.AppPublishDir);
+  }
+
+  private void ProcessSlideFiles(
+    BuildContext context,
+    CommandSettings pnpmCommand,
+    DirectoryPath projectDir,
+    FilePathCollection slideFiles,
+    string yearInfix,
+    Dictionary<int, HashSet<int>> discoveredDaysByYear)
+  {
+    int year = int.Parse(yearInfix);
+
+    foreach (FilePath slideFile in slideFiles)
     {
-      context.Information($"*** Processing {day.FullPath}...");
-      string dayName = day.GetFilenameWithoutExtension()
-        .ToString()
-        .Replace("slides-", string.Empty);
+      context.Information($"*** Processing {slideFile.FullPath}...");
+      string filename = slideFile.GetFilenameWithoutExtension().ToString();
 
-      context.Command(pnpmCommand, $"run build-{dayName}");
-      DirectoryPath distDir = ndsWeg2026ProjectDir.Combine("dist");
+      // Extract day name: slides-2026-day-1 -> day-1
+      string dayName = filename.Replace($"slides-{yearInfix}-", string.Empty);
+      int dayNumber = ParseDayNumber(dayName);
+      TrackDiscoveredDay(discoveredDaysByYear, year, dayNumber);
+
+      context.Command(pnpmCommand, $"run build-{yearInfix}-{dayName}");
+      DirectoryPath distDir = projectDir.Combine("dist");
       DirectoryPath outputDir = context
         .AppPublishDir.Combine("nds-web-engineering")
-        .Combine("2026")
+        .Combine(yearInfix)
         .Combine(dayName)
         .Combine("slidev");
       context.EnsureDirectoryDoesNotExist(outputDir);
       context.EnsureDirectoryExists(outputDir);
       context.CopyDirectory(distDir, outputDir);
     }
+  }
 
-    context.CopyDirectory(ndsWeg2026ProjectDir.Combine("public"), context.AppPublishDir);
+  private static int ParseDayNumber(string dayName)
+  {
+    if (!dayName.StartsWith("day-"))
+    {
+      throw new CakeException($"Unsupported day naming format '{dayName}'.");
+    }
+
+    string suffix = dayName["day-".Length..];
+    if (!int.TryParse(suffix, out int dayNumber))
+    {
+      throw new CakeException($"Could not parse day number from '{dayName}'.");
+    }
+
+    return dayNumber;
+  }
+
+  private static void TrackDiscoveredDay(
+    Dictionary<int, HashSet<int>> discoveredDaysByYear,
+    int year,
+    int dayNumber)
+  {
+    if (!discoveredDaysByYear.TryGetValue(year, out HashSet<int> days))
+    {
+      days = [];
+      discoveredDaysByYear[year] = days;
+    }
+
+    days.Add(dayNumber);
+  }
+
+  private static void WriteManifest(
+    BuildContext context,
+    Dictionary<int, HashSet<int>> discoveredDaysByYear)
+  {
+    List<ManifestYear> years = discoveredDaysByYear
+      .OrderByDescending(entry => entry.Key)
+      .Select(entry => new ManifestYear(entry.Key, [.. entry.Value.OrderByDescending(day => day)]))
+      .ToList();
+
+    ManifestRoot manifest = new("/nds-web-engineering", years);
+    string manifestJson = JsonSerializer.Serialize(
+      manifest,
+      new JsonSerializerOptions { WriteIndented = true }
+    );
+
+    DirectoryPath manifestDirectory = context.AppPublishDir.Combine("nds-web-engineering");
+    context.EnsureDirectoryExists(manifestDirectory);
+
+    FilePath manifestFile = manifestDirectory.CombineWithFilePath("manifest.json");
+    context.Information($"*** Writing course manifest to {manifestFile.FullPath}...");
+    File.WriteAllText(manifestFile.FullPath, manifestJson);
   }
 }

@@ -8,7 +8,6 @@ using Cake.Frosting;
 namespace Build.Tasks;
 
 [IsDependentOn(typeof(BuildTeachingAppTask))]
-[IsDependentOn(typeof(BuildTeachingSlidesTask))]
 [IsDependentOn(typeof(BuildTeachingNdsWeg2026Task))]
 public class PackageWebArtifactsTask : FrostingTask<BuildContext>
 {

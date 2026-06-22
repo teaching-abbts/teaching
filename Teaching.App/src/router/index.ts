@@ -33,9 +33,10 @@ const router = createRouter({
   ],
 });
 
-router.beforeEach((to) => {
+router.beforeEach(async (to) => {
   const authStore = useAuthStore();
   const contentStore = useTeachingContentStore();
+  await contentStore.ensureInitialized();
 
   if (contentStore.canAccessPath(to.path, authStore.isTeacherMode)) {
     return true;
