@@ -25,74 +25,74 @@ app.MapGet(
     return HtmlPage(
       "Bildgalerie",
       """
-        body {
-          font-family: sans-serif;
-          padding: 20px;
-          background: #f5f5f5;
-        }
-        h2 {
-          text-align: center;
-        }
-        .toolbar {
-          text-align: center;
-          margin-bottom: 20px;
-        }
-        .gallery {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 16px;
-          justify-content: center;
-        }
-        .gallery-item {
-          background: white;
-          border-radius: 8px;
-          box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-          overflow: hidden;
-          width: calc(33% - 16px);
-          min-width: 200px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding-bottom: 10px;
-        }
-        .gallery-item img {
-          width: 100%;
-          height: 200px;
-          object-fit: cover;
-        }
-        .gallery-item button {
-          margin-top: 8px;
-          padding: 4px 12px;
-          cursor: pointer;
-          background: #e53935;
-          color: white;
-          border: none;
-          border-radius: 4px;
-        }
-        .gallery-item button:hover {
-          background: #b71c1c;
-        }
-        a.btn {
-          display: inline-block;
-          padding: 8px 16px;
-          background: #1976d2;
-          color: white;
-          text-decoration: none;
-          border-radius: 4px;
-        }
-        a.btn:hover {
-          background: #0d47a1;
-        }
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+      h2 {
+        text-align: center;
+      }
+      .toolbar {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: center;
+      }
+      .gallery-item {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        overflow: hidden;
+        width: calc(33% - 16px);
+        min-width: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 10px;
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .gallery-item button {
+        margin-top: 8px;
+        padding: 4px 12px;
+        cursor: pointer;
+        background: #e53935;
+        color: white;
+        border: none;
+        border-radius: 4px;
+      }
+      .gallery-item button:hover {
+        background: #b71c1c;
+      }
+      a.btn {
+        display: inline-block;
+        padding: 8px 16px;
+        background: #1976d2;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+      }
+      a.btn:hover {
+        background: #0d47a1;
+      }
       """,
       $"""
-        <h2>Bildgalerie</h2>
-        <div class="toolbar">
-          <a class="btn" href="/image-gallery/upload">Bilder hochladen</a>
-        </div>
-        {emptyMessage}
-        <div class="gallery">
-        {imageItems}
-        </div>
+      <h2>Bildgalerie</h2>
+      <div class="toolbar">
+        <a class="btn" href="/image-gallery/upload">Bilder hochladen</a>
+      </div>
+      {emptyMessage}
+      <div class="gallery">
+      {imageItems}
+      </div>
       """
     );
   }
@@ -104,56 +104,56 @@ app.MapGet(
     HtmlPage(
       "Bilder hochladen",
       """
-        body {
-          font-family: sans-serif;
-          background: #f5f5f5;
-          padding: 20px;
-        }
-        h2 {
-          text-align: center;
-        }
-        form {
-          width: 360px;
-          margin: 0 auto;
-          padding: 24px;
-          background: white;
-          border-radius: 10px;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        label {
-          display: block;
-          margin-bottom: 6px;
-          font-weight: bold;
-        }
-        input[type="file"] {
-          width: 100%;
-        }
-        input[type="submit"] {
-          margin-top: 14px;
-          padding: 8px 16px;
-          background: #1976d2;
-          color: white;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-        }
-        input[type="submit"]:hover {
-          background: #0d47a1;
-        }
-        .back {
-          display: block;
-          text-align: center;
-          margin-top: 14px;
-        }
+      body {
+        font-family: sans-serif;
+        background: #f5f5f5;
+        padding: 20px;
+      }
+      h2 {
+        text-align: center;
+      }
+      form {
+        width: 360px;
+        margin: 0 auto;
+        padding: 24px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: bold;
+      }
+      input[type="file"] {
+        width: 100%;
+      }
+      input[type="submit"] {
+        margin-top: 14px;
+        padding: 8px 16px;
+        background: #1976d2;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background: #0d47a1;
+      }
+      .back {
+        display: block;
+        text-align: center;
+        margin-top: 14px;
+      }
       """,
       """
-        <h2>Bilder hochladen</h2>
-        <form action="/image-gallery/upload" method="post" enctype="multipart/form-data">
-          <label for="files">Bilder auswählen:</label>
-          <input type="file" id="files" name="files" accept="image/*" multiple required />
-          <input type="submit" value="Hochladen" />
-        </form>
-        <a class="back" href="/image-gallery">← Zurück zur Galerie</a>
+      <h2>Bilder hochladen</h2>
+      <form action="/image-gallery/upload" method="post" enctype="multipart/form-data">
+        <label for="files">Bilder auswählen:</label>
+        <input type="file" id="files" name="files" accept="image/*" multiple required />
+        <input type="submit" value="Hochladen" />
+      </form>
+      <a class="back" href="/image-gallery">← Zurück zur Galerie</a>
       """
     )
 );
@@ -258,10 +258,10 @@ IResult HtmlPage(string title, string styles, string body) =>
 
 string GalleryItem(string fileName) =>
   $"""
-        <div class="gallery-item">
-          <img src="/uploads/{fileName}" alt="{System.Net.WebUtility.HtmlEncode(fileName)}" />
-          <form method="post" action="/image-gallery/delete/{Uri.EscapeDataString(fileName)}">
-            <button type="submit">Löschen</button>
-          </form>
-        </div>
-    """;
+  <div class="gallery-item">
+    <img src="/uploads/{fileName}" alt="{System.Net.WebUtility.HtmlEncode(fileName)}" />
+    <form method="post" action="/image-gallery/delete/{Uri.EscapeDataString(fileName)}">
+      <button type="submit">Löschen</button>
+    </form>
+  </div>
+  """;
