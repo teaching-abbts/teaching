@@ -16,8 +16,9 @@
   </Folder>
   <Project Path="Build/Build.csproj" />
   <Project Path="Deploy/Deploy.csproj" />
-  <Project Path="source/AdvancedHdmlForm/AdvancedHdmlForm.csproj" />
+  <Project Path="source/AdvancedHtmlForm/AdvancedHtmlForm.csproj" />
   <Project Path="source/MeinErsterWebserver/MeinErsterWebserver.csproj" />
+  <Project Path="source/SimpleHtmlForm/SimpleHtmlForm.csproj" />
   <Project Path="Teaching.App/Teaching.App.esproj">
     <Platform Project="AnyCPU" />
     <Build />
