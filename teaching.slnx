@@ -14,10 +14,10 @@
     <File Path="deploy.ps1" />
     <File Path="deploy.sh" />
   </Folder>
-  <Project Path="AdvancedHdmlForm/AdvancedHdmlForm.csproj" />
   <Project Path="Build/Build.csproj" />
   <Project Path="Deploy/Deploy.csproj" />
-  <Project Path="MeinErsterWebserver/MeinErsterWebserver.csproj" />
+  <Project Path="source/AdvancedHdmlForm/AdvancedHdmlForm.csproj" />
+  <Project Path="source/MeinErsterWebserver/MeinErsterWebserver.csproj" />
   <Project Path="Teaching.App/Teaching.App.esproj">
     <Platform Project="AnyCPU" />
     <Build />
