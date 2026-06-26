@@ -3,7 +3,13 @@ import { computed } from "vue";
 
 export interface ImageLeftProps {
   image?: string;
-  backgroundSize?: "auto" | "length" | "cover" | "contain" | "initial" | "inherit";
+  backgroundSize?:
+    | "auto"
+    | "length"
+    | "cover"
+    | "contain"
+    | "initial"
+    | "inherit";
 }
 
 const props = withDefaults(defineProps<ImageLeftProps>(), {

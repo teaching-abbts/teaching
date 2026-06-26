@@ -1,9 +1,0 @@
-{
-  "svg.preview.background": "dark-transparent",
-  "workbench.editorAssociations": {
-    "*.svg": "default"
-  },
-  "i18n-ally.localesPaths": [
-    "i18n"
-  ]
-}

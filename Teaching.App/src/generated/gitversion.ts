@@ -7,8 +7,8 @@ export interface GitVersionInfo {
 }
 
 export const gitVersion: GitVersionInfo = {
-  fullSemVer: "1.0.1-2026-web-engineering.1+59",
-  informationalVersion: "1.0.1-2026-web-engineering.1+59.Branch.2026-web-engineering.Sha.91de6fd154e95d52e69bc02f8bae4e5b35740e91",
-  sha: "91de6fd154e95d52e69bc02f8bae4e5b35740e91",
+  fullSemVer: "1.0.1-2026-web-engineering.1+60",
+  informationalVersion: "1.0.1-2026-web-engineering.1+60.Branch.2026-web-engineering.Sha.cccfb7708a5db9ece38683f00f748c5d1f492627",
+  sha: "cccfb7708a5db9ece38683f00f748c5d1f492627",
   branchName: "2026/web-engineering",
 };

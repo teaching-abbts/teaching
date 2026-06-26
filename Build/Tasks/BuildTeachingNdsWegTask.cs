@@ -1,6 +1,7 @@
-using System.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 
 using Cake.Common.Diagnostics;
@@ -13,7 +14,7 @@ using Cake.Frosting;
 
 namespace Build.Tasks;
 
-public class BuildTeachingNdsWeg2026Task : FrostingTask<BuildContext>
+public class BuildTeachingNdsWegTask : FrostingTask<BuildContext>
 {
   private sealed record ManifestYear(int Year, List<int> Days);
 
@@ -21,57 +22,53 @@ public class BuildTeachingNdsWeg2026Task : FrostingTask<BuildContext>
 
   public override void Run(BuildContext context)
   {
-    context.Information("*** Building NDS Web Engineering 2026 & 2025 Slides...");
+    context.Information("*** Building NDS Web Engineering slides...");
     SolutionProject slidesProject =
       context.Solution.Projects.FirstOrDefault(project => project.Name == "Teaching.Slides")
       ?? throw new CakeException("Teaching.Slides project not found in the solution.");
 
-    DirectoryPath ndsWeg2026ProjectDir = slidesProject
+    DirectoryPath slidesProjectDir = slidesProject
       .Path.GetDirectory()
-      .Combine("../abbts-nds-weg-2026");
+      .Combine("../Teaching.Slides");
     CommandSettings pnpmCommand = new CommandSettings
     {
       ToolName = "pnpm",
       ToolExecutableNames = ["pnpm", "pnpm.cmd", "pnpm.bat", "pnpm.ps1", "pnpm.exe"],
-      WorkingDirectory = ndsWeg2026ProjectDir,
+      WorkingDirectory = slidesProjectDir,
     };
 
     Dictionary<int, HashSet<int>> discoveredDaysByYear = [];
 
-    // Process 2026 files
-    FilePathCollection days2026 = context.GetFiles($"{ndsWeg2026ProjectDir}/slides-2026-day-*.md");
-    ProcessSlideFiles(
-      context,
-      pnpmCommand,
-      ndsWeg2026ProjectDir,
-      days2026,
-      "2026",
-      discoveredDaysByYear
-    );
+    FilePathCollection slideFiles = context.GetFiles($"{slidesProjectDir}/slides-*-day-*.md");
+    IEnumerable<IGrouping<string, FilePath>> slideFilesByYear = slideFiles
+      .GroupBy(filePath => ExtractYearInfix(filePath.GetFilenameWithoutExtension().ToString()))
+      .OrderByDescending(grouping => grouping.Key);
 
-    // Process 2025 files
-    FilePathCollection days2025 = context.GetFiles($"{ndsWeg2026ProjectDir}/slides-2025-day-*.md");
-    ProcessSlideFiles(
-      context,
-      pnpmCommand,
-      ndsWeg2026ProjectDir,
-      days2025,
-      "2025",
-      discoveredDaysByYear
-    );
+    foreach (IGrouping<string, FilePath> yearlySlideFiles in slideFilesByYear)
+    {
+      ProcessSlideFiles(
+        context,
+        pnpmCommand,
+        slidesProjectDir,
+        yearlySlideFiles,
+        yearlySlideFiles.Key,
+        discoveredDaysByYear
+      );
+    }
 
     WriteManifest(context, discoveredDaysByYear);
 
-    context.CopyDirectory(ndsWeg2026ProjectDir.Combine("public"), context.AppPublishDir);
+    context.CopyDirectory(slidesProjectDir.Combine("public"), context.AppPublishDir);
   }
 
   private void ProcessSlideFiles(
     BuildContext context,
     CommandSettings pnpmCommand,
     DirectoryPath projectDir,
-    FilePathCollection slideFiles,
+    IEnumerable<FilePath> slideFiles,
     string yearInfix,
-    Dictionary<int, HashSet<int>> discoveredDaysByYear)
+    Dictionary<int, HashSet<int>> discoveredDaysByYear
+  )
   {
     int year = int.Parse(yearInfix);
 
@@ -80,7 +77,7 @@ public class BuildTeachingNdsWeg2026Task : FrostingTask<BuildContext>
       context.Information($"*** Processing {slideFile.FullPath}...");
       string filename = slideFile.GetFilenameWithoutExtension().ToString();
 
-      // Extract day name: slides-2026-day-1 -> day-1
+      // Extract day name: slides-<year>-day-1 -> day-1
       string dayName = filename.Replace($"slides-{yearInfix}-", string.Empty);
       int dayNumber = ParseDayNumber(dayName);
       TrackDiscoveredDay(discoveredDaysByYear, year, dayNumber);
@@ -96,6 +93,23 @@ public class BuildTeachingNdsWeg2026Task : FrostingTask<BuildContext>
       context.EnsureDirectoryExists(outputDir);
       context.CopyDirectory(distDir, outputDir);
     }
+  }
+
+  private static string ExtractYearInfix(string filename)
+  {
+    if (!filename.StartsWith("slides-", StringComparison.Ordinal))
+    {
+      throw new CakeException($"Unsupported slide filename format '{filename}'.");
+    }
+
+    int yearStart = "slides-".Length;
+    int yearEnd = filename.IndexOf("-day-", StringComparison.Ordinal);
+    if (yearEnd <= yearStart)
+    {
+      throw new CakeException($"Unsupported slide filename format '{filename}'.");
+    }
+
+    return filename[yearStart..yearEnd];
   }
 
   private static int ParseDayNumber(string dayName)
@@ -117,7 +131,8 @@ public class BuildTeachingNdsWeg2026Task : FrostingTask<BuildContext>
   private static void TrackDiscoveredDay(
     Dictionary<int, HashSet<int>> discoveredDaysByYear,
     int year,
-    int dayNumber)
+    int dayNumber
+  )
   {
     if (!discoveredDaysByYear.TryGetValue(year, out HashSet<int> days))
     {
@@ -130,7 +145,8 @@ public class BuildTeachingNdsWeg2026Task : FrostingTask<BuildContext>
 
   private static void WriteManifest(
     BuildContext context,
-    Dictionary<int, HashSet<int>> discoveredDaysByYear)
+    Dictionary<int, HashSet<int>> discoveredDaysByYear
+  )
   {
     List<ManifestYear> years = discoveredDaysByYear
       .OrderByDescending(entry => entry.Key)

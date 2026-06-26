@@ -2,13 +2,12 @@ using System.IO;
 using System.IO.Compression;
 
 using Cake.Common.Diagnostics;
-using Cake.Core;
 using Cake.Frosting;
 
 namespace Build.Tasks;
 
 [IsDependentOn(typeof(BuildTeachingAppTask))]
-[IsDependentOn(typeof(BuildTeachingNdsWeg2026Task))]
+[IsDependentOn(typeof(BuildTeachingNdsWegTask))]
 public class PackageWebArtifactsTask : FrostingTask<BuildContext>
 {
   public override void Run(BuildContext context)
