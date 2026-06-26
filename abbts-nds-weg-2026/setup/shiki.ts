@@ -7,6 +7,7 @@ export default defineShikiSetup(() => {
       light: "light-plus",
     },
     langs: [
+      "csharp",
       "css",
       "html",
       "http",

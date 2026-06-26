@@ -59,16 +59,16 @@
     "export-2025-day-10": "slidev export ./slides-2025-day-10.md"
   },
   "dependencies": {
-    "@iconify/json": "^2.2.488",
+    "@iconify/json": "^2.2.491",
     "@slidev/cli": "52.16.0",
     "@slidev/theme-default": "0.25.0",
     "@slidev/theme-seriph": "0.25.0",
-    "pinia": "3.0.3",
+    "pinia": "3.0.4",
     "slidev-theme-dracula": "^0.2.0",
-    "vue": "3.5.38"
+    "vue": "3.5.39"
   },
   "volta": {
     "node": "24.17.0"
   },
-  "packageManager": "pnpm@11.8.0"
+  "packageManager": "pnpm@11.9.0"
 }
