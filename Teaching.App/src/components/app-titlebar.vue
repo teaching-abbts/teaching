@@ -11,7 +11,7 @@
         }}</strong>
       </div>
     </v-app-bar-title>
-    <div class="mr-3">
+    <div class="mr-3 flex flex-row items-center justify-end">
       <slot />
     </div>
   </v-app-bar>
