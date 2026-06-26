@@ -19,6 +19,7 @@ const slideDeck = (href: string): SlideRef => ({
 
 const COURSE_PATH = "/nds-web-engineering";
 const MANIFEST_PATH = `${COURSE_PATH}/manifest.json`;
+const UNLOCK_2026_DAY_5_PLUS = "2026-07-03T08:00:00+02:00";
 
 type DayOverride = Partial<Omit<DayRef, "path" | "dayNumber" | "slides">>;
 type YearOverride = Partial<Omit<YearRef, "path" | "year" | "days">>;
@@ -146,6 +147,9 @@ function buildDayRef(
 ): DayRef {
   const path = `${coursePath}/${year}/day-${dayNumber}`;
   const override = DAY_OVERRIDES[path] ?? {};
+  const unlockAt =
+    override.unlockAt ??
+    (year === 2026 && dayNumber >= 5 ? UNLOCK_2026_DAY_5_PLUS : undefined);
 
   return {
     path,
@@ -154,7 +158,7 @@ function buildDayRef(
     dateLabel: override.dateLabel ?? `${year}`,
     logo: override.logo,
     icon: override.icon ?? icons.dayBasics,
-    unlockAt: override.unlockAt,
+    unlockAt,
     slides: [slideDeck(`${path}/slidev`)],
   };
 }
