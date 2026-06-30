@@ -98,9 +98,9 @@ const navTree = computed<NavItem[]>(() => {
       children: years.map((year) => ({
         name: String(year.year),
         path: year.path,
-        children: year.days.map((day) => ({
-          name: day.titleKey,
-          path: day.path,
+        children: year.chapters.map((chapter) => ({
+          name: chapter.titleKey,
+          path: chapter.path,
         })),
       })),
     },

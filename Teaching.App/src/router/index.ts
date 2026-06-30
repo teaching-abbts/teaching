@@ -3,7 +3,7 @@ import HomePage from "@/pages/index.vue";
 import { useAuthStore } from "@/stores/auth";
 import { useTeachingContentStore } from "@/stores/teaching-content";
 import NdsCourseOverview from "@/views/nds-course-overview.vue";
-import NdsDayView from "@/views/nds-day-view.vue";
+import NdsChapterView from "@/views/nds-chapter-view.vue";
 import NdsYearOverview from "@/views/nds-year-overview.vue";
 import { createRouter, createWebHashHistory } from "vue-router";
 
@@ -23,8 +23,8 @@ const router = createRouter({
       component: NdsYearOverview,
     },
     {
-      path: String.raw`/nds-web-engineering/:year(\d{4})/day-:dayNumber(\d+)`,
-      component: NdsDayView,
+      path: String.raw`/nds-web-engineering/:year(\d{4})/chapter-:chapterNumber(\d+)`,
+      component: NdsChapterView,
     },
     {
       path: "/:pathMatch(.*)*",
@@ -42,11 +42,11 @@ router.beforeEach(async (to) => {
     return true;
   }
 
-  const day = contentStore.findDayByPath(to.path);
+  const chapter = contentStore.findChapterByPath(to.path);
   return {
     path: "/nds-web-engineering",
     query: {
-      locked: day?.titleKey ?? "true",
+      locked: chapter?.titleKey ?? "true",
     },
   };
 });

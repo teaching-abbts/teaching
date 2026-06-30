@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <defs>
+    <style>
+      .title {
+        font: 700 28px 'Segoe UI', Arial, sans-serif;
+        fill: #0f172a;
+      }
+
+      .label {
+        font: 600 18px 'Segoe UI', Arial, sans-serif;
+        fill: #0f172a;
+      }
+
+      .sub {
+        font: 500 15px 'Segoe UI', Arial, sans-serif;
+        fill: #334155;
+      }
+
+      .arrow {
+        stroke: #334155;
+        stroke-width: 3;
+        fill: none;
+        marker-end: url(#arrow);
+      }
+
+      .dashed {
+        stroke-dasharray: 8 8;
+      }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155" />
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="700" fill="#f8fafc" />
+  <text x="600" y="52" text-anchor="middle" class="title">Vue.js + ASP.NET Core Fullstack Struktur</text>
+
+  <rect x="70" y="120" rx="16" ry="16" width="330" height="240" fill="#dcfce7" stroke="#16a34a" stroke-width="3" />
+  <text x="235" y="160" text-anchor="middle" class="label">Vue.js Projekt</text>
+  <text x="95" y="210" class="sub">- TypeScript Komponenten (SFC)</text>
+  <text x="95" y="245" class="sub">- HTML + CSS</text>
+  <text x="95" y="280" class="sub">- Vite Build</text>
+  <text x="95" y="315" class="sub">- Dist Files (JS, CSS, HTML)</text>
+
+  <rect x="440" y="120" rx="16" ry="16" width="320" height="240" fill="#dbeafe" stroke="#2563eb" stroke-width="3" />
+  <text x="600" y="160" text-anchor="middle" class="label">ASP.NET Core Backend</text>
+  <text x="465" y="210" class="sub">- C# API Endpoints</text>
+  <text x="465" y="245" class="sub">- Static File Hosting</text>
+  <text x="465" y="280" class="sub">- Dependency Injection</text>
+  <text x="465" y="315" class="sub">- Middleware Pipeline</text>
+
+  <rect x="800" y="120" rx="16" ry="16" width="320" height="240" fill="#fef3c7" stroke="#d97706" stroke-width="3" />
+  <text x="960" y="160" text-anchor="middle" class="label">Browser</text>
+  <text x="825" y="210" class="sub">- HTTP(S) Requests</text>
+  <text x="825" y="245" class="sub">- SPA Rendering</text>
+  <text x="825" y="280" class="sub">- API Calls mit Fetch</text>
+
+  <rect x="440" y="430" rx="16" ry="16" width="320" height="180" fill="#ede9fe" stroke="#7c3aed" stroke-width="3" />
+  <text x="600" y="470" text-anchor="middle" class="label">.NET Runtime + Kestrel</text>
+  <text x="465" y="515" class="sub">- Hosting für ASP.NET Core</text>
+  <text x="465" y="550" class="sub">- Build/Run via dotnet CLI</text>
+
+  <path class="arrow" d="M400 240 L430 240" />
+  <path class="arrow" d="M760 240 L790 240" />
+  <path class="arrow dashed" d="M600 360 L600 420" />
+  <path class="arrow" d="M960 360 L960 390 L760 390" />
+  <text x="860" y="380" class="sub">HTTP Response</text>
+</svg>

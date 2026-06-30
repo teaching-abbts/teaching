@@ -2,25 +2,25 @@
   <v-row>
     <v-col cols="12">
       <v-card
-        v-for="day in days"
-        :key="day.path"
-        :prepend-icon="day.icon"
+        v-for="chapter in chapters"
+          :key="chapter.path"
+          :prepend-icon="chapter.icon"
         class="py-4 my-4"
         color="surface-variant"
         min-width="500px"
         rounded="lg"
         variant="tonal"
-        @click="navigateTo(day.path)"
+        @click="navigateTo(chapter.path)"
       >
         <template #image>
-          <v-img v-if="day.logo" position="top right" :src="day.logo" />
+          <v-img v-if="chapter.logo" position="top right" :src="chapter.logo" />
         </template>
         <template #title>
-          <h2 class="text-h5 font-weight-bold">{{ t(day.titleKey) }}</h2>
+          <h2 class="text-h5 font-weight-bold">{{ t(chapter.titleKey) }}</h2>
         </template>
         <template #subtitle>
           <div class="text-subtitle-1">
-            <v-kbd>{{ day.dateLabel }}</v-kbd>
+            <v-kbd>{{ chapter.dateLabel }}</v-kbd>
           </div>
         </template>
       </v-card>
@@ -46,8 +46,8 @@ const yearPath = computed(() => {
   return `/nds-web-engineering/${year}`;
 });
 
-const days = computed(() =>
-  contentStore.getVisibleDaysByYearPath(yearPath.value, authStore.isTeacherMode),
+const chapters = computed(() =>
+  contentStore.getVisibleChaptersByYearPath(yearPath.value, authStore.isTeacherMode),
 );
 
 function navigateTo(path: string) {

@@ -16,7 +16,7 @@ namespace Build.Tasks;
 
 public class BuildTeachingNdsWegTask : FrostingTask<BuildContext>
 {
-  private sealed record ManifestYear(int Year, List<int> Days);
+  private sealed record ManifestYear(int Year, List<int> Chapters);
 
   private sealed record ManifestRoot(string CoursePath, List<ManifestYear> Years);
 
@@ -37,9 +37,9 @@ public class BuildTeachingNdsWegTask : FrostingTask<BuildContext>
       WorkingDirectory = slidesProjectDir,
     };
 
-    Dictionary<int, HashSet<int>> discoveredDaysByYear = [];
+    Dictionary<int, HashSet<int>> discoveredChaptersByYear = [];
 
-    FilePathCollection slideFiles = context.GetFiles($"{slidesProjectDir}/slides-*-day-*.md");
+    FilePathCollection slideFiles = context.GetFiles($"{slidesProjectDir}/slides-*-chapter-*.md");
     IEnumerable<IGrouping<string, FilePath>> slideFilesByYear = slideFiles
       .GroupBy(filePath => ExtractYearInfix(filePath.GetFilenameWithoutExtension().ToString()))
       .OrderByDescending(grouping => grouping.Key);
@@ -52,11 +52,11 @@ public class BuildTeachingNdsWegTask : FrostingTask<BuildContext>
         slidesProjectDir,
         yearlySlideFiles,
         yearlySlideFiles.Key,
-        discoveredDaysByYear
+        discoveredChaptersByYear
       );
     }
 
-    WriteManifest(context, discoveredDaysByYear);
+    WriteManifest(context, discoveredChaptersByYear);
 
     context.CopyDirectory(slidesProjectDir.Combine("public"), context.AppPublishDir);
   }
@@ -67,7 +67,7 @@ public class BuildTeachingNdsWegTask : FrostingTask<BuildContext>
     DirectoryPath projectDir,
     IEnumerable<FilePath> slideFiles,
     string yearInfix,
-    Dictionary<int, HashSet<int>> discoveredDaysByYear
+    Dictionary<int, HashSet<int>> discoveredChaptersByYear
   )
   {
     int year = int.Parse(yearInfix);
@@ -77,17 +77,17 @@ public class BuildTeachingNdsWegTask : FrostingTask<BuildContext>
       context.Information($"*** Processing {slideFile.FullPath}...");
       string filename = slideFile.GetFilenameWithoutExtension().ToString();
 
-      // Extract day name: slides-<year>-day-1 -> day-1
-      string dayName = filename.Replace($"slides-{yearInfix}-", string.Empty);
-      int dayNumber = ParseDayNumber(dayName);
-      TrackDiscoveredDay(discoveredDaysByYear, year, dayNumber);
+      // Extract chapter name: slides-<year>-chapter-1 -> chapter-1
+      string chapterName = filename.Replace($"slides-{yearInfix}-", string.Empty);
+      int chapterNumber = ParseChapterNumber(chapterName);
+      TrackDiscoveredChapter(discoveredChaptersByYear, year, chapterNumber);
 
-      context.Command(pnpmCommand, $"run build-{yearInfix}-{dayName}");
+      context.Command(pnpmCommand, $"run build-{yearInfix}-{chapterName}");
       DirectoryPath distDir = projectDir.Combine("dist");
       DirectoryPath outputDir = context
         .AppPublishDir.Combine("nds-web-engineering")
         .Combine(yearInfix)
-        .Combine(dayName)
+        .Combine(chapterName)
         .Combine("slidev");
       context.EnsureDirectoryDoesNotExist(outputDir);
       context.EnsureDirectoryExists(outputDir);
@@ -103,7 +103,7 @@ public class BuildTeachingNdsWegTask : FrostingTask<BuildContext>
     }
 
     int yearStart = "slides-".Length;
-    int yearEnd = filename.IndexOf("-day-", StringComparison.Ordinal);
+    int yearEnd = filename.IndexOf("-chapter-", StringComparison.Ordinal);
     if (yearEnd <= yearStart)
     {
       throw new CakeException($"Unsupported slide filename format '{filename}'.");
@@ -112,45 +112,45 @@ public class BuildTeachingNdsWegTask : FrostingTask<BuildContext>
     return filename[yearStart..yearEnd];
   }
 
-  private static int ParseDayNumber(string dayName)
+  private static int ParseChapterNumber(string chapterName)
   {
-    if (!dayName.StartsWith("day-"))
+    if (!chapterName.StartsWith("chapter-"))
     {
-      throw new CakeException($"Unsupported day naming format '{dayName}'.");
+      throw new CakeException($"Unsupported chapter naming format '{chapterName}'.");
     }
 
-    string suffix = dayName["day-".Length..];
-    if (!int.TryParse(suffix, out int dayNumber))
+    string suffix = chapterName["chapter-".Length..];
+    if (!int.TryParse(suffix, out int chapterNumber))
     {
-      throw new CakeException($"Could not parse day number from '{dayName}'.");
+      throw new CakeException($"Could not parse chapter number from '{chapterName}'.");
     }
 
-    return dayNumber;
+    return chapterNumber;
   }
 
-  private static void TrackDiscoveredDay(
-    Dictionary<int, HashSet<int>> discoveredDaysByYear,
+  private static void TrackDiscoveredChapter(
+    Dictionary<int, HashSet<int>> discoveredChaptersByYear,
     int year,
-    int dayNumber
+    int chapterNumber
   )
   {
-    if (!discoveredDaysByYear.TryGetValue(year, out HashSet<int> days))
+    if (!discoveredChaptersByYear.TryGetValue(year, out HashSet<int> chapters))
     {
-      days = [];
-      discoveredDaysByYear[year] = days;
+      chapters = [];
+      discoveredChaptersByYear[year] = chapters;
     }
 
-    days.Add(dayNumber);
+    chapters.Add(chapterNumber);
   }
 
   private static void WriteManifest(
     BuildContext context,
-    Dictionary<int, HashSet<int>> discoveredDaysByYear
+    Dictionary<int, HashSet<int>> discoveredChaptersByYear
   )
   {
-    List<ManifestYear> years = discoveredDaysByYear
+    List<ManifestYear> years = discoveredChaptersByYear
       .OrderByDescending(entry => entry.Key)
-      .Select(entry => new ManifestYear(entry.Key, [.. entry.Value.OrderByDescending(day => day)]))
+      .Select(entry => new ManifestYear(entry.Key, [.. entry.Value.OrderByDescending(chapter => chapter)]))
       .ToList();
 
     ManifestRoot manifest = new("/nds-web-engineering", years);

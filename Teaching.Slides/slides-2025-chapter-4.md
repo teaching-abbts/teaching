@@ -69,7 +69,66 @@ app.MapGet(
 
     return HtmlPage(
       "Bildgalerie",
-      GalleryStyles(),
+      """
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+      h2 {
+        text-align: center;
+      }
+      .toolbar {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: center;
+      }
+      .gallery-item {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        overflow: hidden;
+        width: calc(33% - 16px);
+        min-width: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 10px;
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .gallery-item button {
+        margin-top: 8px;
+        padding: 4px 12px;
+        cursor: pointer;
+        background: #e53935;
+        color: white;
+        border: none;
+        border-radius: 4px;
+      }
+      .gallery-item button:hover {
+        background: #b71c1c;
+      }
+      a.btn {
+        display: inline-block;
+        padding: 8px 16px;
+        background: #1976d2;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+      }
+      a.btn:hover {
+        background: #0d47a1;
+      }
+      """,
       $"""
       <h2>Bildgalerie</h2>
       <div class="toolbar">
@@ -89,7 +148,49 @@ app.MapGet(
   () =>
     HtmlPage(
       "Bilder hochladen",
-      GalleryStyles(),
+      """
+      body {
+        font-family: sans-serif;
+        background: #f5f5f5;
+        padding: 20px;
+      }
+      h2 {
+        text-align: center;
+      }
+      form {
+        width: 360px;
+        margin: 0 auto;
+        padding: 24px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: bold;
+      }
+      input[type="file"] {
+        width: 100%;
+      }
+      input[type="submit"] {
+        margin-top: 14px;
+        padding: 8px 16px;
+        background: #1976d2;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background: #0d47a1;
+      }
+      .back {
+        display: block;
+        text-align: center;
+        margin-top: 14px;
+      }
+      """,
       """
       <h2>Bilder hochladen</h2>
       <form action="/image-gallery/upload" method="post" enctype="multipart/form-data">
@@ -180,9 +281,8 @@ app.MapGet("/", () => Results.Redirect("/image-gallery"));
 
 app.Run();
 
-IResult HtmlPage(string title, string styles, string body)
-{
-  return Results.Content(
+IResult HtmlPage(string title, string styles, string body) =>
+  Results.Content(
     $"""
     <!DOCTYPE HTML>
     <html>
@@ -190,142 +290,27 @@ IResult HtmlPage(string title, string styles, string body)
         <meta charset="UTF-8" />
         <title>{title}</title>
         <style>
-          {styles}
+    {styles}
         </style>
       </head>
       <body>
-        {body}
+    {body}
       </body>
     </html>
     """,
     "text/html"
   );
-}
 
-string GalleryItem(string fileName)
-{
-  return $"""
-    <div class="gallery-item">
-      <img src="/uploads/{fileName}" alt="{System.Net.WebUtility.HtmlEncode(fileName)}" />
-      <form method="post" action="/image-gallery/delete/{Uri.EscapeDataString(fileName)}">
-        <button type="submit">Löschen</button>
-      </form>
-    </div>
-    """;
-}
-
-string GalleryStyles()
-{
-  return """
-    body {
-      font-family: sans-serif;
-      padding: 20px;
-      background: #f5f5f5;
-    }
-    h2 {
-      text-align: center;
-    }
-    .toolbar {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      justify-content: center;
-    }
-    .gallery-item {
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      overflow: hidden;
-      width: calc(33% - 16px);
-      min-width: 200px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-bottom: 10px;
-    }
-    .gallery-item img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-    .gallery-item button {
-      margin-top: 8px;
-      padding: 4px 12px;
-      cursor: pointer;
-      background: #e53935;
-      color: white;
-      border: none;
-      border-radius: 4px;
-    }
-    .gallery-item button:hover {
-      background: #b71c1c;
-    }
-    a.btn {
-      display: inline-block;
-      padding: 8px 16px;
-      background: #1976d2;
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-    a.btn:hover {
-      background: #0d47a1;
-    }
-    """;
-}
+string GalleryItem(string fileName) =>
+  $"""
+  <div class="gallery-item">
+    <img src="/uploads/{fileName}" alt="{System.Net.WebUtility.HtmlEncode(fileName)}" />
+    <form method="post" action="/image-gallery/delete/{Uri.EscapeDataString(fileName)}">
+      <button type="submit">Löschen</button>
+    </form>
+  </div>
+  """;
 ```
-
----
-layout: two-cols-header
----
-
-# **Lösungsvorschlag**: Diagramm
-
-::left::
-
-```mermaid { scale: 0.3 }
-sequenceDiagram
-    actor User
-    participant Browser as 🌐 Browser (Client)
-    participant Server as 🖥️ Server
-
-    User->>Browser: Besucht /image-gallery
-    Browser->>Server: GET /image-gallery
-    Server->>Server: Liest uploads Ordner
-    Server->>Server: Erstellt HTML mit Bildern
-    Server-->>Browser: HTTP 200 + HTML
-    Browser->>Browser: Rendert Seite
-    Browser-->>User: Zeigt Bildgalerie
-
-    User->>Browser: Klick auf "Bilder hochladen"
-    Browser->>Server: GET /image-gallery/upload
-    Server->>Server: Erstellt Upload-Formular HTML
-    Server-->>Browser: HTTP 200 + Upload-Form
-    Browser->>Browser: Rendert Upload-Seite
-    Browser-->>User: Zeigt Upload-Form
-
-    User->>Browser: Wählt Bilder + Submit
-    Browser->>Server: POST /image-gallery/upload (multipart/form-data)
-    Server->>Server: Speichert Bilder im uploads Ordner
-    Server-->>Browser: HTTP 301 Redirect
-    Browser->>Server: GET /image-gallery
-    Server->>Server: Liest uploads Ordner (mit neuen Bildern)
-    Server-->>Browser: HTTP 200 + aktualisierte HTML
-    Browser-->>User: Zeigt Galerie mit neuen Bildern
-```
-
-::right::
-
-1. Der **Browser** sendet eine Anfrage an den Server
-1. Der **Server** liest die Bilder aus dem uploads-Ordner und generiert HTML
-1. Der **Server** antwortet mit der Seite (HTTP 200) – **MultiPage-Anwendung**
-1. Beim **Hochladen** sendet der Browser die Datei via POST request
-1. Der **Server** speichert die Bilder und leitet zurück zur Galerie (HTTP 301 Redirect)
-1. Die **Seite wird neu geladen** und zeigt die aktualisierten Bilder
 
 ---
 layout: two-cols-header
@@ -335,38 +320,19 @@ layout: two-cols-header
 
 ::left::
 
+<v-clicks :depth="2">
+
 - Als **Single-Page-Webanwendung** (englisch single-page application, kurz SPA) oder Einzelseiten-Webanwendung wird eine **Webanwendung** bezeichnet, die aus **einem einzigen HTML-Dokument** besteht und deren **Inhalte dynamisch nachgeladen** werden.
 - Der **Sitzungszustand** wird in der **Client-Applikation gespeichert**, *nicht im Server*.
 - Der Webclient ist eine unabhängige Einheit und lädt benötigte Daten bei Bedarf nach.
 - SPAs sind von ihrer Funktionsweise her mit «nativen Apps» vergleichbar, welche die Verarbeitung der Daten und deren Darstellung vor Ort auf dem Client (Webbrowser) vollziehen.
 - SPAs sind eine Vorstufe zu Progressive Web-Apps (PWAs), welche die allermeisten «Lücken» im Vergleich zu nativen Desktop Applikationen *(Dateizugriff, Offlinefähigkeit, Interaktion mit anderen Anwendungen auf dem PC)* schliessen
 
+</v-clicks>
+
 ::right::
 
-```mermaid { scale: 0.50 }
-sequenceDiagram
-  participant Client as 🌐 Web-Client
-  participant WebServer as 🖥️ Web-Server
-  participant DB as 🗄️ DB
-
-  rect rgba(245, 241, 220, 0.25)
-    Note over Client,WebServer: Anwendung laden
-    Client->>WebServer: GET(index.html)<br />HTTP
-    WebServer-->>Client: index.html
-    Note over Client: Start-SPA<br />$(document).ready
-  end
-
-  rect rgba(245, 241, 220, 0.25)
-    Note over Client,DB: Laufzeit
-    loop Wiederholt bei Nutzerinteraktion, Timer oder Navigation
-      Client->>WebServer: GET /id-1<br />(fetch, JSON)
-      WebServer->>DB: doSomething()
-      DB-->>WebServer: data
-      WebServer-->>Client: data
-      Client->>Client: DOM aktualisieren (data)
-    end
-  end
-```
+![SPA-Swimlanes](./public/images/SPA-Swimlanes.png)
 
 <style>
  li {
@@ -374,114 +340,59 @@ sequenceDiagram
  }
 </style>
 
+
 ---
 layout: two-cols-header
 ---
 
-# *SPA* vs. *Native App*
+# SPA vs. Native App
 
 ::left::
 
-### Single Page App *(SPA)*
+### SPA
 
-<v-click at="1">
+<v-clicks depth="2">
 
-- **Zugriff** & **Distribution**
-  - ✅ Keine Installation notwendig – App kann von überall her via HTTP bezogen werden – vollständige Kontrolle
-  - ✅ Keine Abhängigkeit von (moderierten/kostenpflichtigen) App-Stores
-
-</v-click>
-
-<v-click at="3">
-
+- **Zugriff**
+  - Keine Installation notwendig – App kann von überall her via HTTP bezogen werden – vollständige Kontrolle
+  - Keine Abhängigkeit von (moderierten/kostenpflichtigen) App-Stores
 - **Plattformunabhängigkeit**
-  - ✅ Läuft in jedem modernen Webbrowser
-  - ✅ Keine (direkte) Abhängigkeit von Betriebssystemen (Windows, macOS, Linux, Android, iOS) und Hardware (PC, Smartphone, Tablet)
-
-</v-click>
-
-<v-click at="5">
-
+  - Läuft in jedem modernen Webbrowser
+  - Keine (direkte) Abhängigkeit von Betriebssystemen (Windows, macOS, Linux, Android, iOS) und Hardware (PC, Smartphone, Tablet)
 - **Performance**
-  - ✅ Sehr leichtgewichtig (oft nur wenige KB)
-  - ⚠️ Kann im direkten Vergleich zu (optimierten) nativen Apps in manchen Fällen langsamer sein (z.B. Games, extrem viele Daten auf Einmal laden)
-  - ✅ *Aber*: mit modernen Frameworks wie Vue.js sind SPAs sehr performant und es gibt native Schnittstellen (WebAssembly, WebGL, WebGPU) für Performance-intensive Anwendungen
-  - ➖ In modernen Webbrowsern ist i.d.R. die Leistung für fast alle Anwendungsfälle mehr als ausreichend
-
-</v-click>
-
-<v-click at="7">
-
+  - Sehr leichtgewichtig (oft nur wenige KB)
+  - Kann im direkten Vergleich zu (optimierten) nativen Apps in manchen Fällen langsamer sein (z.B. Games, extrem viele Daten auf Einmal laden)
+  - *Aber*: mit modernen Frameworks wie Vue.js sind SPAs sehr performant und es gibt native Schnittstellen (WebAssembly, WebGL, WebGPU) für Performance-intensive Anwendungen
+  - In modernen Webbrowsern ist i.d.R. die Leistung für fast alle Anwendungsfälle mehr als ausreichend
 - **Kosten**
-  - ✅ Die Entwicklung von Web-Apps ist, über den ganzen Lebenszyklus betrachtet, in den meisten Fällen kostengünstiger als native Apps
-  - ✅ Keine Kosten für App-Store-Gebühren
-  - ✅ Geringere Kosten für Hosting und Betrieb
-
-</v-click>
-
-<v-click at="9">
-
+  - Die Entwicklung von Web-Apps ist, über den ganzen Lebenszyklus betrachtet, in den meisten Fällen kostengünstiger als native Apps
+  - Keine Kosten für App-Store-Gebühren
+  - Geringere Kosten für Hosting und Betrieb
 - **[PWA](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/What_is_a_progressive_web_app)**
-  - ✅ Schliesst die meisten relevanten Lücken zu nativen Apps
-  - ✅ Offline-Funktionalität, Push-Benachrichtigungen, Hintergrundaktualisierungen, uvm.
+  - Schliesst die meisten relevanten Lücken zu nativen Apps
+  - Offline-Funktionalität, Push-Benachrichtigungen, Hintergrundaktualisierungen, uvm.
 
-</v-click>
+</v-clicks>
 
 ::right::
-
 ### Native App
+<v-clicks depth="2">
 
-<v-click at="2">
+- Spezifische Installationsroutinen für jedes System
+- Muss i.d.R. für eine spezifische Platform kompilliert werden
+- Kann nativ kompilliert werden – höchste Performance
+- Kann ein hohes Sicherheitsrisiko darstellen, da i.d.R. viele Rechte und nativer Zugriff auf das System
+- Muss oft via proprietären Store (Apple App Store / Google Play / Microsoft Store, etc.) bezogen werden – ggf. kostenpflichtiges Abo für Entwickler, etc.
+- **IMHO des Dozenten**: Viele native Apps sind gerade bei "simplen" Dingen Fehleranfällig (z.B. Abspielfunktion für Musik/Videos streikt, Nachladen geht nicht, App stürzt ab/reagiert nicht, etc.) - dies liegt vermutlich (auch) daran, dass viele dieser "Bausteine" nicht so so stabil und "ausgereift" sind wie die entsprechenden Web-APIs, die in modernen Webbrowsern zur Verfügung stehen und von millarden von Nutzern getestet wurden.
 
-- **Zugriff** & **Distribution**
-  - ⚠️ Spezifische Installationsroutinen für jedes System
-  - ⚠️ Muss oft via proprietären Store (Apple App Store / Google Play / Microsoft Store, etc.) bezogen werden – ggf. kostenpflichtiges Abo für Entwickler, etc.
-
-</v-click>
-
-<v-click at="4">
-
-- **Plattformabhängigkeit**
-  - ⚠️ Muss i.d.R. für eine spezifische Platform kompilliert werden
-
-</v-click>
-
-<v-click at="6">
-
-- **Performance**
-  - ✅ Kann nativ kompilliert werden – höchste Performance
-
-</v-click>
-
-<v-click at="8">
-
-- **Kosten**
-  - ⚠️ Separate Implementierungen pro Plattform erhöhen Entwicklungsaufwand und Time-to-Market
-  - ⚠️ Mehr Testaufwand, Release-Prozesse und Wartung über mehrere Plattform-Versionen hinweg
-  - ⚠️ App-Store-Gebühren, Provisionen und Freigabeprozesse können laufende Kosten erhöhen
-  - ➖ Bei hoher Performance- oder Hardware-Integration kann sich der Mehraufwand wirtschaftlich lohnen
-
-</v-click>
-
-<v-click at="10">
-
-- **Sicherheit**
-  - ⚠️ Kann ein hohes Sicherheitsrisiko darstellen, da i.d.R. viele Rechte und nativer Zugriff auf das System
-
-</v-click>
-
-<v-click at="11">
-
-- **Praxiserfahrung *(IMHO des Dozenten)***
-  - ➖ Viele native Apps sind gerade bei "simplen" Dingen Fehleranfällig (z.B. Abspielfunktion für Musik/Videos streikt, Nachladen geht nicht, App stürzt ab/reagiert nicht, etc.) - dies liegt vermutlich (auch) daran, dass viele dieser "Bausteine" nicht so so stabil und "ausgereift" sind wie die entsprechenden Web-APIs, die in modernen Webbrowsern zur Verfügung stehen und von millarden von Nutzern getestet wurden.
-
-</v-click>
+</v-clicks>
 
 <style>
   li {
-    font-size: 0.59rem;
+    --uno: text-xs;
   }
 </style>
+
 
 ---
 
@@ -495,10 +406,11 @@ layout: two-cols-header
 - Seit Jahren eines der *verbreitetsten und beliebtesten* **JavaScript-Frameworks** weltweit und hat **Millionen von Benutzern**
 - Vue.js bietet ein reichhaltiges Ökosystem, das von *Build Toolchain* über *Test-Utils*, *IDE-Unterstützung*, *State-Management* und *Client-Side-Routing*, *Server-Side-Rendering* bis hin zu *umfangreichen Debugging-Tools* reicht.
 - Vue.js ist sogenannt *progressiv* und kann in bestehenden Projekten schrittweise eingeführt werden:
-  - Vue.js kann z.B. vergleichsweise leicht in bestehende HTML-Seiten integriert werden, um interaktive Komponenten zu erstellen (ähnlich wie [jQuery](https://jquery.com/)).
-  - Erweiterungen und Plugins können nach Belieben hinzugefügt werden, um die Funktionalität zu erweitern (z.B. Vue Router für Client-Side-Routing, Pinia für State-Management).
+  - Vue.js kann z.B. vergleichsweise leich in bestehende HTML-Seiten integriert werden, um interaktive Komponenten zu erstellen (ähnlich wie [jQuery](https://jquery.com/)).
+  - Erweiterungen und Plugins können nach belieben hinzugefügt werden, um die Funktionalität zu erweitern (z.B. Vue Router für Client-Side-Routing, Pinia für State-Management).
 
 </v-clicks>
+
 
 ---
 layout: two-cols-header
@@ -510,15 +422,18 @@ layout: two-cols-header
 
 ::left::
 
-<<< ./public/assets/day-4-vue.js-global-build.html html {monaco} { readonly: true, lineNumbers: 'on', height: '400px' }
+<<< ./public/assets/chapter-4-vue.js-global-build.html html {monaco} { lineNumbers: 'on', height: '400px' }
 
 ::right::
 
-<iframe src="/assets/day-4-vue.js-global-build.html" style="zoom: 2;" width="100%" height="200px" frameborder="0"></iframe>
+<iframe src="/assets/chapter-4-vue.js-global-build.html" style="zoom: 2;" width="100%" height="400px" frameborder="0"></iframe>
+
 
 ---
 
 # Vue.js - Reaktivität
+
+<div></div>
 
 <v-click>
 
@@ -540,6 +455,7 @@ layout: two-cols-header
     --uno: text-base;
   }
 </style>
+
 
 ---
 layout: two-cols-header
@@ -572,24 +488,25 @@ layout: two-cols-header
   }
 </style>
 
+
 ---
 layout: two-cols-header
 ---
 
 # Vue.js - Grundlegende Konzepte 2
 
+<<< ./components/ConditionsAndLoops.vue html {monaco} { lineNumbers: 'on', height: '200px' }
+
+::left::
+
 - `v-if`, `v-else-if`, `v-else`: Bedingte Anzeige von Elementen
 - `v-for`: Iteration über Arrays oder Objekte
 - `@keyup.enter`: Event-Handler loslassen der Entertaste
 - `:property`: Bindung von Attributen an reaktive Daten
 
-::left::
-
-<<< ./components/ConditionsAndLoops.vue html {monaco} { lineNumbers: 'on', height: '330px' }
-
 ::right::
 
-<div class="w-full h-full flex justify-center h-40">
+<div class="w-full h-full flex justify-center">
   <ConditionsAndLoops />
 </div>
 
@@ -603,37 +520,42 @@ layout: two-cols-header
 </style>
 
 ---
+layout: two-cols-header
+---
 
 # Vue.js - Class und Style Bindings
 
-```html {monaco} { lineNumbers: 'on', height: '430px', readonly: true }
-<template>
-  <!-- Object binding -->
-  <div :class="{ active: isActive }"></div>
-  <!-- => Rendering wenn 'isActive' truthy -->
-  <div class="active"></div>
+::left::
 
-  <!-- Object binding mit statischer Eigenschaft -->
-  <div
-    class="static"
-    :class="{ active: isActive, 'text-danger': hasError }"
-  ></div>
-  <!-- => Mögliches Rendering -->
-  <div class="static active text-danger"></div>
+```html {monaco}
+<!-- Object binding -->
+<div :class="{ active: isActive }"></div>
+<!-- Rendering wenn 'isActive' truthy -->
+<div class="active"></div>
 
-  <!-- Array binding -->
-  <div :class="[activeClass, errorClass]"></div>
-  <!-- => Mögliches Rendering -->
-  <div class="active text-danger"></div>
+<!-- Object binding mit statischer Eigenschaft -->
+ <div
+  class="static"
+  :class="{ active: isActive, 'text-danger': hasError }"
+></div>
+<!-- Mögliches Rendering -->
+<div class="static active text-danger"></div>
 
-  <!-- Setzen via (computed) reactive -->
-  <div :class="computedClass"></div>
-  <!-- => Mögliches Rendering -->
-  <div class="active text-danger"></div>
-</template>
+<!-- Array binding -->
+<div :class="[activeClass, errorClass]"></div>
+<!-- Mögliches Rendering -->
+<div class="active text-danger"></div>
 
-<script>
-import { ref, computed } from 'Vue'
+<!-- Setzen via (computed) reactive -->
+<div :class="computedClass"></div>
+<!-- Mögliches Rendering -->
+<div class="active text-danger"></div>
+```
+
+::right::
+
+```js {monaco}
+import { ref, computed } from 'vue'
 
 const isActive = ref(true)
 const hasError = ref(false)
@@ -646,25 +568,21 @@ const computedClass = computed(() => {
     'text-danger': hasError.value
   }
 })
-</script>
 ```
 
----
-layout: two-cols-header
+
 ---
 
 # **Arbeitsauftrag**: Todo-App mit Vue.js
 
-- Wir erstellen nun erneut die Todo-App vom Tag 2 - diesmal jedoch mit Vue.js
+<div></div>
+
+- Wir erstellen nun erneut die Todo-App vom Kapitel 2 - diesmal jedoch mit Vue.js
 - Nutzen sie die Vue.js Konzepte, die Sie in den letzten Slides gesehen haben
-- Nehmen sie folgenden Quellcode, welcher bereits den **Vue.js Global-Build** enthält, als Basis für ihr `index.html`
+- Nehmen sie folgenden Quellcode, welcher bereits den **Vue.js Global-Build** enthält, als Basis
 
-::left::
+<<< ./public/assets/chapter-4-vue.js-todo-app.html html {monaco} { lineNumbers: 'on', height: '300px' }
 
-<<< ./public/assets/day-4-vue.js-todo-app.html html {monaco} { lineNumbers: 'on', height: '300px' }
-
-::right::
-<iframe src="/assets/day-4-vue.js-todo-app.html" style="zoom: 2;" width="100%" height="150px" frameborder="0"></iframe>
 
 ---
 
@@ -673,6 +591,7 @@ layout: two-cols-header
 1. Spielen sie auf nächste Woche das offizielle Vue.js Tutorial durch: <https://vuejs.org/tutorial>
    - *(alternativ)* Für motivierte Teilnehmer:innen: sie können auch das längere, aber ausführlichere W3CSchools Tutorial durchspielen: <https://www.w3schools.com/vue/index.php> *(machen sie, soweit sie kommen...)*
 2. Beenden sie die heutige Aufgabe (**Todo-App** mit Vue.js), falls sie noch nicht fertig geworden sind
+
 
 ---
 
@@ -687,3 +606,4 @@ Kommt alle gut nach Hause, viel Erfolg bei den Hausaufgaben und eine gute, lehrr
 👋 bis nächsten Freitag!
 
 </div>
+

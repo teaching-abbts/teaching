@@ -189,11 +189,11 @@ class: m-1
 
 ::left::
 
-<<< ./public/assets/day-2-tables-1.html {monaco} { lineNumbers: 'on', height: '300px', readOnly: true }
+<<< ./public/assets/chapter-2-tables-1.html {monaco} { lineNumbers: 'on', height: '300px', readOnly: true }
 
 ::right::
 
-<iframe style="height: 300px;" class="w-full h-full bg-white" src="/assets/day-2-tables-1.html" />
+<iframe style="height: 300px;" class="w-full h-full bg-white" src="/assets/chapter-2-tables-1.html" />
 
 ---
 layout: two-cols-header
@@ -208,11 +208,11 @@ Tabellen lassen sich sehr vielfältig anpassen: <a href="https://www.w3schools.c
 
 ::left::
 
-<<< ./public/assets/day-2-tables-2.html html {monaco} { lineNumbers: 'on', height: '400px', readOnly: true }
+<<< ./public/assets/chapter-2-tables-2.html html {monaco} { lineNumbers: 'on', height: '400px', readOnly: true }
 
 ::right::
 
-<iframe style="height: 400px;" class="w-full h-full bg-white" src="/assets/day-2-tables-2.html" />
+<iframe style="height: 400px;" class="w-full h-full bg-white" src="/assets/chapter-2-tables-2.html" />
 
 ---
 layout: two-cols-header
@@ -228,11 +228,11 @@ class: m-1
 
 ::left::
 
-<<< ./public/assets/day-2-tables-3.html html {monaco} { lineNumbers: 'on', height: '360px', readOnly: true }
+<<< ./public/assets/chapter-2-tables-3.html html {monaco} { lineNumbers: 'on', height: '360px', readOnly: true }
 
 ::right::
 
-<iframe class="w-full h-full bg-white" src="/assets/day-2-tables-3.html" />
+<iframe class="w-full h-full bg-white" src="/assets/chapter-2-tables-3.html" />
 
 <style>
   li {
@@ -246,11 +246,11 @@ class: m-1
 
 <v-clicks>
 
-1. **Laden** sie den <a href="/assets/day-2-assignment-1-source.zip">Source Code</a> herunter und entpacken die enthaltenen Dateien in ihre **VSCode** Umgebung.
+1. **Laden** sie den <a href="/assets/chapter-2-assignment-1-source.zip">Source Code</a> herunter und entpacken die enthaltenen Dateien in ihre **VSCode** Umgebung.
 2. **Starten** sie den Webserver mit "Go Live" in **VSCode**
 3. **Ergänzen** sie die Datei `style.css` ausschliesslich mit **CSS-Regeln**, so dass die Seite wie folgt aussieht:
 
-<iframe style="zoom: 0.5;" class="w-full h-190 bg-white" src="/assets/day-2-assignment-1.html" />
+<iframe style="zoom: 0.5;" class="w-full h-190 bg-white" src="/assets/chapter-2-assignment-1.html" />
 
 </v-clicks>
 
@@ -317,15 +317,15 @@ layout: two-cols-header
 
 # **Lösungsvorschlag**: Tabelle stylen
 
-<iframe style="zoom: 0.5;" class="w-full h-100 bg-white" src="/assets/day-2-assignment-1.html" />
+<iframe style="zoom: 0.5;" class="w-full h-100 bg-white" src="/assets/chapter-2-assignment-1.html" />
 
 ::left::
 
-<<< ./public/assets/day-2-assignment-1.html html {monaco} { lineNumbers: 'on', height: '240px', readOnly: true }
+<<< ./public/assets/chapter-2-assignment-1.html html {monaco} { lineNumbers: 'on', height: '240px', readOnly: true }
 
 ::right::
 
-<<< ./public/assets/day-2-assignment-1.css css {monaco} { lineNumbers: 'on', height: '240px', readOnly: true }
+<<< ./public/assets/chapter-2-assignment-1.css css {monaco} { lineNumbers: 'on', height: '240px', readOnly: true }
 
 ---
 
@@ -900,11 +900,11 @@ layout: two-cols-header
 
 ::left::
 
-<<< ./public/assets/day-2-dom-and-js.html html {monaco} { lineNumbers: 'on', height: '400px', readOnly: true }
+<<< ./public/assets/chapter-2-dom-and-js.html html {monaco} { lineNumbers: 'on', height: '400px', readOnly: true }
 
 ::right::
 
-<iframe class="w-full h-full bg-white m-3" src="/assets/day-2-dom-and-js.html" style="height: 400px;" />
+<iframe class="w-full h-full bg-white m-3" src="/assets/chapter-2-dom-and-js.html" style="height: 400px;" />
 
 ---
 layout: two-cols-header
@@ -917,11 +917,11 @@ layout: two-cols-header
 
 ::left::
 
-<<< ./public/assets/day-2-assignment-todo.html html {monaco} { lineNumbers: 'on', height: '370px', readOnly: true }
+<<< ./public/assets/chapter-2-assignment-todo.html html {monaco} { lineNumbers: 'on', height: '370px', readOnly: true }
 
 ::right::
 
-<iframe class="w-full h-100 bg-white m-3" src="/assets/day-2-assignment-todo-solution.html" style="height: 370px;" />
+<iframe class="w-full h-100 bg-white m-3" src="/assets/chapter-2-assignment-todo-solution.html" style="height: 370px;" />
 
 ---
 

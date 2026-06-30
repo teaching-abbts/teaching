@@ -3,7 +3,7 @@ import type {
   CourseManifest,
   CourseManifestYear,
   CourseRef,
-  DayRef,
+  ChapterRef,
   SlideRef,
   YearRef,
 } from "@/types/content";
@@ -19,94 +19,94 @@ const slideDeck = (href: string): SlideRef => ({
 
 const COURSE_PATH = "/nds-web-engineering";
 const MANIFEST_PATH = `${COURSE_PATH}/manifest.json`;
-const UNLOCK_2026_DAY_5_PLUS = "2026-07-03T08:00:00+02:00";
+const UNLOCK_2026_CHAPTER_5_PLUS = "2026-07-03T08:00:00+02:00";
 
-type DayOverride = Partial<Omit<DayRef, "path" | "dayNumber" | "slides">>;
-type YearOverride = Partial<Omit<YearRef, "path" | "year" | "days">>;
+type ChapterOverride = Partial<Omit<ChapterRef, "path" | "chapterNumber" | "slides">>;
+type YearOverride = Partial<Omit<YearRef, "path" | "year" | "chapters">>;
 
 const FALLBACK_MANIFEST: CourseManifest = {
   coursePath: COURSE_PATH,
   years: [
     {
       year: 2026,
-      days: [9, 8, 7, 6, 5, 4, 3, 2, 1],
+      chapters: [9, 8, 7, 6, 5, 4, 3, 2, 1],
     },
     {
       year: 2025,
-      days: [10, 8, 7, 6, 5, 4, 3, 2, 1],
+      chapters: [10, 8, 7, 6, 5, 4, 3, 2, 1],
     },
   ],
 };
 
 const YEAR_OVERRIDES: Record<number, YearOverride> = {
   2026: {
-    logo: "/logo-day-2.png",
+    logo: "/logo-chapter-2.png",
   },
   2025: {
-    logo: "/logo-day-1.png",
+    logo: "/logo-chapter-1.png",
   },
 };
 
-const DAY_OVERRIDES: Record<string, DayOverride> = {
-  "/nds-web-engineering/2025/day-10": {
+const CHAPTER_OVERRIDES: Record<string, ChapterOverride> = {
+  "/nds-web-engineering/2025/chapter-10": {
     titleKey: "pwa-and-vue-advanced",
     dateLabel: "1. August 2025",
-    icon: icons.dayPwa,
+    icon: icons.chapterPwa,
     unlockAt: "2025-08-01T08:00:00+02:00",
   },
-  "/nds-web-engineering/2025/day-8": {
+  "/nds-web-engineering/2025/chapter-8": {
     titleKey: "certs-auth-pinia",
     dateLabel: "18. Juli 2025",
-    icon: icons.daySecurity,
+    icon: icons.chapterSecurity,
     unlockAt: "2025-07-18T08:00:00+02:00",
   },
-  "/nds-web-engineering/2025/day-7": {
+  "/nds-web-engineering/2025/chapter-7": {
     titleKey: "authentication",
     dateLabel: "11. Juli 2025",
-    logo: "/logo-day-7.png",
-    icon: icons.daySecurity,
+    logo: "/logo-chapter-7.png",
+    icon: icons.chapterSecurity,
     unlockAt: "2025-07-11T08:00:00+02:00",
   },
-  "/nds-web-engineering/2025/day-6": {
+  "/nds-web-engineering/2025/chapter-6": {
     titleKey: "frontend-advanced-flexbox-vuetify",
     dateLabel: "4. Juli 2025",
-    logo: "/logo-day-6.svg",
-    icon: icons.dayFrontend,
+    logo: "/logo-chapter-6.svg",
+    icon: icons.chapterFrontend,
     unlockAt: "2025-07-04T08:00:00+02:00",
   },
-  "/nds-web-engineering/2025/day-5": {
+  "/nds-web-engineering/2025/chapter-5": {
     titleKey: "the-road-to-fullstack-with-vue.js-and-ktor",
     dateLabel: "27. Juni 2025",
-    logo: "/logo-day-5.png",
-    icon: icons.dayBackend,
+    logo: "/logo-chapter-5.png",
+    icon: icons.chapterBackend,
     unlockAt: "2025-06-27T08:00:00+02:00",
   },
-  "/nds-web-engineering/2025/day-4": {
+  "/nds-web-engineering/2025/chapter-4": {
     titleKey: "single-page-apps-with-vue.js",
     dateLabel: "20. Juni 2025",
-    logo: "/logo-day-4.png",
-    icon: icons.dayFrontend,
+    logo: "/logo-chapter-4.png",
+    icon: icons.chapterFrontend,
     unlockAt: "2025-06-20T08:00:00+02:00",
   },
-  "/nds-web-engineering/2025/day-3": {
+  "/nds-web-engineering/2025/chapter-3": {
     titleKey: "basics-3",
     dateLabel: "13. Juni 2025",
-    logo: "/logo-day-3.png",
-    icon: icons.dayBasics,
+    logo: "/logo-chapter-3.png",
+    icon: icons.chapterBasics,
     unlockAt: "2025-06-13T08:00:00+02:00",
   },
-  "/nds-web-engineering/2025/day-2": {
+  "/nds-web-engineering/2025/chapter-2": {
     titleKey: "basics-2",
     dateLabel: "6. Juni 2025",
-    logo: "/logo-day-2.png",
-    icon: icons.dayBasics,
+    logo: "/logo-chapter-2.png",
+    icon: icons.chapterBasics,
     unlockAt: "2025-06-06T08:00:00+02:00",
   },
-  "/nds-web-engineering/2025/day-1": {
+  "/nds-web-engineering/2025/chapter-1": {
     titleKey: "introduction-and-basics-1",
     dateLabel: "30. Mai 2025",
-    logo: "/logo-day-1.png",
-    icon: icons.dayBasics,
+    logo: "/logo-chapter-1.png",
+    icon: icons.chapterBasics,
     unlockAt: "2025-05-30T08:00:00+02:00",
   },
 };
@@ -133,31 +133,31 @@ function isCourseManifestYear(value: unknown): value is CourseManifestYear {
   }
 
   const candidate = value as Partial<CourseManifestYear>;
-  if (typeof candidate.year !== "number" || !Array.isArray(candidate.days)) {
+  if (typeof candidate.year !== "number" || !Array.isArray(candidate.chapters)) {
     return false;
   }
 
-  return candidate.days.every((day) => typeof day === "number");
+  return candidate.chapters.every((chapter) => typeof chapter === "number");
 }
 
-function buildDayRef(
+function buildChapterRef(
   coursePath: string,
   year: number,
-  dayNumber: number,
-): DayRef {
-  const path = `${coursePath}/${year}/day-${dayNumber}`;
-  const override = DAY_OVERRIDES[path] ?? {};
+  chapterNumber: number,
+): ChapterRef {
+  const path = `${coursePath}/${year}/chapter-${chapterNumber}`;
+  const override = CHAPTER_OVERRIDES[path] ?? {};
   const unlockAt =
     override.unlockAt ??
-    (year === 2026 && dayNumber >= 5 ? UNLOCK_2026_DAY_5_PLUS : undefined);
+    (year === 2026 && chapterNumber >= 5 ? UNLOCK_2026_CHAPTER_5_PLUS : undefined);
 
   return {
     path,
-    dayNumber,
-    titleKey: override.titleKey ?? `day-${dayNumber}`,
+    chapterNumber,
+    titleKey: override.titleKey ?? `chapter-${chapterNumber}`,
     dateLabel: override.dateLabel ?? `${year}`,
     logo: override.logo,
-    icon: override.icon ?? icons.dayBasics,
+    icon: override.icon ?? icons.chapterBasics,
     unlockAt,
     slides: [slideDeck(`${path}/slidev`)],
   };
@@ -167,7 +167,7 @@ function buildYearRef(coursePath: string, year: CourseManifestYear): YearRef {
   const path = `${coursePath}/${year.year}`;
   const override = YEAR_OVERRIDES[year.year] ?? {};
 
-  const sortedDays = [...year.days].sort((a, b) => b - a);
+  const sortedChapters = [...year.chapters].sort((a, b) => b - a);
 
   return {
     path,
@@ -176,8 +176,8 @@ function buildYearRef(coursePath: string, year: CourseManifestYear): YearRef {
     dateLabel: override.dateLabel ?? `${year.year}`,
     logo: override.logo,
     icon: override.icon ?? icons.courseOverview,
-    days: sortedDays.map((dayNumber) =>
-      buildDayRef(coursePath, year.year, dayNumber),
+    chapters: sortedChapters.map((chapterNumber) =>
+      buildChapterRef(coursePath, year.year, chapterNumber),
     ),
   };
 }
@@ -257,9 +257,9 @@ export const useTeachingContentStore = defineStore("teaching-content", () => {
     return allYears.value.find((year) => year.path === path);
   }
 
-  function findDayByPath(path: string): DayRef | undefined {
+  function findChapterByPath(path: string): ChapterRef | undefined {
     for (const year of allYears.value) {
-      const found = year.days.find((day) => day.path === path);
+      const found = year.chapters.find((chapter) => chapter.path === path);
       if (found) {
         return found;
       }
@@ -271,33 +271,33 @@ export const useTeachingContentStore = defineStore("teaching-content", () => {
   function getVisibleYears(isTeacherMode: boolean): YearRef[] {
     return allYears.value.map((year) => ({
       ...year,
-      days: getVisibleDaysByYearPath(year.path, isTeacherMode),
+      chapters: getVisibleChaptersByYearPath(year.path, isTeacherMode),
     }));
   }
 
-  function getVisibleDaysByYearPath(
+  function getVisibleChaptersByYearPath(
     yearPath: string,
     isTeacherMode: boolean,
-  ): DayRef[] {
+  ): ChapterRef[] {
     const year = findYearByPath(yearPath);
     if (!year) {
       return [];
     }
 
     if (isTeacherMode) {
-      return year.days;
+      return year.chapters;
     }
 
-    return year.days.filter((day) => isUnlocked(day.unlockAt));
+    return year.chapters.filter((chapter) => isUnlocked(chapter.unlockAt));
   }
 
   function canAccessPath(path: string, isTeacherMode: boolean): boolean {
-    const day = findDayByPath(path);
-    if (!day) {
+    const chapter = findChapterByPath(path);
+    if (!chapter) {
       return true;
     }
 
-    return isTeacherMode || isUnlocked(day.unlockAt);
+    return isTeacherMode || isUnlocked(chapter.unlockAt);
   }
 
   return {
@@ -307,9 +307,9 @@ export const useTeachingContentStore = defineStore("teaching-content", () => {
     isInitializing,
     ensureInitialized,
     findYearByPath,
-    findDayByPath,
+    findChapterByPath,
     getVisibleYears,
-    getVisibleDaysByYearPath,
+    getVisibleChaptersByYearPath,
     canAccessPath,
   };
 });
