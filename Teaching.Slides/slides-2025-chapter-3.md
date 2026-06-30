@@ -47,9 +47,9 @@ transition: slide-left
 transition: slide-left
 ---
 
-# **Lösungsvorschlag**: Todo-App *(Aufgabe von Tag 2)*
+# **Lösungsvorschlag**: Todo-App *(Aufgabe von Kapitel 2)*
 
-<<< ./public/assets/day-2-assignment-todo-solution.html html {monaco} { lineNumbers: 'on', height: '440px' }
+<<< ./public/assets/chapter-2-assignment-todo-solution.html html {monaco} { lineNumbers: 'on', height: '440px' }
 
 ---
 transition: slide-left
@@ -493,11 +493,11 @@ layout: two-cols-header
 
 ::left::
 
-<<< ./public/assets/day-3-form.html html {monaco} { lineNumbers: 'on', height: '320px' }
+<<< ./public/assets/chapter-3-form.html html {monaco} { lineNumbers: 'on', height: '320px' }
 
 ::right::
 
-<iframe src="/assets/day-3-form.html" width="100%" height="500px" frameborder="0" />
+<iframe src="/assets/chapter-3-form.html" width="100%" height="500px" frameborder="0" />
 
 ---
 

@@ -115,10 +115,10 @@ transition: slide-left
 
 # **Übung**: Flexbox
 
-1. Kopieren sie (wie die letzten Male) folgenden HTML-Code in eine HTML-Datei (z.B. `index.html` in einem neuen Ordner `day-6-assignment-flexbox`), und öffnen Sie diese in ihrem Browser
+1. Kopieren sie (wie die letzten Male) folgenden HTML-Code in eine HTML-Datei (z.B. `index.html` in einem neuen Ordner `chapter-6-assignment-flexbox`), und öffnen Sie diese in ihrem Browser
 2. Versuchen sie, die `/* TODO */`-Kommentare im CSS-Code zu entfernen und die Flexbox-Eigenschaften so zu setzen, dass das Layout wie in der Lösung (nächste Seite) aussieht
 
-<<< ./public/assets/day-6-assignment-flexbox.html html {monaco} { lineNumbers: 'on', height: '350px' }
+<<< ./public/assets/chapter-6-assignment-flexbox.html html {monaco} { lineNumbers: 'on', height: '350px' }
 
 <style>
   li {
@@ -135,8 +135,8 @@ transition: slide-left
 Detaillierte Erklärungen zu den vorherigen Beispielen finden sich auf der [MDN-Seite zu Flexbox](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Flexbox).
 
 <TabViewer height="420px" :tabs="[
-  { label: 'Übungsansicht', src: '/assets/day-6-assignment-flexbox.html' },
-  { label: 'Lösungsansicht', src: '/assets/day-6-assignment-flexbox-solution.html' }
+  { label: 'Übungsansicht', src: '/assets/chapter-6-assignment-flexbox.html' },
+  { label: 'Lösungsansicht', src: '/assets/chapter-6-assignment-flexbox-solution.html' }
 ]" />
 
 ---
