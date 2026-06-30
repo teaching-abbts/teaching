@@ -17,7 +17,7 @@ theme: dracula
 
 # **NDS - Web Engineering**
 
-## Der Weg zu Fullstack mit *Vue.js* und *Ktor*
+## Der Weg zu Fullstack mit *Vue.js* und *ASP.NET Core*
 
 <style>
   h1 {
@@ -39,7 +39,7 @@ transition: slide-left
 4. Struktur: Vue.js-Projekt (SPA)
 5. Async-Await in JavaScript
 6. Backend-Kommunikation mit Fetch API
-7. Struktur: Vue.js und Ktor (Fullstack)
+7. Struktur: Vue.js und ASP.NET Core (Fullstack)
 8. Hausaufgabe & Abschluss
 
 </v-clicks>
@@ -478,11 +478,11 @@ if (deleteResponse.ok) {
 transition: slide-left
 ---
 
-# Vue.js und Ktor Struktur
+# Vue.js und ASP.NET Core Struktur
 
 <div class="flex flex-row justify-center">
-  <a href="/images/vuejs-ktor-fullstack-structure.drawio.html" class="w-80%" target="_blank">
-  <div class="bg-contain bg-no-repeat w-full h-440px flex items-center justify-center" style="background-image: url('/images/vuejs-ktor-fullstack-structure.png');">
+  <a href="/images/vuejs-aspnetcore-fullstack-structure.svg" class="w-80%" target="_blank">
+  <div class="bg-contain bg-no-repeat w-full h-440px flex items-center justify-center" style="background-image: url('/images/vuejs-aspnetcore-fullstack-structure.svg');">
   </div>
   </a>
 </div>
@@ -493,9 +493,9 @@ transition: slide-left
 
 # Fullstack-Demo
 
-In dieser Demo werden wir eine einfache Fullstack-Anwendung erstellen, die Vue.js für das Frontend und Ktor für das Backend verwendet. Es handelt sich um eine primitive Fotogalerie, in der Bilder hochgeladen und angezeigt werden können.
+In dieser Demo werden wir eine einfache Fullstack-Anwendung erstellen, die Vue.js für das Frontend und ASP.NET Core für das Backend verwendet. Es handelt sich um eine primitive Fotogalerie, in der Bilder hochgeladen und angezeigt werden können.
 
-Sie finden den Source-Code auf GitHub: <https://github.com/teaching-abbts/smart-home-system/tree/day-5/vuejs-and-ktor-gallery>
+Sie finden den Source-Code auf GitHub: <https://github.com/teaching-abbts/smart-home-system>
 
 ---
 transition: slide-left
@@ -503,7 +503,7 @@ transition: slide-left
 
 # Hausaufgabe
 
-Wir sind nun an einem wichtigen Punkt angekommen: heute haben wir die Grundlagen für eine Fullstack-Anwendung mit Vue.js und Ktor gelegt.
+Wir sind nun an einem wichtigen Punkt angekommen: heute haben wir die Grundlagen für eine Fullstack-Anwendung mit Vue.js und ASP.NET Core gelegt.
 
 Ihre Aufgabe auf nächste Woche besteht darin, den Source-Code der Demo zu studieren und die Funktionsweise der Anwendung zu verstehen:
 
