@@ -691,7 +691,7 @@ layout: two-cols
 ## **Auftrag**
 
 - Versuchen sie mit dem _soeben vermittelten Wissen_ folgende _HTML-Seite_ nachzubauen
-- Sie finden die Slides unter <https://teaching-abbts.github.io/nds-web-engineering/2026/day-1/slidev>
+- Sie finden die Slides unter <https://teaching-abbts.github.io/nds-web-engineering/2026/chapter-1/slidev>
 - Das Bild finden sie unter <https://teaching-abbts.github.io/slides-images/abbts-nds.jpg>. Laden sie dieses herunter und verwenden sie es mit einer _relativen URL_.
 - **Achtung**: die farbigen Texte sind _Links_!
   - https://www.abbts.ch/bildungsgaenge/
@@ -700,13 +700,13 @@ layout: two-cols
 
 ::right::
 
-<iframe src="/assets/day-1-assignment-2.html" width="450px" height="500px"></iframe>
+<iframe src="/assets/chapter-1-assignment-2.html" width="450px" height="500px"></iframe>
 
 ---
 
 # Simple HTML-Seite bauen - **Lösungsvorschlag**
 
-<<< ./public/assets/day-1-assignment-2.html {monaco} {lineNumbers:'on',lines:true,height:'450px'}
+<<< ./public/assets/chapter-1-assignment-2.html {monaco} {lineNumbers:'on',lines:true,height:'450px'}
 
 ---
 
@@ -781,9 +781,9 @@ layout: two-cols
 
 ::right::
 
-<<< ./public/assets/day-1-internes-css.html {monaco} {lineNumbers:'on',height:'230px',readonly:true}
+<<< ./public/assets/chapter-1-internes-css.html {monaco} {lineNumbers:'on',height:'230px',readonly:true}
 
-<iframe src="/assets/day-1-internes-css.html" width="435px" height="215px"></iframe>
+<iframe src="/assets/chapter-1-internes-css.html" width="435px" height="215px"></iframe>
 
 ---
 layout: two-cols-header
@@ -797,13 +797,13 @@ layout: two-cols-header
 
 ::left::
 
-<<< ./public/assets/day-1-externes-css.css {monaco} { readonly:true }
+<<< ./public/assets/chapter-1-externes-css.css {monaco} { readonly:true }
 
-<<< ./public/assets/day-1-externes-css.html {monaco} { readonly:true }
+<<< ./public/assets/chapter-1-externes-css.html {monaco} { readonly:true }
 
 ::right::
 
-<iframe src="/assets/day-1-externes-css.html" width="435px" height="400px"></iframe>
+<iframe src="/assets/chapter-1-externes-css.html" width="435px" height="400px"></iframe>
 
 <style>
   li {
@@ -825,11 +825,11 @@ Einige häufig verwendete CSS-Eigenschaften:
 
 ::left::
 
-<<< ./public/assets/day-1-css-colors-fonts.html {monaco} { readonly:true, height:'330px' }
+<<< ./public/assets/chapter-1-css-colors-fonts.html {monaco} { readonly:true, height:'330px' }
 
 ::right::
 
-<iframe src="/assets/day-1-css-colors-fonts.html" width="435px" height="330px"></iframe>
+<iframe src="/assets/chapter-1-css-colors-fonts.html" width="435px" height="330px"></iframe>
 
 <style>
   li {
@@ -848,11 +848,11 @@ layout: two-cols-header
 
 ::left::
 
-<<< ./public/assets/day-1-css-borders.html {monaco} { readonly:true, height:'350px' }
+<<< ./public/assets/chapter-1-css-borders.html {monaco} { readonly:true, height:'350px' }
 
 ::right::
 
-<iframe src="/assets/day-1-css-borders.html" width="435px" height="350px"></iframe>
+<iframe src="/assets/chapter-1-css-borders.html" width="435px" height="350px"></iframe>
 
 ---
 layout: two-cols-header
@@ -866,11 +866,11 @@ layout: two-cols-header
 
 ::left::
 
-<<< ./public/assets/day-1-css-padding-margin.html {monaco} { readonly:true, height:'300px' }
+<<< ./public/assets/chapter-1-css-padding-margin.html {monaco} { readonly:true, height:'300px' }
 
 ::right::
 
-<iframe src="/assets/day-1-css-padding-margin.html" width="435px" height="300px"></iframe>
+<iframe src="/assets/chapter-1-css-padding-margin.html" width="435px" height="300px"></iframe>
 
 ---
 layout: two-cols-header
@@ -885,11 +885,11 @@ layout: two-cols-header
 
 ::left::
 
-<<< ./public/assets/day-1-div.html {monaco} { readonly:true, height:'270px' }
+<<< ./public/assets/chapter-1-div.html {monaco} { readonly:true, height:'270px' }
 
 ::right::
 
-<iframe src="/assets/day-1-div.html" width="435px" height="270px"></iframe>
+<iframe src="/assets/chapter-1-div.html" width="435px" height="270px"></iframe>
 
 ---
 layout: two-cols-header
@@ -898,18 +898,18 @@ layout: two-cols-header
 # Gestalten eines Widgets - **Auftrag**
 
 - Verwenden sie das nachfolgende **HTML-Dokument** als **Arbeitsgrundlage** _ohne dieses zu verändern_.
-- Erzeugen sie die ensprechenden **CSS**-Regeln in der Datei `day-1-widget.css` um das gewünschte Aussehen zu erreichen.
+- Erzeugen sie die ensprechenden **CSS**-Regeln in der Datei `chapter-1-widget.css` um das gewünschte Aussehen zu erreichen.
 - **Tipps**:
   - Welche _Stile_ von Rändern gibt es und kann man die Ranbreite beeinflussen..?
   - Kann Text _aligniert_ (rechts/links/mitte) werden..?
 
 ::left::
 
-<<< ./public/assets/day-1-widget.html {monaco} { readonly:true, height:'300px' }
+<<< ./public/assets/chapter-1-widget.html {monaco} { readonly:true, height:'300px' }
 
 ::right::
 
-<iframe src="/assets/day-1-widget.html" width="435px" height="300px"></iframe>
+<iframe src="/assets/chapter-1-widget.html" width="435px" height="300px"></iframe>
 
 <style>
   li {
@@ -925,11 +925,11 @@ layout: two-cols-header
 
 ::left::
 
-<<< ./public/assets/day-1-widget.css {monaco} { readonly:true, height:'400px' }
+<<< ./public/assets/chapter-1-widget.css {monaco} { readonly:true, height:'400px' }
 
 ::right::
 
-<iframe src="/assets/day-1-widget.html" width="435px" height="400px"></iframe>
+<iframe src="/assets/chapter-1-widget.html" width="435px" height="400px"></iframe>
 
 ---
 

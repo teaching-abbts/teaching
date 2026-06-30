@@ -5,9 +5,9 @@ export interface SlideRef {
   subtitleKey: string;
 }
 
-export interface DayRef {
+export interface ChapterRef {
   path: string;
-  dayNumber: number;
+  chapterNumber: number;
   titleKey: string;
   dateLabel: string;
   logo?: string;
@@ -23,7 +23,7 @@ export interface YearRef {
   dateLabel: string;
   logo?: string;
   icon: string;
-  days: DayRef[];
+  chapters: ChapterRef[];
 }
 
 export interface CourseRef {
@@ -34,7 +34,7 @@ export interface CourseRef {
 
 export interface CourseManifestYear {
   year: number;
-  days: number[];
+  chapters: number[];
 }
 
 export interface CourseManifest {

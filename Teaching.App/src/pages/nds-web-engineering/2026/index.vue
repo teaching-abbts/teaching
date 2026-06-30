@@ -41,12 +41,12 @@ const authStore = useAuthStore();
 
 const routes = computed(() =>
   contentStore
-    .getVisibleDaysByYearPath("/nds-web-engineering/2026", authStore.isTeacherMode)
-    .map((day) => ({
-      path: day.path,
-      title: t(day.titleKey),
-      date: day.dateLabel,
-      icon: day.icon,
+    .getVisibleChaptersByYearPath("/nds-web-engineering/2026", authStore.isTeacherMode)
+    .map((chapter) => ({
+      path: chapter.path,
+      title: t(chapter.titleKey),
+      date: chapter.dateLabel,
+      icon: chapter.icon,
     })),
 );
 

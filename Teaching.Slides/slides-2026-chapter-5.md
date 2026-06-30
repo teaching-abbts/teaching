@@ -50,7 +50,7 @@ transition: slide-left
 
 # **Lösungsvorschlag**: Todo-App mit Vue.js
 
-<<< ./public/assets/day-4-vue.js-todo-app-solution.html html {monaco} { lineNumbers: 'on', height: '450px' }
+<<< ./public/assets/chapter-4-vue.js-todo-app-solution.html html {monaco} { lineNumbers: 'on', height: '450px' }
 
 ---
 transition: slide-left
