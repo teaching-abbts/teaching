@@ -26,8 +26,6 @@ theme: dracula
 </style>
 
 ---
-transition: slide-left
----
 
 # Programm
 
@@ -45,18 +43,16 @@ transition: slide-left
 </v-clicks>
 
 ---
-transition: slide-left
----
 
 # **Lösungsvorschlag**: Todo-App mit Vue.js
 
 <<< ./public/assets/chapter-4-vue.js-todo-app-solution.html html {monaco} { lineNumbers: 'on', height: '450px' }
 
 ---
-transition: slide-left
----
 
 # <devicon-typescript/> TypeScript (1)
+
+<v-clicks :depth="2">
 
 - TypeScript ist eine von Microsoft entwickelte Programmiersprache, die auf JavaScript basiert
 - Es erweitert JavaScript um statische Typisierung, Klassen und Interfaces
@@ -64,25 +60,39 @@ transition: slide-left
 - Es bietet eine verbesserte Entwicklererfahrung durch Typüberprüfung
 - TypeScript ist besonders nützlich für größere Projekte, da es die Wartbarkeit und Lesbarkeit des Codes verbessert
 
----
-transition: slide-left
+</v-clicks>
+
 ---
 
 # <devicon-typescript/> TypeScript (2)
 
+<v-click>
+
 Es gibt drei Haupt-Primitivtypen in JavaScript und TypeScript:
+
+</v-click>
+
+<v-clicks>
 
 - **boolean** – Wahrheitswerte: `true` oder `false`
 - **number** – Ganzzahlen und Fließkommazahlen
 - **string** – Textwerte wie `"TypeScript Rocks"`
 
+</v-clicks>
+
+<v-click>
+
 Es gibt außerdem zwei weniger gebräuchliche Primitivtypen, die in neueren Versionen von JavaScript und TypeScript verwendet werden:
+
+</v-click>
+
+<v-clicks>
 
 - **bigint** – Ganzzahlen (auch sehr große), die größere negative und positive Werte als der Typ `number` erlauben
 - **symbol** – Wird verwendet, um eine global eindeutige Kennung zu erstellen
 
----
-transition: slide-left
+</v-clicks>
+
 ---
 
 # <devicon-typescript/> TypeScript (3)
@@ -101,8 +111,6 @@ let score = 95; // Der Typ wird implizit als number abgeleitet
 let isOnline = false; // Der Typ wird implizit als boolean abgeleitet
 ```
 
----
-transition: slide-left
 ---
 
 # <devicon-typescript/> TypeScript (4)
@@ -136,8 +144,6 @@ let greeting = greet(user); // Aufruf der Funktion mit dem User-Objekt
 ```
 
 ---
-transition: slide-left
----
 
 # <devicon-typescript/> TypeScript (5)
 
@@ -167,24 +173,28 @@ let content = mixedBox.getContent(); // Inhalt der Box wird als string abgeleite
 ```
 
 ---
-transition: slide-left
----
 
 # <devicon-vuejs/> Vue SPA mit Vite-Bundler <devicon-vitejs/>
 
-- Bisher haben wir Vue.js in einer klassischen HTML-Seite verwendet *(Global Build)*
-- Mit [Vite](https://vite.dev/) können wir die volle Power von [Vue.js](https://vuejs.org/) nutzen, was die Entwicklung enorm erleichtert
-  - TypeScript als Skriptsprache
-  - Aufteilung der Anwendung in Komponenten (wiederverwendbare Bausteine)
-  - Single-File Components (SFCs)
-  - Vue Router für die Navigation
-  - Nutzung von Pinia für das State Management
-- Vite ist ein moderner Build-Tool und Bundler für Vue.js-Anwendungen
-  - Das Build-Tool transpiliert verschiedene Sprachen wie TypeScript und Vue-Dateien in JavaScript
-  - Ein Bundler kombiniert und optimiert JavaScript-Dateien für die Produktion
-- Vite bietet eine schnelle Entwicklungsumgebung und optimierte Builds für die Produktion
-  - Hot Module Replacement (HMR) für eine verbesserte Entwicklererfahrung (keine Seite neu laden, wenn sich der Code ändert)
-  - Einfach zu konfigurieren und bietet eine Vielzahl von Plugins für die Integration mit anderen Tools und Frameworks
+<v-clicks :depth="2">
+
+- <devicon-javascript/> Bisher haben wir Vue.js in einer klassischen HTML-Seite verwendet *(Global Build)*
+  - Dieser Ansatz ist für kleine Projekte oder Erweiterungen in bestehenden Anwendungen geeignet, aber für größere Anwendungen wird eine modularere Struktur und weitere Features (Router, State Management, etc.) benötigt
+  - Mit Bundling erhalten wir eine viel bessere Entwicklererfahrung und mehr Funktionalitäten
+- <devicon-vitejs/> Mit [Vite](https://vite.dev/) können wir die volle Power von [Vue.js](https://vuejs.org/) nutzen, was die Entwicklung enorm erleichtert
+  - <devicon-typescript/> [TypeScript](https://www.typescriptlang.org/) als Skriptsprache
+  - <vscode-icons-folder-type-component/> Aufteilung der Anwendung in Komponenten (wiederverwendbare Bausteine)
+  - <devicon-vuejs/> Single-File Components (SFCs)
+  - <material-icon-theme-folder-routes/> [Vue Router](https://router.vuejs.org/) für die Navigation
+  - <logos-pinia/> Nutzung von [Pinia](https://pinia.vuejs.org/) für das State Management
+- <devicon-vitejs/> Vite ist ein modernes Build-Tool und Bundler für Vue.js-Anwendungen
+  - <vscode-icons-file-type-rolldown/> Das Build-Tool transpiliert verschiedene Sprachen wie TypeScript und Vue-Dateien in optimiertes JavaScript, CSS und HTML für die Produktion
+  - <vscode-icons-file-type-rolldown/> Ein Bundler kombiniert und optimiert JavaScript-Dateien für die Produktion
+- <devicon-vitejs/> Vite bietet eine schnelle Entwicklungsumgebung und optimierte Builds für die Produktion
+  - <emojione-v1-hot-pepper/> Hot Module Replacement (HMR) für eine verbesserte Entwicklererfahrung (keine Seite neu laden, wenn sich der Code ändert)
+  - <vscode-icons-folder-type-plugin/> Einfach zu konfigurieren und bietet eine Vielzahl von Plugins für die Integration mit anderen Tools/Frameworks
+
+</v-clicks>
 
 <style>
   li {
@@ -193,7 +203,6 @@ transition: slide-left
 </style>
 
 ---
-transition: slide-left
 layout: two-cols-header
 ---
 
@@ -207,7 +216,6 @@ layout: two-cols-header
 </div>
 
 ---
-transition: slide-left
 layout: two-cols-header
 ---
 
@@ -219,14 +227,13 @@ Vue.js bietet die Möglichkeit, Komponenten in sogenannten **Single File Compone
 
 ::left::
 
-<<< ./components/SfcExample.vue vue {monaco} { lineNumbers: 'on', height: '330px' }
+<<< ./components/SfcExample.vue vue {monaco} { lineNumbers: 'on', height: '300px' }
 
 ::right::
 
 <SfcExample />
 
 ---
-transition: slide-left
 layout: two-cols-header
 ---
 
@@ -253,14 +260,12 @@ Kindkomponenten können **Ereignisse** *(Events)* an ihre Elternkomponenten send
 </style>
 
 ---
-transition: slide-left
----
 
 # **Aufgabe**: Neues Vue.js Projekt
 
 **Node.js** ist eine JavaScript-Laufzeitumgebung, die es ermöglicht, JavaScript ausserhalb des Browsers auszuführen. Sie wird häufig für die Entwicklung von Serveranwendungen und Tools verwendet.
 
-1. Installieren sie *Node.js 22 (LTS)* auf ihrem Rechner: <https://nodejs.org/en/download>
+1. Installieren sie *Node.js 24 (LTS)* auf ihrem Rechner: <https://nodejs.org/en/download>
 2. Erstellen Sie ein neues Verzeichnis für Ihr Projekt und öffnen sie es in Ihrem Terminal oder Ihrer Kommandozeile.
 3. Führen Sie den folgenden Befehl aus, um ein neues Vue.js-Projekt zu erstellen: `npm init vue@latest`
 4. Folgen Sie den Anweisungen im Terminal, um das Projekt zu konfigurieren:
@@ -280,7 +285,6 @@ transition: slide-left
 </style>
 
 ---
-transition: slide-left
 layout: two-cols-header
 ---
 
@@ -336,8 +340,6 @@ export default router;
 ```
 
 ---
-transition: slide-left
----
 
 # <devicon-javascript/> Async/Await in JavaScript
 
@@ -368,8 +370,6 @@ function fetchDataPromise() {
 }
 ```
 
----
-transition: slide-left
 ---
 
 # <devicon-javascript/> Fetch API
@@ -475,8 +475,6 @@ if (deleteResponse.ok) {
 ```
 
 ---
-transition: slide-left
----
 
 # Vue.js und ASP.NET Core Struktur
 
@@ -488,8 +486,6 @@ transition: slide-left
 </div>
 
 ---
-transition: slide-left
----
 
 # Fullstack-Demo
 
@@ -497,8 +493,6 @@ In dieser Demo werden wir eine einfache Fullstack-Anwendung erstellen, die Vue.j
 
 Sie finden den Source-Code auf GitHub: <https://github.com/teaching-abbts/smart-home-system>
 
----
-transition: slide-left
 ---
 
 # Hausaufgabe
@@ -511,8 +505,6 @@ Ihre Aufgabe auf nächste Woche besteht darin, den Source-Code der Demo zu studi
 - Machen sie sich detailliert **Notizen** zu den Dingen, die Ihnen *unklar* sind: wir werden diese in der nächsten Woche im Detail besprechen.
 - Ich erwarte, **dass sie vorbereitet sind**, Fragen zu stellen und die Funktionsweise der Anwendung zu diskutieren.
 
----
-transition: slide-left
 ---
 
 # Ende der heutigen Veranstaltung
