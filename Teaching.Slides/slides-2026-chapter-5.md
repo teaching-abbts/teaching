@@ -540,8 +540,8 @@ Da nun die Sommerferien vor der Tür stehen, möchte ich, dass sie die Zeit nutz
 
 Vielen herzlichen Dank für eure **Aufmerksamkeit** und **Mitarbeit** 💝!
 
-Kommt alle gut nach Hause, viel Erfolg bei den Hausaufgaben und eine gute, lehrreiche Woche👌
+Kommt alle gut nach Hause, viel Erfolg bei den Hausaufgaben, geniesst die vorlesungsfreie Zeit👌
 
-👋 bis nächsten Freitag!
+👋 bis zum nächsten Mal!
 
 </div>
