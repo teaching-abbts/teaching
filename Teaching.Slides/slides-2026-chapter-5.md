@@ -510,9 +510,9 @@ if (deleteResponse.ok) {
 
 # Fullstack-Demo
 
-In dieser Demo werden wir eine einfache Fullstack-Anwendung erstellen, die Vue.js für das Frontend und ASP.NET Core für das Backend verwendet. Es handelt sich um eine primitive Fotogalerie, in der Bilder hochgeladen und angezeigt werden können.
-
-Sie finden den Source-Code auf GitHub: **TODO**
+- Simple Fullstack-Demo-Anwendung mit Vue.js und ASP.NET Core: **TODO**
+- Vollständige Demo-Anwendung für das Smart-Home-Firefighter-Dashboard:
+<https://github.com/teaching-abbts/AbbTs.Examples.HomeAutomation.Firefighter>
 
 ---
 
