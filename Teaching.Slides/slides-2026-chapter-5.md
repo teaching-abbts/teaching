@@ -293,9 +293,12 @@ Kindkomponenten können **Ereignisse** *(Events)* an ihre Elternkomponenten send
 3. Führen Sie den folgenden Befehl aus, um ein neues Vue.js-Projekt zu erstellen: `npm init vue@latest`
 4. Folgen Sie den Anweisungen im Terminal, um das Projekt zu konfigurieren:
    1. Wählen des Projektnamens (z.B. `my-vue-app`)
-   2. Wählen sie bei den Features (durch Auswahl mit den Pfeiltasten oben/unten und Leertaste) die Optionen **TypeScript**, **Router**, **ESLint** und **Prettier** aus.
-5. Lassen sie die Experimental Features deaktiviert.
-6. Folgen Sie den Anweisungen, um das Projekt zu erstellen, die Abhängigkeiten zu installieren und das Projekt zu starten: es wird ein lokaler Dev-Server gestartet, der Ihre Vue.js-Anwendung bereitstellt.
+   2. Use TypeScript? → **Yes**
+   3. Features: Router, Pinia, Linter / Prettier *(mit Pfeiltaten navigieren und Leertaste auswählen)*
+   4. Lassen sie die Experimental Features deaktiviert.
+   5. Skip all example code: → **No**
+5. Folgen Sie den Anweisungen, um das Projekt zu installieren und zu starten: `cd my-vue-app && npm install && npm run dev`
+6. Klicken Sie auf den Link, der im Terminal angezeigt wird, um die Anwendung in Ihrem Browser zu öffnen.
 7. Spielen sie ein wenig mit der Anwendung herum:
    1. Navigieren sie zwischen den Seiten (Home, About, etc.)
    2. Öffnen sie die Vue-Devtools (Symbol ganz unten in der Mitte), welche es ihnen erlaubt, Struktur und Zustand der Vue-Komponenten zu sehen.

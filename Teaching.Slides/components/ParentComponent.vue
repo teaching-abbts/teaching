@@ -1,8 +1,8 @@
 <template>
   <div class="border border-green p-2">
-    <h1>🫎 Elternteil 🐘</h1>
-    <span>{{ text }}</span>
-    <ChildComponent :text="text" @update:text="onUpdateText" />
+    <label for="parent">🫎 Elternteil 🐘</label>
+    <input id="parent" class="border" type="text" v-model="text" />
+    <ChildComponent class="mt-2" :text="text" @update:text="onUpdateText" />
   </div>
 </template>
 
