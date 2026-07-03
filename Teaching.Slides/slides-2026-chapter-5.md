@@ -329,8 +329,8 @@ src/
 │   ├── MyComponent.vue
 │   └── AnotherComponent.vue
 ├── views/
-│   ├── Home.vue
-│   └── About.vue
+│   ├── HomeView.vue
+│   └── AboutView.vue
 ├── router/
 │   └── index.ts
 ├── App.vue
@@ -339,37 +339,32 @@ src/
 
 ::right::
 
-```ts {*}{maxHeight:'400px'}
-import { createRouter, createWebHashHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+<v-clicks :depth="2">
 
-const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: "/",
-      name: "home",
-      component: HomeView,
-    },
-    {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import("../views/AboutView.vue"),
-    },
-  ],
-});
+- **assets/**: Enthält statische Ressourcen wie Bilder, Schriftarten und Stylesheets.
+- **components/**: Enthält wiederverwendbare Vue-Komponenten, die in verschiedenen Teilen der Anwendung (wieder)verwendet werden können.
+- **views/**: Enthält die Hauptansichten der Anwendung, die in der Regel den Routen zugeordnet sind.
+- **router/**: Enthält die Konfigurationsdateien für den Vue Router, der die Navigation zwischen den Ansichten ermöglicht.
+- **App.vue**: Die Hauptkomponente der Anwendung, die als Einstiegspunkt dient.
+- **main.ts**: Die Hauptdatei, die die Vue-Anwendung initialisiert und den Router sowie andere Plugins konfiguriert.
+- Diese Struktur kann je nach Projektanforderungen völlig frei angepasst werden, aber sie bietet eine solide Grundlage für die Organisation von Vue.js-Anwendungen und ist daher empfehlenswert, insbesondere für Anfänger.
 
-export default router;
-```
+</v-clicks>
+
+<style>
+  ul {
+    --uno: ml-2;
+  }
+  li {
+    --uno: text-sm;
+  }
+</style>
 
 ---
 
 # <devicon-javascript/> Async/Await in JavaScript
 
-Async/Await ist eine moderne Syntax in JavaScript, die es ermöglicht, asynchrone Operationen einfacher und lesbarer zu gestalten. Es baut auf Promises auf und ermöglicht es, asynchrone Codeblöcke wie synchronen Code zu schreiben.
+Async/Await ist eine moderne Syntax in JavaScript, die es ermöglicht, asynchrone Operationen einfacher und lesbarer zu gestalten. Es baut auf [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) auf und ermöglicht es, asynchrone Codeblöcke wie synchronen Code zu schreiben.
 
 ```js {monaco} { lineNumbers: 'on', height: '350px' }
 async function fetchDataAsync() {
