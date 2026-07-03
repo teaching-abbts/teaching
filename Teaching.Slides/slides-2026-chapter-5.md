@@ -52,13 +52,17 @@ theme: dracula
 
 # <devicon-typescript/> TypeScript (1)
 
-<v-clicks :depth="2">
+<v-clicks :depth="1">
 
-- TypeScript ist eine von Microsoft entwickelte Programmiersprache, die auf JavaScript basiert
-- Es erweitert JavaScript um statische Typisierung, Klassen und Interfaces
-- TypeScript wird in JavaScript transpiliert, sodass es in jedem JavaScript-Umfeld ausgeführt werden kann
-- Es bietet eine verbesserte Entwicklererfahrung durch Typüberprüfung
-- TypeScript ist besonders nützlich für größere Projekte, da es die Wartbarkeit und Lesbarkeit des Codes verbessert
+- TypeScript ist eine von Microsoft entwickelte **Programmiersprache**, die auf **JavaScript** basiert
+- Es erweitert JavaScript um **statische Typisierung**, **Klassen** und **Interfaces**
+- TypeScript wird in JavaScript *transpiliert*, sodass es **in jedem JavaScript-Umfeld** (Webbrowser, Node.js, Deno) *ausgeführt* werden kann
+  - *Kompilierung*: Quellcode wird in eine andere Ebene übersetzt, meist in Maschinencode oder Bytecode, damit er direkt ausgeführt werden kann.
+    - Beispiel: C# → IL/.NET Assemblies, C/C++ → Maschinencode
+  - *Transpilierung*: Quellcode wird in anderen Quellcode derselben Ebene übersetzt (meist Sprache zu Sprache).
+    - Beispiel: TypeScript → JavaScript, modernes JavaScript → älteres JavaScript
+- Es bietet eine *verbesserte Entwicklererfahrung* und mehr *Sicherheiten* durch **Typüberprüfung**
+- TypeScript ist besonders **nützlich** für *mittlere und größere Projekte*, da es die **Wartbarkeit** und **Lesbarkeit** des Codes stark verbessern kann *(Clean Code, Refactoring, Autovervollständigung, etc.)*
 
 </v-clicks>
 
@@ -99,59 +103,84 @@ Es gibt außerdem zwei weniger gebräuchliche Primitivtypen, die in neueren Vers
 
 TypeScript unterscheidet zwischen zwei Arten von Typisierungen:
 
-```ts
+```ts {monaco} { readonly: true, lineNumbers: 'on' }
 // Explizite Typisierung
 let name: string = "Housi Hinderembärg"; // Der Typ ist explizit als string deklariert
-let age: number = 30; // Der Typ ist explizit als number deklariert
+let age: number = 41; // Der Typ ist explizit als number deklariert
 let isActive: boolean = true; // Der Typ ist explizit als boolean deklariert
 
 // Implizite Typisierung
-let city = "Baden"; // Der Typ wird implizit als string abgeleitet
+let city = "Buchs"; // Der Typ wird implizit als string abgeleitet
 let score = 95; // Der Typ wird implizit als number abgeleitet
 let isOnline = false; // Der Typ wird implizit als boolean abgeleitet
+
+// Verwendung
+name = "Nur Housi"; // Gültig, da name ein string ist
+name = 99; // Fehler zur Transpile-Zeit, da name ein string ist
+
+age = 42; // Gültig, da age ein number ist
+age = "fourtytwo"; // Fehler zur Transpile-Zeit, da age ein number ist
+
+isActive = false; // Gültig, da isActive ein boolean ist
+isActive = "false"; // Fehler zur Transpile-Zeit, da isActive ein boolean ist
 ```
 
 ---
 
 # <devicon-typescript/> TypeScript (4)
 
-```ts {monaco}
+```ts {monaco} { readonly: true, lineNumbers: 'on', height: '440px' }
 // Array-Typen
 let numbers: number[] = [1, 2, 3]; // Ein Array von Zahlen
 let names: string[] = ["Alice", "Bob"]; // Ein Array von Strings
-let mixed: (string | number)[] = ["Alice", 42]; // Ein Array mit gemischten Typen
+let mixed: (string | number)[] = ["Alice", 42]; // Ein Array mit gemischten Typen (sog. 'union types')
 let matrix: number[][] = [[1, 2], [3, 4]]; // Ein Array von Arrays (2D-Array)
 
 // Objekt-Typen
+// Ein Objekt mit spezifischen Eigenschaften
 let person: { name: string; age: number } = {
   name: "Housi Hinderembärg",
   age: 30
-}; // Ein Objekt mit spezifischen Eigenschaften
+};
 
 // Interfaces
 interface User { name: string; age: number; isActive: boolean; }
+
+// Ein Objekt, das dem Interface 'User' entspricht
 let user: User = {
   name: "Housi Hinderembärg",
   age: 30,
   isActive: true
-}; // Ein Objekt, das dem Interface User entspricht
+};
 
-// Funktionen mit Typen
+// Eine Funktion, die ein User-Objekt als Parameter erwartet und einen String zurückgibt
 function greet(user: User): string {
   return `Hello, ${user.name}! You are ${user.age} years old.`;
-} // Eine Funktion, die ein User-Objekt als Parameter erwartet und einen String zurückgibt
-let greeting = greet(user); // Aufruf der Funktion mit dem User-Objekt
+}
+
+// Eine weitere Funktion, die eine implizit typisierte Rückgabe hat
+function anotherGreet(user: User) {
+  return `Welcome, ${user.name}! Your account is ${user.isActive ? "active" : "inactive"}.`;
+}
+
+// Aufruf der Funktion mit dem User-Objekt
+let greeting = greet(user);
+
+// Aufruf der weiteren Funktion mit dem User-Objekt, die Rückgabe wird explizit als User-Objekt erwartet.
+let anotherGreeting: User = anotherGreet(user);
 ```
 
 ---
 
 # <devicon-typescript/> TypeScript (5)
 
-```ts {monaco}
+```ts {monaco} { readonly: true, lineNumbers: 'on' }
 // Generische Typen
+// Eine generische Funktion, die den Typ T verwendet
 function identity<T>(arg: T): T {
   return arg;
-} // Eine generische Funktion, die den Typ T verwendet
+}
+
 let num = identity<number>(42); // Aufruf mit einem spezifischen Typ
 let str = identity<string>("Hello"); // Aufruf mit einem anderen Typ
 let mixed = identity("Hello"); // Typ wird automatisch abgeleitet
@@ -169,7 +198,7 @@ class Box<T> {
 let numberBox = new Box<number>(123); // Eine Box für Zahlen
 let stringBox = new Box<string>("Hello"); // Eine Box für Strings
 let mixedBox = new Box("Hello"); // Eine Box mit automatischer Typableitung
-let content = mixedBox.getContent(); // Inhalt der Box wird als string abgeleitet
+let content: string = mixedBox.getContent(); // Inhalt der Box wird als string abgeleitet
 ```
 
 ---
@@ -179,20 +208,16 @@ let content = mixedBox.getContent(); // Inhalt der Box wird als string abgeleite
 <v-clicks :depth="2">
 
 - <devicon-javascript/> Bisher haben wir Vue.js in einer klassischen HTML-Seite verwendet *(Global Build)*
-  - Dieser Ansatz ist für kleine Projekte oder Erweiterungen in bestehenden Anwendungen geeignet, aber für größere Anwendungen wird eine modularere Struktur und weitere Features (Router, State Management, etc.) benötigt
-  - Mit Bundling erhalten wir eine viel bessere Entwicklererfahrung und mehr Funktionalitäten
+  - Dieser Ansatz ist für *kleine Projekte* oder *Erweiterungen in bestehenden Anwendungen* geeignet, aber für größere Anwendungen wird eine **modularere Struktur**, **Typensicherheit** und **weitere Features** *(Router, State Management, etc.)* benötigt
+  - Mit **Bundling** erhalten wir eine *viel bessere Entwicklererfahrung* und *mehr Funktionalitäten*
 - <devicon-vitejs/> Mit [Vite](https://vite.dev/) können wir die volle Power von [Vue.js](https://vuejs.org/) nutzen, was die Entwicklung enorm erleichtert
   - <devicon-typescript/> [TypeScript](https://www.typescriptlang.org/) als Skriptsprache
-  - <vscode-icons-folder-type-component/> Aufteilung der Anwendung in Komponenten (wiederverwendbare Bausteine)
-  - <devicon-vuejs/> Single-File Components (SFCs)
-  - <material-icon-theme-folder-routes/> [Vue Router](https://router.vuejs.org/) für die Navigation
-  - <logos-pinia/> Nutzung von [Pinia](https://pinia.vuejs.org/) für das State Management
-- <devicon-vitejs/> Vite ist ein modernes Build-Tool und Bundler für Vue.js-Anwendungen
-  - <vscode-icons-file-type-rolldown/> Das Build-Tool transpiliert verschiedene Sprachen wie TypeScript und Vue-Dateien in optimiertes JavaScript, CSS und HTML für die Produktion
-  - <vscode-icons-file-type-rolldown/> Ein Bundler kombiniert und optimiert JavaScript-Dateien für die Produktion
-- <devicon-vitejs/> Vite bietet eine schnelle Entwicklungsumgebung und optimierte Builds für die Produktion
-  - <emojione-v1-hot-pepper/> Hot Module Replacement (HMR) für eine verbesserte Entwicklererfahrung (keine Seite neu laden, wenn sich der Code ändert)
-  - <vscode-icons-folder-type-plugin/> Einfach zu konfigurieren und bietet eine Vielzahl von Plugins für die Integration mit anderen Tools/Frameworks
+  - <vscode-icons-folder-type-component/> *Aufteilung* der Anwendung in **Komponenten**, sog. <devicon-vuejs/> *Single-File Components (SFCs)*
+  - <material-icon-theme-folder-routes/> [Vue Router](https://router.vuejs.org/) für die (Clientseitige) **Navigation**
+  - <logos-pinia/> Nutzung von [Pinia](https://pinia.vuejs.org/) für globales **State Management**
+  - <vscode-icons-file-type-rolldown/> Das integrierte *Build-Tool* transpiliert **TypeScript**, **Vue-Dateien** sowie **Styles** und weitere **Assets** *(Fonts, Bilder, etc.)* in *optimiertes JavaScript, CSS und HTML* für die **Produktion**
+  - <emojione-v1-hot-pepper/> *Hot Module Replacement (HMR)* für eine **verbesserte Entwicklererfahrung**
+  - <vscode-icons-folder-type-plugin/> *Einfach und vielfältig zu konfigurieren* und bietet eine Vielzahl von **Plugins** für die Integration mit anderen Tools/Frameworks
 
 </v-clicks>
 
@@ -206,7 +231,7 @@ let content = mixedBox.getContent(); // Inhalt der Box wird als string abgeleite
 layout: two-cols-header
 ---
 
-# <devicon-vuejs/> Vue.js: App-Struktur
+# <devicon-vitejs/> **Vite.js**: Funktionsweise eines Bundlers
 
 <div class="flex flex-row justify-center">
   <a href="/images/vuejs-app-struktur.drawio.html" class="w-80%" target="_blank">
@@ -221,15 +246,13 @@ layout: two-cols-header
 
 # <devicon-vuejs/> Vue.js: Single File Components (SFCs)
 
-Vue.js bietet die Möglichkeit, Komponenten in sogenannten **Single File Components (SFCs)** zu organisieren. Diese Dateien haben die Endung `.vue` und enthalten HTML, CSS und JavaScript (oder TypeScript) in einer einzigen Datei.
+Vue.js bietet die Möglichkeit, Komponenten in sogenannten **Single File Components (SFCs)** zu organisieren. Diese Dateien haben die Endung `.vue` und enthalten *HTML*, *CSS* und *JavaScript (oder TypeScript)* in einer **einzigen Datei**.
 
-`SfcExample.vue`:
+<!-- ::left:: -->
 
-::left::
+<<< ./components/SfcExample.vue vue {monaco} { lineNumbers: 'on', height: '250px', readonly: true }
 
-<<< ./components/SfcExample.vue vue {monaco} { lineNumbers: 'on', height: '300px' }
-
-::right::
+<!-- ::right:: -->
 
 <SfcExample />
 

@@ -59,7 +59,7 @@
     "export-2025-chapter-10": "slidev export ./slides-2025-chapter-10.md"
   },
   "dependencies": {
-    "@iconify/json": "^2.2.491",
+    "@iconify/json": "^2.2.495",
     "@slidev/cli": "52.16.0",
     "@slidev/theme-default": "0.25.0",
     "@slidev/theme-seriph": "0.25.0",
