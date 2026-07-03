@@ -512,7 +512,7 @@ if (deleteResponse.ok) {
 
 In dieser Demo werden wir eine einfache Fullstack-Anwendung erstellen, die Vue.js für das Frontend und ASP.NET Core für das Backend verwendet. Es handelt sich um eine primitive Fotogalerie, in der Bilder hochgeladen und angezeigt werden können.
 
-Sie finden den Source-Code auf GitHub: <https://github.com/teaching-abbts/smart-home-system>
+Sie finden den Source-Code auf GitHub: **TODO**
 
 ---
 
@@ -520,11 +520,17 @@ Sie finden den Source-Code auf GitHub: <https://github.com/teaching-abbts/smart-
 
 Wir sind nun an einem wichtigen Punkt angekommen: heute haben wir die Grundlagen für eine Fullstack-Anwendung mit Vue.js und ASP.NET Core gelegt.
 
-Ihre Aufgabe auf nächste Woche besteht darin, den Source-Code der Demo zu studieren und die Funktionsweise der Anwendung zu verstehen:
+Da nun die Sommerferien vor der Tür stehen, möchte ich, dass sie die Zeit nutzen, um sich
 
-- Studieren sie den **Code der Demo** *aufmerksam* und *gründlich* - versuchen Sie, die Funktionsweise der Anwendung zu verstehen.
-- Machen sie sich detailliert **Notizen** zu den Dingen, die Ihnen *unklar* sind: wir werden diese in der nächsten Woche im Detail besprechen.
-- Ich erwarte, **dass sie vorbereitet sind**, Fragen zu stellen und die Funktionsweise der Anwendung zu diskutieren.
+1. **C# und ASP.NET Core** zu lernen und zu verstehen
+   - <https://www.w3schools.com/cs/index.php>
+   - <https://dotnet.microsoft.com/en-us/learn/back-end-web-dev>
+2. **intensiv mit dem Code der Demo** auseinanderzusetzen
+   - Studieren sie den **Code der Demo** *aufmerksam* und *gründlich* - versuchen Sie, die Funktionsweise der Anwendung zu verstehen.
+   - Machen sie sich detailliert **Notizen** zu den Dingen, die Ihnen *unklar* sind: wir werden diese beim nächsten Treffen im Detail besprechen.
+   - Ich erwarte, **dass sie vorbereitet sind**, Fragen zu stellen und die Funktionsweise der Anwendung zu diskutieren.
+
+- Frontend UI Library: <https://vuetifyjs.com/>
 
 ---
 

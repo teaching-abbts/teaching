@@ -5,6 +5,7 @@
     <Platform Name="x86" />
   </Configurations>
   <Folder Name="/source/">
+    <Project Path="source/FullstackPictureGalleryDemo/FullstackPictureGalleryDemo.csproj" />
     <Project Path="source/SimplePictureGallery/SimplePictureGallery.csproj" />
   </Folder>
   <Folder Name="/_globals/">
