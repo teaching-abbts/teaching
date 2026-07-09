@@ -7,13 +7,13 @@
         class="py-4 my-4"
         color="surface-variant"
         min-width="500px"
-        prepend-icon="mdi-rocket-launch-outline"
+        :prepend-icon="route.icon"
         rounded="lg"
         v-for="route in routes"
         variant="tonal"
       >
         <template #image>
-          <v-img position="top right" :src="route.logo" />
+          <v-img v-if="route.logo" position="top right" :src="route.logo" />
         </template>
         <template #title>
           <h2 class="text-h5 font-weight-bold">
@@ -31,50 +31,26 @@
 </template>
 
 <script lang="ts" setup>
+import { useAuthStore } from "@/stores/auth";
+import { useTeachingContentStore } from "@/stores/teaching-content";
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
 
 const { t } = useI18n();
 const router = useRouter();
-const routes = computed(() => [
-  {
-    path: "/nds-web-engineering/day-1",
-    title: t("introduction-and-basics-1"),
-    logo: "/logo-day-1.png",
-    date: "30. Mai 2025",
-  },
-  {
-    path: "/nds-web-engineering/day-2",
-    title: t("basics-2"),
-    logo: "/logo-day-2.png",
-    date: "6. Juni 2025",
-  },
-  {
-    path: "/nds-web-engineering/day-3",
-    title: t("basics-3"),
-    logo: "/logo-day-3.png",
-    date: "13. Juni 2025",
-  },
-  {
-    path: "nds-web-engineering/day-4",
-    title: t("single-page-apps-with-vue.js"),
-    logo: "/logo-day-4.png",
-    date: "20. Juni 2025",
-  },
-  {
-    path: "nds-web-engineering/day-5",
-    title: t("the-road-to-fullstack-with-vue.js-and-ktor"),
-    logo: "/logo-day-5.png",
-    date: "27. Juni 2025",
-  },
-  {
-    path: "nds-web-engineering/day-6",
-    title: t("frontend-advanced-flexbox-vuetify"),
-    logo: "/logo-day-6.svg",
-    date: "4. Juli 2025",
-  },
-]);
+const contentStore = useTeachingContentStore();
+const authStore = useAuthStore();
+
+const routes = computed(() =>
+  contentStore.getVisibleYears(authStore.isTeacherMode).map((year) => ({
+    path: year.path,
+    title: t(year.titleKey),
+    logo: year.logo,
+    date: year.dateLabel,
+    icon: year.icon,
+  })),
+);
 
 function onClick(path: string) {
   router.push(path);

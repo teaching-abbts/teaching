@@ -1,53 +1,66 @@
 <template>
-  <div>
-    <h2>Data Binding</h2>
-    <ul>
-      <li>{{ nachricht1 }}</li>
-      <li><input v-model="nachricht1" /></li>
-      <li>{{ nachricht2 }}</li>
-      <li><input v-model="nachricht2" /></li>
-      <li>{{ kombinierteNachricht }}</li>
-      <li>
-        <button @click="onResetClick">Zurücksetzen</button>
-      </li>
-    </ul>
+  <div id="data-binding">
+    <h3>Data Binding</h3>
+    <p>
+      <label for="nachricht1">Vorname</label>
+      <input type="text" id="nachricht1" v-model="vorname" />
+    </p>
+    <p>
+      <label for="nachricht2">Nachname</label>
+      <input type="text" id="nachricht2" v-model="nachname" />
+    </p>
+    <p>
+      <label for="ganzname">Kombiniert:</label>
+      <span id="ganzname">{{ kombinierteNachricht }}</span>
+    </p>
+    <p>
+      <button @click="onResetClick">Zurücksetzen</button>
+    </p>
   </div>
 </template>
 
 <script setup lang="js">
 import { ref, computed } from "vue";
 
-const originaleNachricht1 = "Erste Nachricht";
-const originaleNachricht2 = "Zweite Nachricht";
+const originaleVorname = "Hansli";
+const originaleNachname = "Bireweich";
 
-const nachricht1 = ref(originaleNachricht1);
-const nachricht2 = ref(originaleNachricht2);
+const vorname = ref(originaleVorname);
+const nachname = ref(originaleNachname);
 
 const kombinierteNachricht = computed(() => {
-  if (nachricht1.value && !nachricht2.value) {
-    return `1: ${nachricht1.value}`;
+  if (vorname.value && !nachname.value) {
+    return `😱: ${vorname.value}`;
   }
 
-  if (!nachricht1.value && nachricht2.value) {
-    return `2: ${nachricht2.value}`;
+  if (!vorname.value && nachname.value) {
+    return `😱: ${nachname.value}`;
   }
 
-  if (nachricht1.value && nachricht2.value) {
-    return `${nachricht1.value} + ${nachricht2.value}`;
+  if (vorname.value && nachname.value) {
+    return `😎 ${vorname.value} ${nachname.value} ✌️`;
   }
 
   return "???";
 });
 
 function onResetClick() {
-  nachricht1.value = originaleNachricht1;
-  nachricht2.value = originaleNachricht2;
+  vorname.value = originaleNachricht1;
+  nachname.value = originaleNachricht2;
 }
 </script>
 
 <style scoped>
+#data-binding {
+  --uno: bg-white p-2 text-black;
+}
+
+#ganzname {
+  --uno: ml-2 font-bold bg-gray-300 p-1 rounded;
+}
+
 input {
-  --uno: w-60;
+  --uno: w-60 bg-gray-200 p-1 rounded mx-2;
 }
 
 button {

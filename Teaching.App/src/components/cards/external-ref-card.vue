@@ -4,7 +4,7 @@
     :prepend-icon="props.icon"
     :subtitle="props.subtitle"
     :title="props.title"
-    append-icon="mdi-open-in-new"
+    :append-icon="icons.externalLink"
     class="p-4 m-4 w-120"
     color="surface-variant"
     rel="noopener noreferrer"
@@ -15,6 +15,7 @@
 </template>
 
 <script setup lang="ts">
+import { icons } from "@/constants/icons";
 import type { IconValue } from "vuetify/lib/composables/icons.mjs";
 
 export interface ExternalRefCardProps {

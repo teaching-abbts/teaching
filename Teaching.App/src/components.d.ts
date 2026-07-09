@@ -11,8 +11,10 @@ declare module 'vue' {
     AppNavigation: typeof import('./components/app-navigation.vue')['default']
     AppNavigationItem: typeof import('./components/app-navigation-item.vue')['default']
     AppTitlebar: typeof import('./components/app-titlebar.vue')['default']
+    ChapterPageContent: typeof import('./components/chapter-page-content.vue')['default']
     ExternalRefCard: typeof import('./components/cards/external-ref-card.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TeacherAccessDialog: typeof import('./components/teacher-access-dialog.vue')['default']
   }
 }

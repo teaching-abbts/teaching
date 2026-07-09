@@ -1,7 +1,13 @@
 <template>
   <div class="border border-red p-2">
-    <h2>🍼 Kind 👶</h2>
-    <input class="border" type="text" :value="props.text" @input="onInput" />
+    <label for="kind">🍼 Kind 👶</label>
+    <input
+      id="kind"
+      class="border"
+      type="text"
+      :value="props.text"
+      @input="onInput"
+    />
   </div>
 </template>
 

@@ -1,4 +1,15 @@
 {
   "svg.preview.background": "transparent",
-  "i18n-ally.localesPaths": ["Teaching.Slides/i18n", "Teaching.App/src/i18n"]
+  "i18n-ally.localesPaths": [
+    "source/FullstackPictureGalleryDemo/app/src/i18n",
+    "abbts-courses/src/i18n",
+    "Teaching.Slides/src/i18n",
+    "Teaching.App/src/i18n"
+  ],
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.enabledFrameworks": ["vue"],
+  "i18n-ally.sourceLanguage": "en",
+  "i18n-ally.namespace": true,
+  "i18n-ally.regex.key": "[\\w\\d\\.\\-\\[\\]]*?",
+  "i18n-ally.sortKeys": true
 }

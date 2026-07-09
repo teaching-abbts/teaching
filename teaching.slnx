@@ -1,0 +1,36 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/source/">
+    <Project Path="source/FullstackPictureGalleryDemo/FullstackPictureGalleryDemo.csproj" />
+    <Project Path="source/SimplePictureGallery/SimplePictureGallery.csproj" />
+  </Folder>
+  <Folder Name="/_globals/">
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="README.md" />
+    <File Path="build.ps1" />
+    <File Path="build.sh" />
+    <File Path="deploy.ps1" />
+    <File Path="deploy.sh" />
+  </Folder>
+  <Project Path="Build/Build.csproj" />
+  <Project Path="Deploy/Deploy.csproj" />
+  <Project Path="source/AdvancedHtmlForm/AdvancedHtmlForm.csproj" />
+  <Project Path="source/MeinErsterWebserver/MeinErsterWebserver.csproj" />
+  <Project Path="source/SimpleHtmlForm/SimpleHtmlForm.csproj" />
+  <Project Path="Teaching.App/Teaching.App.esproj">
+    <Platform Project="AnyCPU" />
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="Teaching.Slides/Teaching.Slides.esproj">
+    <Platform Project="AnyCPU" />
+    <Build />
+    <Deploy />
+  </Project>
+</Solution>

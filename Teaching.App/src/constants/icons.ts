@@ -1,0 +1,17 @@
+export const icons = {
+  appThemeDark: "mdi-weather-night",
+  appThemeLight: "mdi-white-balance-sunny",
+  courseOverview: "mdi-book-education-outline",
+  chapterOverview: "mdi-calendar-clock-outline",
+  slideDeck: "mdi-presentation-play",
+  externalLink: "mdi-open-in-new",
+  teacherLogin: "mdi-account-key-outline",
+  teacherLogout: "mdi-logout",
+  locked: "mdi-lock-outline",
+  unlocked: "mdi-lock-open-variant-outline",
+  chapterBasics: "mdi-code-braces",
+  chapterFrontend: "mdi-vuejs",
+  chapterBackend: "mdi-api",
+  chapterSecurity: "mdi-shield-lock-outline",
+  chapterPwa: "mdi-cellphone-arrow-down",
+} as const;
