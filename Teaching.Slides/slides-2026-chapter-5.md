@@ -510,7 +510,7 @@ if (deleteResponse.ok) {
 
 # Fullstack-Demo
 
-- Simple Fullstack-Demo-Anwendung mit Vue.js und ASP.NET Core: **TODO**
+- Simple Fullstack-Demo-Anwendung mit Vue.js und ASP.NET Core: <https://github.com/teaching-abbts/teaching/tree/2026/web-engineering/source/FullstackPictureGalleryDemo>
 - Vollständige Demo-Anwendung für das Smart-Home-Firefighter-Dashboard:
 <https://github.com/teaching-abbts/AbbTs.Examples.HomeAutomation.Firefighter>
 
