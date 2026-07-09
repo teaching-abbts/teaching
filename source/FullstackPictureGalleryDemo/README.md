@@ -4,8 +4,20 @@
 
 - 🧭 [Overview](#-overview)
 - 🧱 [Architecture and Structure](#-architecture-and-structure)
+  - 🗂️ [Project Structure](#project-structure)
 - 🧰 [Technology Stack](#-technology-stack)
+  - 🖥️ [Backend and Runtime](#backend-and-runtime)
+  - 🎨 [Frontend and UI](#-frontend-and-ui)
+  - 🧭 [Navigation and Localization](#-navigation-and-localization)
+- ✅ [Prerequisites](#-prerequisites)
+- ▶️ [How to Run](#how-to-run)
+  - 🧪 [With CLI](#-with-cli)
+  - 🐞 [With C# Dev Kit (Debugging)](#-with-c-dev-kit-debugging)
 - 🧩 [Workspace Extension Recommendations](#-workspace-extension-recommendations)
+  - 🎨 [Styling and UI](#-styling-and-ui)
+  - ✅ [Linting and Formatting](#-linting-and-formatting)
+  - 🌍 [Localization](#-localization)
+  - 🔧 [.NET and General Dev Tools](#-net-and-general-dev-tools)
 
 ## 🧭 Overview
 
@@ -18,7 +30,7 @@ This demo is a fullstack picture gallery application with:
 
 ## 🧱 Architecture and Structure
 
-### 🗂️ Project Structure
+### Project Structure
 
 - 📄 `Program.cs`: ASP.NET Core application setup and image API endpoints.
 - 📁 `app/`: Vue frontend application.
@@ -27,7 +39,7 @@ This demo is a fullstack picture gallery application with:
 
 ## 🧰 Technology Stack
 
-### 🖥️ Backend and Runtime
+### Backend and Runtime
 
 #### ASP.NET Core
 
@@ -95,6 +107,70 @@ Client-side routing for page navigation (Home, Gallery, About).
 
 - Project: [https://router.vuejs.org](https://router.vuejs.org)
 - GitHub: [https://github.com/vuejs/router](https://github.com/vuejs/router)
+
+## ✅ Prerequisites
+
+Install the following tools before running the project:
+
+- ![.NET](https://img.shields.io/badge/.NET%20SDK-512BD4?logo=dotnet&logoColor=white) .NET SDK compatible with `net10.0`
+  - Download: [https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
+- ![Node.js](https://img.shields.io/badge/Node.js-5FA04E?logo=node.js&logoColor=white) Node.js (recommended: current LTS)
+  - Download: [https://nodejs.org](https://nodejs.org)
+- ![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=white) npm (bundled with Node.js)
+  - Docs: [https://docs.npmjs.com/downloading-and-installing-node-js-and-npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+
+Useful verification commands:
+
+```bash
+dotnet --version
+node --version
+npm --version
+```
+
+## How to Run
+
+### 🧪 With CLI
+
+1. Open a terminal in the frontend folder and install dependencies:
+
+```bash
+cd app
+npm install
+```
+
+1. Start the backend from the project root:
+
+```bash
+cd ..
+dotnet run
+```
+
+1. Open the app in your browser (based on `launchSettings.json`):
+
+- [http://localhost:5167](http://localhost:5167)
+
+Official docs:
+
+- `dotnet run`: [https://learn.microsoft.com/dotnet/core/tools/dotnet-run](https://learn.microsoft.com/dotnet/core/tools/dotnet-run)
+
+### 🐞 With C# Dev Kit (Debugging)
+
+1. Open this folder in VS Code:
+
+- `source/FullstackPictureGalleryDemo`
+
+1. Ensure the extension is installed:
+
+- C# Dev Kit: [https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
+
+1. Open the Run and Debug view and choose a .NET launch profile (`http` or `https`).
+1. Press `F5` to start debugging.
+1. Set breakpoints in `Program.cs` or related backend files and trigger requests from the browser.
+
+Official docs:
+
+- C# in VS Code: [https://code.visualstudio.com/docs/csharp/get-started](https://code.visualstudio.com/docs/csharp/get-started)
+- C# debugging in VS Code: [https://code.visualstudio.com/docs/csharp/debugging](https://code.visualstudio.com/docs/csharp/debugging)
 
 ## 🧩 Workspace Extension Recommendations
 
