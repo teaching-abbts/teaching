@@ -11,5 +11,25 @@
   "i18n-ally.sourceLanguage": "en",
   "i18n-ally.namespace": true,
   "i18n-ally.regex.key": "[\\w\\d\\.\\-\\[\\]]*?",
-  "i18n-ally.sortKeys": true
+  "i18n-ally.sortKeys": true,
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#666f76",
+    "activityBar.background": "#666f76",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#602044",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#666f76",
+    "statusBar.background": "#4e555b",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#666f76",
+    "statusBarItem.remoteBackground": "#4e555b",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#4e555b",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#4e555b99",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#4e555b"
 }
