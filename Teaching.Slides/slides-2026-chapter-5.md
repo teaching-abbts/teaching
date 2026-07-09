@@ -523,15 +523,14 @@ Wir sind nun an einem wichtigen Punkt angekommen: heute haben wir die Grundlagen
 
 Da nun die Sommerferien vor der Tür stehen, möchte ich, dass sie die Zeit nutzen, um sich
 
-1. **C# und ASP.NET Core** zu lernen und zu verstehen
+1. **C# und ASP.NET Core**: lernen und verstehen
    - <https://www.w3schools.com/cs/index.php>
    - <https://dotnet.microsoft.com/en-us/learn/back-end-web-dev>
-2. **intensiv mit dem Code der Demo** auseinanderzusetzen
+2. **Code der Demo**: intensiv auseinanderzusetzen
    - Studieren sie den **Code der Demo** *aufmerksam* und *gründlich* - versuchen Sie, die Funktionsweise der Anwendung zu verstehen.
    - Machen sie sich detailliert **Notizen** zu den Dingen, die Ihnen *unklar* sind: wir werden diese beim nächsten Treffen im Detail besprechen.
    - Ich erwarte, **dass sie vorbereitet sind**, Fragen zu stellen und die Funktionsweise der Anwendung zu diskutieren.
-
-- Frontend UI Library: <https://vuetifyjs.com/>
+3. **Frontend UI Library**: Studium der Dokumentation: <https://vuetifyjs.com/>
 
 ---
 
