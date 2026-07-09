@@ -36,7 +36,10 @@ public class DeployContext : FrostingContext
     TargetPath = context.Argument<DirectoryPath>(nameof(TargetPath), null!);
 
     string gitVersion = GetGitVersion();
-    WebArchivePath = context.File(Path.Combine(ArtifactsDir.FullPath, $"web-{gitVersion}.zip"));
+    WebArchivePath = context.Argument<FilePath>(
+      nameof(WebArchivePath),
+      context.File(Path.Combine(ArtifactsDir.FullPath, $"web-{gitVersion}.zip"))
+    );
   }
 
   private static string GetGitVersion()
